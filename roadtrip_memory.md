@@ -8,7 +8,7 @@
 * **Return Flight (HARD CONSTRAINT):** **Wed Nov 12, 2026 at 15:00 from LAX.** Rental car must be dropped and traveler at LAX terminal by ~12:00. Must arrive in LA basin no later than the evening of **Tue Nov 11, 2026**.
 * **Traveler Format:** Strictly solo.
 * **Travel Philosophy:** Active adventure, nature-focused, waking up outdoors, authentic local food/breweries, independent coffee roasters, zero chain restaurants.
-* **Physical Considerations:** Post-marathon physical fatigue/recovery. Daily driving must be bounded (~4 to 4.5 hours typical, single big transit day capped at 8 hours) with required walking/stretching intervals.
+* **Physical Considerations:** Post-marathon physical fatigue/recovery. Daily driving must be bounded (~4 to 4.5 hours typical, single big transit day capped at 8 hours) with required walking/stretching intervals. **Day 4 exceeds this cap (~11h) — accepted as the trip's one transit day.**
 
 ---
 
@@ -46,6 +46,7 @@
   * National Park Pass ("America the Beautiful"): $80.
   * Sleeping Gear & Tolls: ~$300.
 * **Add-on: Antelope Canyon tour** ~$80 (Navajo-guided).
+* **Add-on: National Civil Rights Museum, Memphis** ~$18.
 
 ---
 
@@ -55,12 +56,12 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Day 1** | Sun Nov 2 | NYC ➜ Shenandoah NP ➜ Harrisonburg, VA | 5.5 hrs | Hotel | **LOCKED.** NJ diner breakfast, Spelunker's lunch, Blackrock Summit hike. |
 | **Day 2** | Mon Nov 3 | Harrisonburg, VA ➜ Asheville, NC | 5.0 hrs | Hotel / Hostel Private | Blue Ridge Parkway, craft beer hub. |
-| **Day 3** | Tue Nov 4 | Asheville, NC ➜ Nashville *or* Memphis, TN | 6.5 hrs | Hotel | Authentic BBQ, live music. **OPEN:** Nashville vs. Memphis; also consider Great Smokies detour → Knoxville/Chattanooga. |
-| **Day 4** | Wed Nov 5 | Tennessee ➜ Hot Springs, AR ➜ Amarillo, TX | 8.0 hrs | Hotel | Big transit push day. Hot Springs thermal baths for recovery. |
+| **Day 3** | Tue Nov 4 | Asheville, NC ➜ **Great Smoky Mountains NP (Newfound Gap + Clingmans Dome)** ➜ Nashville, TN | ~7 hrs drive + 2 hrs park | Hotel (Nashville) | **LOCKED.** Great Smokies pivot confirmed. US-441 through the park. Hot chicken dinner at Prince's or Hattie B's. |
+| **Day 4** | Wed Nov 5 | Nashville ➜ **Memphis (Civil Rights Museum + BBQ lunch, 2.5 hr stop)** ➜ Amarillo, TX | ~11 hrs drive + stop | Hotel (Amarillo) | **Transit day, over 8h cap — accepted.** Memphis chosen as one-shot cultural stop. Hot Springs, AR **cut** for timing. Alternate: swap Memphis for Hot Springs soak if recovery matters more (see §6). |
 | **Day 5** | Thu Nov 6 | Amarillo, TX ➜ **Palo Duro Canyon (2 hr rim drive stop)** ➜ Tucumcari (Route 66) ➜ Albuquerque, NM | 4.0 hrs drive + 2 hr stop | SUV Car Camp (BLM) | Palo Duro is a real 2-hour stop, not a drive-by. Cadillac Ranch **cut**. |
 | **Day 6** | Fri Nov 7 | Albuquerque, NM ➜ **Painted Desert + Petrified Forest NP** ➜ **Meteor Crater** ➜ Grand Canyon South Rim, AZ | ~6.5 hrs drive + stops | SUV Car Camp (NP) | Painted Desert same NP entrance as Petrified Forest (~45 min extra). Meteor Crater 20 min off I-40 near Winslow. Grand Canyon sunset. |
-| **Day 7** | Sat Nov 8 | Grand Canyon ➜ **Antelope Canyon (Page, AZ — guided AM tour)** ➜ Horseshoe Bend ➜ Zion, UT | ~5 hrs drive + tour | SUV Car Camp (BLM/NP) | **Antelope Canyon must be booked in advance** — Navajo-guided only. Target 8:00–10:00 AM slot for light. |
-| **Day 8** | Sun Nov 9 | **Zion National Park (full day)** | 0 hrs drive | SUV Car Camp | **PROPOSED:** Second Zion night. Narrows (if water is OK) or Observation Point via East Mesa Trail (gentler than Angels Landing). Currently **OPEN** — pending decision. |
+| **Day 7** | Sat Nov 8 | Grand Canyon ➜ **Antelope Canyon (Page, AZ — guided AM tour)** ➜ Horseshoe Bend ➜ Zion, UT | ~5 hrs drive + tour | SUV Car Camp (Watchman, Zion) | **Antelope Canyon must be booked in advance** — Navajo-guided only. Target 8:00–10:00 AM slot for light. |
+| **Day 8** | Sun Nov 9 | **Zion National Park (full day, second night)** | 0 hrs drive | SUV Car Camp (Watchman, Zion) | **LOCKED.** Second Zion night confirmed. Narrows (if water is OK) or Observation Point via East Mesa Trail (gentler than Angels Landing). |
 | **Day 9** | Mon Nov 10 | Zion ➜ Valley of Fire, NV ➜ Los Angeles, CA | 4.5 hrs | Hotel (LA) | Mojave desert transit into LA basin. |
 | **Day 10** | Tue Nov 11 | Los Angeles buffer day | 0 hrs | Hotel (LA) | Oceanfront recovery. Fuel top-up. Prep for airport. |
 | **Fly** | **Wed Nov 12** | LAX → home, **15:00 wheels up** | — | — | Rental drop by ~11:30. At LAX ~12:00. |
@@ -71,9 +72,8 @@
 
 ## 6. Open Decisions
 
-1. **Day 3 route:** Music city (Nashville vs. Memphis) OR Great Smokies pivot → Knoxville/Chattanooga.
-2. **Zion two nights (Day 8 as a full Zion day)?** Currently drafted this way; needs confirmation before booking.
-3. **Joshua Tree — in or out?** If in, when: Day 9 en-route to LA, or Day 10 as an out-and-back from LA?
+1. **Day 4 tradeoff — Memphis vs. Hot Springs?** Currently: Memphis (Civil Rights Museum + BBQ lunch, 2.5h stop). Alternate: Hot Springs, AR (thermal baths recovery, 2h soak) → makes Day 4 ~10h instead of ~11h. **Default = Memphis** unless overridden.
+2. **Joshua Tree — in or out?** If in, when: Day 9 en-route to LA, or Day 10 as an out-and-back from LA?
 
 ---
 
@@ -81,6 +81,9 @@
 
 * **Antelope Canyon tour for Sat Nov 8 AM** — Upper (Antelope Canyon Tours by Roger Ekis) or Lower (Ken's Tours). Sells out weeks ahead. **Book now.**
 * **Grand Canyon South Rim campsite (Mather) for Fri Nov 7** — recreation.gov, opens 6 months in advance.
-* **Zion campsite (Watchman) for Sat Nov 8, and Sun Nov 9 if two nights confirmed** — recreation.gov.
+* **Zion campsite (Watchman) for Sat Nov 8 AND Sun Nov 9** — recreation.gov. Two nights confirmed.
 * **National Park Pass ("America the Beautiful")** — $80, pays for itself by Day 7.
 * **One-way SUV rental Nov 2 → Nov 12** — National Emerald / Hertz Ultimate Choice / Avis Select & Go to hand-pick vehicle.
+* **Nashville hotel Tue Nov 4** — East Nashville or Germantown for indie coffee/food scene, avoid Broadway strip.
+* **Amarillo hotel Wed Nov 5** — arrive late (~10pm), pick something with easy in/out near I-40 for Day 5 morning.
+* **LA hotel Mon Nov 10 + Tue Nov 11** — Santa Monica / Venice / Malibu for oceanfront recovery.
