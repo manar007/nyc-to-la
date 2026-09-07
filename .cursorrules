@@ -1,0 +1,4 @@
+# NOTE: Legacy compatibility shim.
+# The active rules for this project live in `.cursor/rules/roadtrip-planner.mdc`.
+# Trip state and daily ledger live in `roadtrip_memory.md`.
+# See both files before planning any day of the NYC → LA road trip.
