@@ -4,7 +4,8 @@
 * **Route:** New York City (NYC) ➜ Los Angeles (LA).
 * **Direction:** East to West (one-way).
 * **Duration:** 10 Days / 9–10 Nights (~3,000 miles total including detours).
-* **Departure Date:** Early November 2026 (immediately following the NYC Marathon on Nov 1).
+* **Departure Date:** Early November 2026 (immediately following the NYC Marathon on Nov 1). Recommended Day 1 = **Sun Nov 2, 2026**.
+* **Return Flight (HARD CONSTRAINT):** **Wed Nov 12, 2026 at 15:00 from LAX.** Rental car must be dropped and traveler at LAX terminal by ~12:00. Must arrive in LA basin no later than the evening of **Tue Nov 11, 2026**.
 * **Traveler Format:** Strictly solo.
 * **Travel Philosophy:** Active adventure, nature-focused, waking up outdoors, authentic local food/breweries, independent coffee roasters, zero chain restaurants.
 * **Physical Considerations:** Post-marathon physical fatigue/recovery. Daily driving must be bounded (~4 to 4.5 hours typical, single big transit day capped at 8 hours) with required walking/stretching intervals.
@@ -44,20 +45,42 @@
   * Daily Food/Drink ($80/day solo): ~$880.
   * National Park Pass ("America the Beautiful"): $80.
   * Sleeping Gear & Tolls: ~$300.
+* **Add-on: Antelope Canyon tour** ~$80 (Navajo-guided).
 
 ---
 
 ## 5. Route Progress & Daily Itinerary Ledger
 
-| Day | Origin ➜ Destination | Drive Time | Lodging Type | Status / Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **Day 1** | NYC ➜ Shenandoah NP ➜ Harrisonburg, VA | 5.5 hrs | Hotel | **LOCKED.** NJ diner breakfast, Spelunker's lunch, Blackrock Summit hike. |
-| **Day 2** | Harrisonburg, VA ➜ Asheville, NC | 5.0 hrs | Hotel / Hostel Private | Blue Ridge Parkway, craft beer hub. |
-| **Day 3** | Asheville, NC ➜ Nashville or Memphis, TN | 6.5 hrs | Hotel | Authentic BBQ, live music. |
-| **Day 4** | Tennessee ➜ Hot Springs, AR ➜ Amarillo, TX | 8.0 hrs | Hotel | Big transit push day across the plains. |
-| **Day 5** | Amarillo, TX ➜ Route 66 ➜ Albuquerque, NM | 4.0 hrs | SUV Car Camp (BLM) | Palo Duro Canyon, New Mexico high desert. |
-| **Day 6** | Albuquerque, NM ➜ Grand Canyon, AZ | 5.5 hrs | SUV Car Camp (NP) | Petrified Forest route, South Rim sunset. |
-| **Day 7** | Grand Canyon ➜ Horseshoe Bend ➜ Zion, UT | 4.0 hrs | SUV Car Camp (BLM/NP) | Arizona strip, Page, Springdale approach. |
-| **Day 8** | Zion National Park ➜ Valley of Fire, NV | 3.5 hrs | SUV Car Camp | Morning red rocks hike, Nevada scenic drive. |
-| **Day 9** | Valley of Fire, NV ➜ Los Angeles, CA | 4.5 hrs | Hotel | Mojave desert transit into coastal LA basin. |
-| **Day 10**| Los Angeles, CA | 0 hrs | Departure | Vehicle return, oceanfront recovery. |
+| Day | Date | Origin ➜ Destination | Drive Time | Lodging Type | Status / Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Day 1** | Sun Nov 2 | NYC ➜ Shenandoah NP ➜ Harrisonburg, VA | 5.5 hrs | Hotel | **LOCKED.** NJ diner breakfast, Spelunker's lunch, Blackrock Summit hike. |
+| **Day 2** | Mon Nov 3 | Harrisonburg, VA ➜ Asheville, NC | 5.0 hrs | Hotel / Hostel Private | Blue Ridge Parkway, craft beer hub. |
+| **Day 3** | Tue Nov 4 | Asheville, NC ➜ Nashville *or* Memphis, TN | 6.5 hrs | Hotel | Authentic BBQ, live music. **OPEN:** Nashville vs. Memphis; also consider Great Smokies detour → Knoxville/Chattanooga. |
+| **Day 4** | Wed Nov 5 | Tennessee ➜ Hot Springs, AR ➜ Amarillo, TX | 8.0 hrs | Hotel | Big transit push day. Hot Springs thermal baths for recovery. |
+| **Day 5** | Thu Nov 6 | Amarillo, TX ➜ **Palo Duro Canyon (2 hr rim drive stop)** ➜ Tucumcari (Route 66) ➜ Albuquerque, NM | 4.0 hrs drive + 2 hr stop | SUV Car Camp (BLM) | Palo Duro is a real 2-hour stop, not a drive-by. Cadillac Ranch **cut**. |
+| **Day 6** | Fri Nov 7 | Albuquerque, NM ➜ **Painted Desert + Petrified Forest NP** ➜ **Meteor Crater** ➜ Grand Canyon South Rim, AZ | ~6.5 hrs drive + stops | SUV Car Camp (NP) | Painted Desert same NP entrance as Petrified Forest (~45 min extra). Meteor Crater 20 min off I-40 near Winslow. Grand Canyon sunset. |
+| **Day 7** | Sat Nov 8 | Grand Canyon ➜ **Antelope Canyon (Page, AZ — guided AM tour)** ➜ Horseshoe Bend ➜ Zion, UT | ~5 hrs drive + tour | SUV Car Camp (BLM/NP) | **Antelope Canyon must be booked in advance** — Navajo-guided only. Target 8:00–10:00 AM slot for light. |
+| **Day 8** | Sun Nov 9 | **Zion National Park (full day)** | 0 hrs drive | SUV Car Camp | **PROPOSED:** Second Zion night. Narrows (if water is OK) or Observation Point via East Mesa Trail (gentler than Angels Landing). Currently **OPEN** — pending decision. |
+| **Day 9** | Mon Nov 10 | Zion ➜ Valley of Fire, NV ➜ Los Angeles, CA | 4.5 hrs | Hotel (LA) | Mojave desert transit into LA basin. |
+| **Day 10** | Tue Nov 11 | Los Angeles buffer day | 0 hrs | Hotel (LA) | Oceanfront recovery. Fuel top-up. Prep for airport. |
+| **Fly** | **Wed Nov 12** | LAX → home, **15:00 wheels up** | — | — | Rental drop by ~11:30. At LAX ~12:00. |
+
+**Optional side quest:** Joshua Tree NP on Day 9 or Day 10 (~1.5 hr detour south of I-15/I-40, prime early-Nov season, best at golden hour).
+
+---
+
+## 6. Open Decisions
+
+1. **Day 3 route:** Music city (Nashville vs. Memphis) OR Great Smokies pivot → Knoxville/Chattanooga.
+2. **Zion two nights (Day 8 as a full Zion day)?** Currently drafted this way; needs confirmation before booking.
+3. **Joshua Tree — in or out?** If in, when: Day 9 en-route to LA, or Day 10 as an out-and-back from LA?
+
+---
+
+## 7. Booking To-Do (time-sensitive)
+
+* **Antelope Canyon tour for Sat Nov 8 AM** — Upper (Antelope Canyon Tours by Roger Ekis) or Lower (Ken's Tours). Sells out weeks ahead. **Book now.**
+* **Grand Canyon South Rim campsite (Mather) for Fri Nov 7** — recreation.gov, opens 6 months in advance.
+* **Zion campsite (Watchman) for Sat Nov 8, and Sun Nov 9 if two nights confirmed** — recreation.gov.
+* **National Park Pass ("America the Beautiful")** — $80, pays for itself by Day 7.
+* **One-way SUV rental Nov 2 → Nov 12** — National Emerald / Hertz Ultimate Choice / Avis Select & Go to hand-pick vehicle.
