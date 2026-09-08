@@ -6,9 +6,11 @@ import {
   kindLabel,
   type Stop,
 } from "@/data/route";
+import { stopDirectionsUrl } from "@/lib/gmaps";
 import {
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
   Landmark,
   Moon,
   Navigation,
@@ -30,6 +32,9 @@ export function StopDetail({
   onPrev,
   onNext,
 }: StopDetailProps) {
+  const isOvernight =
+    stop.kind === "overnight" || stop.kind === "camp" || stop.kind === "finish";
+
   return (
     <div className="flex h-full flex-col gap-4">
       <div className="flex items-start justify-between gap-3">
@@ -67,19 +72,36 @@ export function StopDetail({
         {stop.highway}
       </p>
 
+      {stop.address ? (
+        <p className="text-xs leading-relaxed text-zinc-500">{stop.address}</p>
+      ) : null}
+
       <p className="text-[15px] leading-relaxed text-zinc-200">{stop.note}</p>
+
+      <a
+        href={stopDirectionsUrl(stop)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-md bg-amber-400 px-3 py-2 text-sm font-medium text-zinc-950 shadow-sm transition-colors hover:bg-amber-300"
+      >
+        <Navigation className="size-4" />
+        Open in Google Maps
+        <ExternalLink className="size-3.5 opacity-70" />
+      </a>
 
       <Separator className="bg-white/10" />
 
       <NoteRow icon={Utensils} label="Eat" text={stop.eat} />
       <NoteRow icon={Landmark} label="See" text={stop.see} />
-      {stop.kind === "overnight" || stop.kind === "finish" ? (
+      {isOvernight ? (
         <NoteRow
           icon={stop.kind === "finish" ? Navigation : Moon}
           label={stop.kind === "finish" ? "Arrive" : "Sleep"}
           text={
             stop.kind === "finish"
               ? "Pacific Ocean. Engine off."
+              : stop.kind === "camp"
+              ? `Overnight in the ${stop.city} camp.`
               : `Overnight in ${stop.city}.`
           }
         />

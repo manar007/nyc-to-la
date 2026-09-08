@@ -13,6 +13,7 @@ export function RouteMap({ selectedId, onSelect }: RouteMapProps) {
   const points = STOPS.map((stop) => ({ stop, ...project(stop.lat, stop.lng) }));
   const line = points.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
   const outline = pointsToPath(US_OUTLINE);
+  const majorPoints = points.filter((p) => p.stop.major);
   const selected = points.find((p) => p.stop.id === selectedId);
 
   return (
@@ -89,15 +90,16 @@ export function RouteMap({ selectedId, onSelect }: RouteMapProps) {
           </circle>
         ) : null}
 
-        {points.map(({ stop, x, y }) => (
+        {majorPoints.map(({ stop, x, y }) => (
           <StopLabel key={stop.id} stop={stop} x={x} y={y} selected={stop.id === selectedId} />
         ))}
       </svg>
 
       <div className="absolute inset-0 pointer-events-none">
-        {points.map(({ stop, x, y }) => {
+        {majorPoints.map(({ stop, x, y }) => {
           const isEnd = stop.kind === "start" || stop.kind === "finish";
-          const r = isEnd ? 8 : stop.kind === "overnight" ? 6.5 : 4.5;
+          const isCamp = stop.kind === "camp";
+          const r = isEnd ? 8 : 6.5;
           const selected = stop.id === selectedId;
           return (
             <button
@@ -118,7 +120,13 @@ export function RouteMap({ selectedId, onSelect }: RouteMapProps) {
               <span
                 className={cn(
                   "block rounded-full ring-2 ring-[#0b1220]",
-                  selected ? "bg-amber-400" : isEnd ? "bg-orange-50" : "bg-slate-200"
+                  selected
+                    ? "bg-amber-400"
+                    : isEnd
+                    ? "bg-orange-50"
+                    : isCamp
+                    ? "bg-emerald-300"
+                    : "bg-slate-200"
                 )}
                 style={{ width: r * 2, height: r * 2 }}
               />

@@ -21,8 +21,9 @@ import {
   formatHours,
   kindLabel,
 } from "@/data/route";
+import { allDayRoutePlans } from "@/lib/gmaps";
 import { cn } from "@/lib/utils";
-import { MapPinned, Moon, Navigation } from "lucide-react";
+import { ExternalLink, MapPinned, Moon, Navigation } from "lucide-react";
 
 export function TripApp() {
   const [selectedId, setSelectedId] = useState(STOPS[0].id);
@@ -39,17 +40,7 @@ export function TripApp() {
     if (isMobile) setMobileOpen(true);
   }
 
-  const dayStops = useMemo(() => {
-    return DAYS.map((day) => ({
-      ...day,
-      stops: STOPS.filter(
-        (stop) =>
-          stop.id === day.from ||
-          stop.id === day.to ||
-          (stop.day === day.day && stop.kind === "waypoint")
-      ),
-    }));
-  }, []);
+  const dayPlans = useMemo(() => allDayRoutePlans(), []);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -74,8 +65,8 @@ export function TripApp() {
           <div className="flex flex-wrap gap-2">
             <StatChip>{TRIP.miles.toLocaleString()} miles</StatChip>
             <StatChip>{TRIP.days} days</StatChip>
-            <StatChip>{TRIP.driveHours} hours of driving</StatChip>
-            <StatChip>11 cities</StatChip>
+            <StatChip>{TRIP.driveHours} hrs of driving</StatChip>
+            <StatChip>{TRIP.overnights} overnights</StatChip>
           </div>
         </div>
       </header>
@@ -86,8 +77,8 @@ export function TripApp() {
 
           <Tabs defaultValue="stops" className="gap-3">
             <TabsList className="bg-zinc-900/80">
-              <TabsTrigger value="stops">Stops</TabsTrigger>
-              <TabsTrigger value="days">Days</TabsTrigger>
+              <TabsTrigger value="stops">All stops</TabsTrigger>
+              <TabsTrigger value="days">By day</TabsTrigger>
             </TabsList>
             <TabsContent value="stops" className="outline-none">
               <ul className="divide-y divide-white/8 overflow-hidden rounded-xl ring-1 ring-white/10">
@@ -115,7 +106,7 @@ export function TripApp() {
                           </span>
                         </span>
                         <span className="text-xs text-zinc-500">
-                          {stop.milesFromStart.toLocaleString()} mi
+                          Day {stop.day} · {stop.milesFromStart.toLocaleString()} mi
                           {stop.driveFromPrevMiles
                             ? ` · +${stop.driveFromPrevMiles} mi · ${formatHours(stop.driveFromPrevHours)}`
                             : " · leave at dawn"}
@@ -134,38 +125,58 @@ export function TripApp() {
             </TabsContent>
             <TabsContent value="days" className="outline-none">
               <div className="grid gap-3 sm:grid-cols-2">
-                {dayStops.map((day) => {
-                  const start = STOPS.find((s) => s.id === day.from);
-                  const end = STOPS.find((s) => s.id === day.to);
-                  const miles =
-                    (end?.milesFromStart ?? 0) - (start?.milesFromStart ?? 0);
-                  const active = selected.day === day.day;
+                {dayPlans.map((plan) => {
+                  const active = selected.day === plan.day;
+                  const isRestDay =
+                    plan.origin.id === plan.destination.id &&
+                    plan.waypoints.length === 0;
                   return (
-                    <button
-                      key={day.day}
-                      type="button"
-                      data-day={day.day}
-                      onClick={() => select(day.to)}
+                    <div
+                      key={plan.day}
+                      data-day={plan.day}
                       className={cn(
-                        "rounded-xl p-4 text-left ring-1 transition-colors",
+                        "flex flex-col gap-3 rounded-xl p-4 ring-1 transition-colors",
                         active
                           ? "bg-amber-400/10 ring-amber-400/30"
                           : "bg-zinc-950/50 ring-white/10 hover:bg-zinc-900/80"
                       )}
                     >
-                      <p className="text-[0.65rem] tracking-[0.2em] text-amber-300 uppercase">
-                        Day {day.day}
-                      </p>
-                      <p className="mt-1 font-medium text-zinc-50">
-                        {day.title}
-                      </p>
-                      <p className="mt-1 text-sm text-zinc-400">
-                        {start?.city} → {end?.city}
-                      </p>
-                      <p className="mt-2 text-xs text-zinc-500">
-                        {miles} miles
-                      </p>
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => select(plan.destination.id)}
+                        className="text-left"
+                      >
+                        <p className="text-[0.65rem] tracking-[0.2em] text-amber-300 uppercase">
+                          Day {plan.day}
+                        </p>
+                        <p className="mt-1 font-medium text-zinc-50">
+                          {plan.title}
+                        </p>
+                        <p className="mt-1 text-sm text-zinc-400">
+                          {plan.origin.city} → {plan.destination.city}
+                        </p>
+                        <p className="mt-2 text-xs text-zinc-500">
+                          {isRestDay
+                            ? "Rest / in-park day"
+                            : `${plan.driveMiles} mi · ${formatHours(plan.driveHours)} · ${plan.waypoints.length} stop${plan.waypoints.length === 1 ? "" : "s"}`}
+                        </p>
+                      </button>
+                      <a
+                        href={plan.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn(
+                          "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-xs font-medium transition-colors",
+                          active
+                            ? "bg-amber-400 text-zinc-950 hover:bg-amber-300"
+                            : "bg-zinc-900 text-zinc-100 ring-1 ring-white/10 hover:bg-zinc-800"
+                        )}
+                      >
+                        <Navigation className="size-3.5" />
+                        {isRestDay ? "Open in Google Maps" : `Drive Day ${plan.day} in Google Maps`}
+                        <ExternalLink className="size-3 opacity-70" />
+                      </a>
+                    </div>
                   );
                 })}
               </div>
@@ -233,10 +244,10 @@ export function TripApp() {
 
       <footer className="mx-auto flex w-full max-w-6xl items-center gap-2 px-4 py-6 text-xs text-zinc-500 sm:px-6 lg:px-8">
         <Moon className="size-3.5" />
-        Seven overnights. One finish line.
+        Nine overnights. One finish line.
         <Separator orientation="vertical" className="mx-1 h-3 bg-white/15" />
         <Navigation className="size-3.5" />
-        I-40 west until the ocean shows up.
+        Every day pre-loaded into Google Maps. Tap and drive.
       </footer>
     </div>
   );
