@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
+import { DayDetail } from "@/components/day-detail";
 import { RouteMap } from "@/components/route-map";
 import { StopDetail } from "@/components/stop-detail";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +16,6 @@ import {
 } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  DAYS,
   STOPS,
   TRIP,
   formatHours,
@@ -23,11 +23,19 @@ import {
 } from "@/data/route";
 import { allDayRoutePlans } from "@/lib/gmaps";
 import { cn } from "@/lib/utils";
-import { ExternalLink, MapPinned, Moon, Navigation } from "lucide-react";
+import {
+  CalendarDays,
+  ExternalLink,
+  ListOrdered,
+  MapPinned,
+  Moon,
+  Navigation,
+} from "lucide-react";
 
 export function TripApp() {
   const [selectedId, setSelectedId] = useState(STOPS[0].id);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDay, setOpenDay] = useState<number | null>(null);
 
   const selectedIndex = STOPS.findIndex((stop) => stop.id === selectedId);
   const selected = STOPS[selectedIndex] ?? STOPS[0];
@@ -38,6 +46,14 @@ export function TripApp() {
       typeof window !== "undefined" &&
       window.matchMedia("(max-width: 1023px)").matches;
     if (isMobile) setMobileOpen(true);
+  }
+
+  function openDaySheet(day: number) {
+    setOpenDay(day);
+  }
+
+  function closeDaySheet() {
+    setOpenDay(null);
   }
 
   const dayPlans = useMemo(() => allDayRoutePlans(), []);
@@ -130,6 +146,7 @@ export function TripApp() {
                   const isRestDay =
                     plan.origin.id === plan.destination.id &&
                     plan.waypoints.length === 0;
+                  const stopCount = plan.waypoints.length + 1;
                   return (
                     <div
                       key={plan.day}
@@ -143,12 +160,16 @@ export function TripApp() {
                     >
                       <button
                         type="button"
-                        onClick={() => select(plan.destination.id)}
+                        onClick={() => openDaySheet(plan.day)}
                         className="text-left"
+                        aria-label={`View Day ${plan.day} timetable`}
                       >
-                        <p className="text-[0.65rem] tracking-[0.2em] text-amber-300 uppercase">
-                          Day {plan.day}
-                        </p>
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-[0.65rem] tracking-[0.2em] text-amber-300 uppercase">
+                            Day {plan.day}
+                          </p>
+                          <CalendarDays className="size-3.5 text-zinc-500" />
+                        </div>
                         <p className="mt-1 font-medium text-zinc-50">
                           {plan.title}
                         </p>
@@ -158,24 +179,35 @@ export function TripApp() {
                         <p className="mt-2 text-xs text-zinc-500">
                           {isRestDay
                             ? "Rest / in-park day"
-                            : `${plan.driveMiles} mi · ${formatHours(plan.driveHours)} · ${plan.waypoints.length} stop${plan.waypoints.length === 1 ? "" : "s"}`}
+                            : `${plan.driveMiles} mi · ${formatHours(plan.driveHours)} · ${stopCount} stop${stopCount === 1 ? "" : "s"}`}
                         </p>
                       </button>
-                      <a
-                        href={plan.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-xs font-medium transition-colors",
-                          active
-                            ? "bg-amber-400 text-zinc-950 hover:bg-amber-300"
-                            : "bg-zinc-900 text-zinc-100 ring-1 ring-white/10 hover:bg-zinc-800"
-                        )}
-                      >
-                        <Navigation className="size-3.5" />
-                        {isRestDay ? "Open in Google Maps" : `Drive Day ${plan.day} in Google Maps`}
-                        <ExternalLink className="size-3 opacity-70" />
-                      </a>
+                      <div className="flex flex-col gap-2 sm:flex-row">
+                        <button
+                          type="button"
+                          onClick={() => openDaySheet(plan.day)}
+                          className={cn(
+                            "inline-flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-xs font-medium transition-colors",
+                            active
+                              ? "bg-amber-400 text-zinc-950 hover:bg-amber-300"
+                              : "bg-zinc-900 text-zinc-100 ring-1 ring-white/10 hover:bg-zinc-800"
+                          )}
+                        >
+                          <ListOrdered className="size-3.5" />
+                          View day
+                        </button>
+                        <a
+                          href={plan.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-zinc-900 px-3 py-2 text-xs font-medium text-zinc-100 ring-1 ring-white/10 transition-colors hover:bg-zinc-800"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Navigation className="size-3.5" />
+                          {isRestDay ? "Google Maps" : "Drive it"}
+                          <ExternalLink className="size-3 opacity-70" />
+                        </a>
+                      </div>
                     </div>
                   );
                 })}
@@ -238,6 +270,36 @@ export function TripApp() {
                 )
               }
             />
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      <Sheet
+        open={openDay !== null}
+        onOpenChange={(open) => {
+          if (!open) closeDaySheet();
+        }}
+      >
+        <SheetContent
+          side="right"
+          className="max-h-screen w-full overflow-y-auto bg-zinc-950 p-0 sm:max-w-lg"
+        >
+          <SheetHeader className="sr-only">
+            <SheetTitle>Day {openDay ?? ""}</SheetTitle>
+            <SheetDescription>
+              Full timetable, per-stop notes, and Google Maps links.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="p-5 pb-8">
+            {openDay !== null ? (
+              <DayDetail
+                day={openDay}
+                onSelectStop={(id) => {
+                  closeDaySheet();
+                  select(id);
+                }}
+              />
+            ) : null}
           </div>
         </SheetContent>
       </Sheet>
