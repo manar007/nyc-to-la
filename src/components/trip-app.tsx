@@ -14,7 +14,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   STOPS,
   TRIP,
@@ -36,6 +35,7 @@ export function TripApp() {
   const [selectedId, setSelectedId] = useState(STOPS[0].id);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDay, setOpenDay] = useState<number | null>(null);
+  const [tab, setTab] = useState<"stops" | "days">("stops");
 
   const selectedIndex = STOPS.findIndex((stop) => stop.id === selectedId);
   const selected = STOPS[selectedIndex] ?? STOPS[0];
@@ -91,12 +91,40 @@ export function TripApp() {
         <section className="flex min-w-0 flex-col gap-4">
           <RouteMap selectedId={selected.id} onSelect={select} />
 
-          <Tabs defaultValue="stops" className="gap-3">
-            <TabsList className="bg-zinc-900/80">
-              <TabsTrigger value="stops">All stops</TabsTrigger>
-              <TabsTrigger value="days">By day</TabsTrigger>
-            </TabsList>
-            <TabsContent value="stops" className="outline-none">
+          <div className="flex flex-col gap-3">
+            <div
+              role="tablist"
+              aria-label="View stops"
+              className="inline-flex w-fit gap-1 rounded-lg bg-zinc-900/80 p-[3px]"
+            >
+              {(
+                [
+                  { id: "stops", label: "All stops" },
+                  { id: "days", label: "By day" },
+                ] as const
+              ).map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={tab === t.id}
+                  onClick={() => setTab(t.id)}
+                  className={cn(
+                    "inline-flex items-center rounded-md px-3 py-1 text-sm font-medium transition-colors",
+                    tab === t.id
+                      ? "bg-zinc-800 text-zinc-50 shadow-sm ring-1 ring-white/10"
+                      : "text-zinc-400 hover:text-zinc-100"
+                  )}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+            <div
+              role="tabpanel"
+              hidden={tab !== "stops"}
+              className={cn("outline-none", tab !== "stops" && "hidden")}
+            >
               <ul className="divide-y divide-white/8 overflow-hidden rounded-xl ring-1 ring-white/10">
                 {STOPS.map((stop, index) => (
                   <li key={stop.id}>
@@ -138,8 +166,12 @@ export function TripApp() {
                   </li>
                 ))}
               </ul>
-            </TabsContent>
-            <TabsContent value="days" className="outline-none">
+            </div>
+            <div
+              role="tabpanel"
+              hidden={tab !== "days"}
+              className={cn("outline-none", tab !== "days" && "hidden")}
+            >
               <div className="grid gap-3 sm:grid-cols-2">
                 {dayPlans.map((plan) => {
                   const active = selected.day === plan.day;
@@ -212,8 +244,8 @@ export function TripApp() {
                   );
                 })}
               </div>
-            </TabsContent>
-          </Tabs>
+            </div>
+          </div>
         </section>
 
         <aside className="hidden lg:block">
