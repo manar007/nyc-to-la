@@ -24,9 +24,9 @@
 
 ## 3. Vehicle & Equipment Specifications
 * **Target Category:** Midsize SUV or Standard/Full-Size SUV with verified flat-folding rear seats.
-* **Booking Mechanism:** Utilize National Emerald Club, Hertz Ultimate Choice, or Avis Preferred Select & Go to hand-pick the exact vehicle in the airport garage.
+* **Booking Mechanism:** Utilize National Emerald Club, Hertz Ultimate Choice, or Avis Preferred Select & Go to hand-pick the exact vehicle in the airport garage. If you want a guaranteed vehicle that is already built for sleeping, look into specialist camper rentals like RIJO Campers (though they are primarily Iceland/Europe based) or peer-to-peer rentals like Outdoorsy where you can rent an exact owner-listed SUV. However, for a standard one-way EWR to LAX rental, your best bet is to use the "choose any car in the aisle" tiers (like National Emerald Aisle) so you can physically fold the seats down in the garage before driving off.
 * **Target Models:**
-  * Top picks: Toyota RAV4, Subaru Outback (ideal flat cargo depth ~75 in / 191 cm).
+  * Top picks: Toyota RAV4, Subaru Outback (ideal flat cargo depth ~75 in / 191 cm), Nissan Rogue (the "Divide-N-Hide" cargo floor can be raised to make the bed perfectly level with the folded seats).
   * Acceptable 3-Row upgrades: Ford Explorer, Chevy Traverse (~81 in / 206 cm cargo depth).
   * Hard Rejections: Chevrolet Trax (subcompact, too short), Chevrolet Equinox (cargo floor only 63 in / 160 cm), Mazda CX-5 (steep incline angle), Jeep Compass.
 * **Camping Kit to Purchase in U.S. (Budget ~$200):**
@@ -54,9 +54,9 @@
 
 | Day | Date | Origin ➔ Destination | Drive Time | Lodging Type | Status / Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Day 1** | Mon Nov 2 | NYC ➔ Shenandoah NP ➔ Harrisonburg, VA | ~7 hrs (drive) + hike | Hotel (Harrisonburg — target: Hotel Madison) | **LOCKED + PLANNED.** Full hour-by-hour in `plans/day-01.md`. NJ diner breakfast (Clinton Station Diner), Spelunker's lunch, Skyline Drive top-to-Blackrock, 1-mi Blackrock Summit flush hike, dinner at Jack Brown's / Pale Fire. |
+| **Day 1** | Mon Nov 2 | NYC ➔ Shenandoah NP ➔ Harrisonburg, VA | ~7 hrs (drive) + hike | Hotel (Harrisonburg — target: Hotel Madison) | **LOCKED + PLANNED.** Full hour-by-hour in `plans/day-01.md`. NJ diner breakfast (Clinton Station Diner), Spelunker's lunch, Skyline Drive top-to-Blackrock, 1-mi Blackrock Summit flush hike (keep it to a light walk/hike, no running), dinner at Jack Brown's / Pale Fire. |
 | **Day 2** | Tue Nov 3 | Harrisonburg, VA ➔ Asheville, NC | 5.0 hrs | Hotel / Hostel Private | Blue Ridge Parkway, craft beer hub. |
-| **Day 3** | Wed Nov 4 | Asheville, NC ➔ **Great Smoky Mountains NP (Newfound Gap + Clingmans Dome)** ➔ Nashville, TN | ~7 hrs drive + 2 hrs park | Hotel (Nashville) | **LOCKED.** Great Smokies pivot confirmed. US-441 through the park. Hot chicken dinner at Prince's or Hattie B's. |
+| **Day 3** | Wed Nov 4 | Asheville, NC ➔ **Great Smoky Mountains NP (Newfound Gap + Clingmans Dome)** ➔ Nashville, TN | ~7 hrs drive + 2 hrs park | Hotel (Nashville) | **LOCKED.** Great Smokies pivot confirmed. US-441 through the park. Clingmans Dome is a paved 0.5-mi climb (walk it, do not run). Hot chicken dinner at Prince's or Hattie B's. |
 | **Day 4** | Thu Nov 5 | Nashville ➔ **Memphis (Civil Rights Museum + BBQ lunch, 2.5 hr stop)** ➔ Amarillo, TX | ~11 hrs drive + stop | Hotel (Amarillo) | **Transit day, over 8h cap — accepted.** Memphis chosen as one-shot cultural stop. Hot Springs, AR **cut** for timing. |
 | **Day 5** | Fri Nov 6 | Amarillo, TX ➔ **Palo Duro Canyon (2 hr rim drive stop)** ➔ Tucumcari (Route 66) ➔ Albuquerque, NM | 4.0 hrs drive + 2 hr stop | SUV Car Camp (BLM) | Palo Duro is a real 2-hour stop, not a drive-by. Cadillac Ranch **cut**. |
 | **Day 6** | Sat Nov 7 | Albuquerque, NM ➔ **Painted Desert + Petrified Forest NP** ➔ **Meteor Crater** ➔ Grand Canyon South Rim, AZ | ~6.5 hrs drive + stops | SUV Car Camp (NP) | **⚠ Weekend arrival at Grand Canyon Mather Campground — book early, weekends sell out first.** Painted Desert same NP entrance as Petrified Forest. Meteor Crater 20 min off I-40 near Winslow. |
