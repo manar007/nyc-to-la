@@ -70,7 +70,7 @@
       <name>Day 1 — The tunnel, the ridge, the flush (Mon Nov 2, 2026)</name>
       <Placemark>
         <name>Clinton (NJ)</name>
-        <description><![CDATA[<b>Clinton Station Diner, 2 Bank St, Clinton, NJ 08809</b><br/><b>Note:</b> First flush stop. Walk the lot for five minutes before you sit down.<br/><b>Eat:</b> Clinton Station Diner — real Jersey diner, sit at the counter.<br/><b>See:</b> Nothing scenic yet — this stop is for the legs.<br/><b>Highway:</b> I-78 W · Exit 15]]></description>
+        <description><![CDATA[<b>Walmart Supercenter (1 Wal-Mart Plaza) &amp; Clinton Station Diner (2 Bank St)</b><br/><b>Note:</b> First flush stop. Hit the Walmart first to buy your camping gear, then walk the diner lot for five minutes before you sit down.<br/><b>Eat:</b> Clinton Station Diner. Real Jersey diner. Sit at the counter. Eggs, hash browns, rye.<br/><b>See:</b> Walmart Supercenter (opens 6 AM). Buy your sleeping pad, 15°F sleeping bag, and Reflectix roll right here.<br/><b>Highway:</b> I-78 W · Exit 15]]></description>
         <styleUrl>#meal-pin</styleUrl>
         <Point><coordinates>-74.9083,40.6367,0</coordinates></Point>
       </Placemark>
@@ -223,7 +223,7 @@
       <name>Day 9 — Mojave to the Pacific (Tue Nov 10, 2026)</name>
       <Placemark>
         <name>Valley of Fire (NV)</name>
-        <description><![CDATA[<b>Valley of Fire State Park Visitor Center, Overton, NV</b><br/><b>Note:</b> 1.5 hr stop before the LA push. Last true desert of the trip.<br/><b>Eat:</b> Provisions from Springdale gas station or St. George.<br/><b>See:</b> Red sandstone spires. Fire Wave loop is 1.5 mi.<br/><b>Highway:</b> I-15 S · NV-169]]></description>
+        <description><![CDATA[<b>Valley of Fire State Park Visitor Center, Overton, NV</b><br/><b>Note:</b> 1.5 hr stop before the LA push. Last true desert of the trip.<br/><b>Eat:</b> Provisions from Springdale gas station or St. George.<br/><b>See:</b> Red sandstone spires. Feels like Mars. The Fire Wave loop is 1.5 mi.<br/><b>Highway:</b> I-15 S · NV-169]]></description>
         <styleUrl>#scenic-pin</styleUrl>
         <Point><coordinates>-114.5225,36.4293,0</coordinates></Point>
       </Placemark>

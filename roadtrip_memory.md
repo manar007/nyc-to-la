@@ -54,7 +54,7 @@
 
 | Day | Date | Origin ➔ Destination | Drive Time | Lodging Type | Status / Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Day 1** | Mon Nov 2 | NYC ➔ Shenandoah NP ➔ Harrisonburg, VA | ~7 hrs (drive) + hike | Hotel (Harrisonburg — target: Hotel Madison) | **LOCKED + PLANNED.** Full hour-by-hour in `plans/day-01.md`. NJ diner breakfast (Clinton Station Diner), Spelunker's lunch, Skyline Drive top-to-Blackrock, 1-mi Blackrock Summit flush hike (keep it to a light walk/hike, no running), dinner at Jack Brown's / Pale Fire. |
+| **Day 1** | Mon Nov 2 | NYC ➔ Shenandoah NP ➔ Harrisonburg, VA | ~7 hrs (drive) + hike | Hotel (Harrisonburg — target: Hotel Madison) | **LOCKED + PLANNED.** Full hour-by-hour in `plans/day-01.md`. NJ diner breakfast (Clinton Station Diner) + Walmart Supercenter run for camping gear, Spelunker's lunch, Skyline Drive top-to-Blackrock, 1-mi Blackrock Summit flush hike (keep it to a light walk/hike, no running), dinner at Jack Brown's / Pale Fire. |
 | **Day 2** | Tue Nov 3 | Harrisonburg, VA ➔ Asheville, NC | 5.0 hrs | Hotel / Hostel Private | Blue Ridge Parkway, craft beer hub. |
 | **Day 3** | Wed Nov 4 | Asheville, NC ➔ **Great Smoky Mountains NP (Newfound Gap + Clingmans Dome)** ➔ Nashville, TN | ~7 hrs drive + 2 hrs park | Hotel (Nashville) | **LOCKED.** Great Smokies pivot confirmed. US-441 through the park. Clingmans Dome is a paved 0.5-mi climb (walk it, do not run). Hot chicken dinner at Prince's or Hattie B's. |
 | **Day 4** | Thu Nov 5 | Nashville ➔ **Memphis (Civil Rights Museum + BBQ lunch, 2.5 hr stop)** ➔ Amarillo, TX | ~11 hrs drive + stop | Hotel (Amarillo) | **Transit day, over 8h cap — accepted.** Memphis chosen as one-shot cultural stop. Hot Springs, AR **cut** for timing. |
