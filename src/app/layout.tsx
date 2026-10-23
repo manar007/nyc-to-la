@@ -19,9 +19,9 @@ const display = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "NYC → LA",
+  title: "LAS → CANYONS → LAX | Southwest & Pacific Coast Road Trip",
   description:
-    "A seven-day coast-to-coast road trip from New York City to Los Angeles along I-70, I-44, and I-40.",
+    "11-Day post-NYC Marathon adventure road trip: Las Vegas, Valley of Fire, Zion, Bryce Canyon, Buckskin Gulch, Page, Antelope Canyon, Monument Valley, Grand Canyon, Sedona, Laguna Beach, Malibu & Santa Monica.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
