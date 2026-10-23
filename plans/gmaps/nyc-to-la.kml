@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>NYC → LA Road Trip (Nov 2–12, 2026)</name>
-    <description>Post-marathon 10-day southern crossing. Nine overnights, one finish line at the Pacific.</description>
+    <name>Southwest Canyons &amp; California Coast Road Trip (LAS → LAX · Nov 2–12, 2026)</name>
+    <description>Post-NYC Marathon 11-day / 10-night Southwest Canyons &amp; Southern California Coast loop: Las Vegas, Valley of Fire, Zion, Bryce Canyon, Buckskin Gulch, Page &amp; Antelope Canyon, Monument Valley, Grand Canyon, Sedona, Joshua Tree, Laguna Beach, Venice, Santa Monica, Malibu &amp; LAX.</description>
     <Style id="start-pin">
       <IconStyle>
         <color>ff00ffff</color>
@@ -63,205 +63,241 @@
       <name>Route</name>
       <Style><LineStyle><color>ffe094fb</color><width>3</width></LineStyle></Style>
       <LineString><tessellate>1</tessellate><coordinates>
-        -74.006,40.7128,0 -74.9083,40.6367,0 -78.1975,38.9155,0 -78.4358,38.5218,0 -78.7328,38.2338,0 -78.8697,38.434,0 -78.8583,38.0338,0 -79.6058,37.4463,0 -82.5515,35.5951,0 -83.4247,35.6111,0 -83.4952,35.5568,0 -86.7816,36.1627,0 -90.0578,35.1341,0 -101.8313,35.2219,0 -101.6579,34.9349,0 -103.725,35.1717,0 -106.6504,35.0844,0 -109.781,35.0654,0 -111.0224,35.0272,0 -112.1394,36.0553,0 -111.3743,36.8619,0 -111.5104,36.8791,0 -112.9868,37.2,0 -114.5225,36.4293,0 -118.4973,34.0089,0 -118.805,34.0,0 -118.8737,34.0357,0 -118.4085,33.9416,0
+        -115.1636,36.0602,0 -115.1189,36.0792,0 -114.5284,36.4856,0 -113.2694,37.2041,0 -112.9508,37.259,0 -112.9408,37.2136,0 -112.6811,37.2266,0 -112.3177,37.7433,0 -112.1656,37.6238,0 -112.5263,37.0475,0 -112.0252,37.0188,0 -111.5104,36.8791,0 -111.4558,36.9147,0 -111.4114,36.9028,0 -109.9908,37.1014,0 -110.1117,36.9818,0 -111.4129,35.8756,0 -111.8262,36.0442,0 -112.0837,36.053,0 -111.6491,35.1973,0 -111.7372,35.0286,0 -111.7897,34.8239,0 -116.1469,34.0309,0 -117.7854,33.5427,0 -117.8398,33.575,0 -118.4695,33.985,0 -118.4973,34.0092,0 -118.8065,34.0012,0 -118.8737,34.0357,0 -118.7301,34.0361,0 -118.3004,34.1184,0 -118.5015,34.0155,0 -118.4085,33.9416,0
       </coordinates></LineString>
     </Placemark>
     <Folder>
-      <name>Day 1 — The tunnel, the ridge, the flush (Mon Nov 2, 2026)</name>
+      <name>Day 1 — Las Vegas arrival, Valley of Fire &amp; gateway to Zion (Mon Nov 2, 2026)</name>
       <Placemark>
-        <name>Clinton (NJ)</name>
-        <description><![CDATA[<b>Walmart Supercenter (1 Wal-Mart Plaza) &amp; Clinton Station Diner (2 Bank St)</b><br/><b>Note:</b> First flush stop. Hit the Walmart first to buy your camping gear, then walk the diner lot for five minutes before you sit down.<br/><b>Eat:</b> Clinton Station Diner. Real Jersey diner. Sit at the counter. Eggs, hash browns, rye.<br/><b>See:</b> Walmart Supercenter (opens 6 AM). Buy your sleeping pad, 15°F sleeping bag, and Reflectix roll right here.<br/><b>Highway:</b> I-78 W · Exit 15]]></description>
+        <name>Las Vegas / Henderson Gear Run (NV)</name>
+        <description><![CDATA[<b>Walmart Supercenter (6005 S Eastern Ave, Las Vegas, NV 89119) &amp; REI Henderson (2220 Village Walk Dr, Henderson, NV 89052)</b><br/><b>Note:</b> 60-min camp gear &amp; grocery provisioning stop (12:00–1:15 PM). Pick up 0°F–15°F sleeping bag, R&gt;=4.5 pad, camp stove + fuel canister, 2.5-gal water jug, Reflectix, and beach towel.<br/><b>Eat:</b> Mothership Coffee Roasters (2708 N Green Valley Pkwy, Henderson) + fresh wraps, fruit, and electrolyte water.<br/><b>See:</b> One-stop desert &amp; canyon provisioning 8 minutes east of the rental car center.<br/><b>Highway:</b> I-215 E · S Eastern Ave]]></description>
         <styleUrl>#meal-pin</styleUrl>
-        <Point><coordinates>-74.9083,40.6367,0</coordinates></Point>
+        <Point><coordinates>-115.1189,36.0792,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Front Royal (VA)</name>
-        <description><![CDATA[<b>Spelunker's, 116 South St, Front Royal, VA 22630</b><br/><b>Note:</b> Fill the tank here. No fuel available inside Shenandoah NP in November.<br/><b>Eat:</b> Spelunker's — cavern-themed burger + frozen custard.<br/><b>See:</b> Shenandoah River from the bridge on your way in.<br/><b>Highway:</b> I-81 S · US-340]]></description>
-        <styleUrl>#meal-pin</styleUrl>
-        <Point><coordinates>-78.1975,38.9155,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Big Meadows (VA)</name>
-        <description><![CDATA[<b>Big Meadows Wayside, Skyline Drive mp 51, Shenandoah NP</b><br/><b>Note:</b> Pit stop and horizon check. Ten minutes, then back on Skyline south.<br/><b>Eat:</b> Thermos coffee refill only.<br/><b>See:</b> Open sky over the meadow. Deer at any hour.<br/><b>Highway:</b> Skyline Drive · mp 51]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-78.4358,38.5218,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Blackrock Summit (VA)</name>
-        <description><![CDATA[<b>Blackrock Summit Trailhead, Skyline Drive mp 84.8</b><br/><b>Note:</b> 1.0 mi loop, 175 ft gain, ~45 min. Non-optional recovery flush.<br/><b>Eat:</b> Snack in the day pack. Water — 1L minimum.<br/><b>See:</b> 360° stone-field summit. Four ridges deep.<br/><b>Highway:</b> Skyline Drive · mp 84.8]]></description>
+        <name>Valley of Fire State Park (NV)</name>
+        <description><![CDATA[<b>Fire Wave &amp; Seven Wonders Trailhead (Parking Lot #3), White Domes Rd, Moapa Valley, NV 89040</b><br/><b>Note:</b> $15 NV out-of-state entry fee. Hike the 1.8 mi (3.0 km) Fire Wave &amp; Seven Wonders Loop (3:00–4:35 PM) across pink-and-orange Aztec sandstone swirls and through Pastel (Pink) Canyon at golden hour.<br/><b>Eat:</b> 1.5L electrolyte water + trail fruit and bars before heading up White Domes Road.<br/><b>See:</b> Mouse's Tank Road scenic corridor, Rainbow Vista, Fire Wave striated sandstone, and Pink Canyon slot.<br/><b>Highway:</b> I-15 N · NV-169 E (Exit 75)]]></description>
         <styleUrl>#activity-pin</styleUrl>
-        <Point><coordinates>-78.7328,38.2338,0</coordinates></Point>
+        <Point><coordinates>-114.5284,36.4856,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Harrisonburg (VA)</name>
-        <description><![CDATA[<b>Hotel Madison, 710 S Main St, Harrisonburg, VA 22801</b><br/><b>Note:</b> Hotel Madison is the pick. Alt: Blackburn Inn in Staunton (25 mi south).<br/><b>Eat:</b> Jack Brown's Beer &amp; Burger or Pale Fire Brewing.<br/><b>See:</b> Downtown Harrisonburg. Walkable.<br/><b>Highway:</b> US-33 W · via Swift Run Gap]]></description>
+        <name>La Verkin (UT)</name>
+        <description><![CDATA[<b>La Quinta Inn &amp; Suites by Wyndham La Verkin - Gateway to Zion, 101 E 500 N, La Verkin, UT 84745</b><br/><b>Note:</b> BOOKED Night 1 Hotel: La Quinta Inn &amp; Suites La Verkin (25 mins from Zion South Gate). Lose 1 hour crossing NV -&gt; UT (PST to MST). Soak post-marathon legs in the hot tub. (Alt camp: Watchman or Hurricane Cliffs BLM).<br/><b>Eat:</b> Stage Coach Grille (99 N State St, La Verkin) or Casa Tequilana (Hurricane).<br/><b>See:</b> Towering limestone walls of the Virgin River Gorge along I-15.<br/><b>Highway:</b> I-15 N (Virgin River Gorge) · UT-9 E]]></description>
         <styleUrl>#hotel-pin</styleUrl>
-        <Point><coordinates>-78.8697,38.434,0</coordinates></Point>
+        <Point><coordinates>-113.2694,37.2041,0</coordinates></Point>
       </Placemark>
     </Folder>
     <Folder>
-      <name>Day 2 — Blue Ridge Parkway south (Tue Nov 3, 2026)</name>
+      <name>Day 2 — Zion Canyon heights, Mt. Carmel Tunnel &amp; Canyon Overlook (Tue Nov 3, 2026)</name>
       <Placemark>
-        <name>Rockfish Gap (VA)</name>
-        <description><![CDATA[<b>Blue Ridge Parkway mp 0, Waynesboro, VA</b><br/><b>Note:</b> Fuel and provisions before entering. No gas on the BRP itself.<br/><b>Eat:</b> Coffee thermos filled at Shen Valley in Harrisonburg.<br/><b>See:</b> Blue Ridge Parkway mp 0 sign.<br/><b>Highway:</b> I-64 E · BRP entry]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-78.8583,38.0338,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Peaks of Otter (VA)</name>
-        <description><![CDATA[<b>Peaks of Otter, BRP mp 86, Bedford, VA</b><br/><b>Note:</b> BRP highlight. 30 min minimum, 1 hr if the light is good.<br/><b>Eat:</b> Sharp Top Trail overlook lunch. Sandwich from the wayside store.<br/><b>See:</b> Abbott Lake reflection of Sharp Top.<br/><b>Highway:</b> Blue Ridge Parkway · mp 86]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-79.6058,37.4463,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Asheville (NC)</name>
-        <description><![CDATA[<b>Downtown Asheville, NC</b><br/><b>Note:</b> Cut Mabry Mill for time. Drop off BRP near Buchanan, take I-81/I-40.<br/><b>Eat:</b> Wicked Weed / Burial Beer / Cúrate / 12 Bones BBQ.<br/><b>See:</b> River Arts District (RAD) if you have daylight.<br/><b>Highway:</b> US-11 · I-81 S · I-40 W]]></description>
-        <styleUrl>#hotel-pin</styleUrl>
-        <Point><coordinates>-82.5515,35.5951,0</coordinates></Point>
-      </Placemark>
-    </Folder>
-    <Folder>
-      <name>Day 3 — Smokies at dawn, hot chicken at dusk (Wed Nov 4, 2026)</name>
-      <Placemark>
-        <name>Newfound Gap (TN/NC)</name>
-        <description><![CDATA[<b>Newfound Gap Overlook, Great Smoky Mountains NP</b><br/><b>Note:</b> Pivot moment: leaving the East. ~20 min stop.<br/><b>Eat:</b> Nothing — no food service in the park corridor.<br/><b>See:</b> State line marker. Appalachian Trail crosses here.<br/><b>Highway:</b> US-441 · Newfound Gap Rd]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-83.4247,35.6111,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Clingmans Dome (TN)</name>
-        <description><![CDATA[<b>Clingmans Dome Observation Tower, Great Smoky Mountains NP</b><br/><b>Note:</b> Paved 0.5-mi climb. ~30 min round trip.<br/><b>Eat:</b> Water only.<br/><b>See:</b> Highest point in the Smokies (6,643 ft). 360° tower view.<br/><b>Highway:</b> Clingmans Dome Rd]]></description>
+        <name>Zion National Park (Main Canyon) (UT)</name>
+        <description><![CDATA[<b>The Grotto / Temple of Sinawava, Zion Canyon Scenic Drive, Springdale, UT 84767</b><br/><b>Note:</b> Buy $80 America the Beautiful Pass at Zion South Gate. In Nov, drive your own SUV directly up Zion Canyon Scenic Drive! Hike Option 1: Scout Lookout / Angels Landing (8.7 km), Option 2: Extended West Rim Trail (11.5 km), or Option 3: Deep Narrows via Zion Outfitter.<br/><b>Eat:</b> 7:00 AM coffee &amp; breakfast burrito at River Rock Roasting Co (La Verkin); 3:00 PM recovery snack at Sol Foods or Deep Creek Coffee in Springdale.<br/><b>See:</b> 2,000-ft Navajo sandstone cliffs, Scout Lookout views over the Big Bend, and the Virgin River narrows.<br/><b>Highway:</b> UT-9 E · Zion Canyon Scenic Drive]]></description>
         <styleUrl>#activity-pin</styleUrl>
-        <Point><coordinates>-83.4952,35.5568,0</coordinates></Point>
+        <Point><coordinates>-112.9508,37.259,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Nashville (TN)</name>
-        <description><![CDATA[<b>East Nashville or Germantown, Nashville, TN</b><br/><b>Note:</b> Target East Nashville or Germantown. Book ahead — Wed nights are surprisingly busy.<br/><b>Eat:</b> Prince's Hot Chicken (Nashville original) or Hattie B's.<br/><b>See:</b> East Nashville or Germantown. Skip lower Broadway.<br/><b>Highway:</b> I-40 W · US-129]]></description>
+        <name>Zion–Mt. Carmel Tunnel &amp; Canyon Overlook (UT)</name>
+        <description><![CDATA[<b>Canyon Overlook Trailhead (East Portal of Zion-Mt. Carmel Tunnel), UT-9, Springdale, UT</b><br/><b>Note:</b> Drive the historic 1.1-mile 1930 tunnel at 3:45 PM, park at the East Portal, and hike the 1.0 mi (1.6 km) Canyon Overlook Trail for sunset (5:27 PM MST) over Pine Creek slot and West Temple.<br/><b>Eat:</b> Thermos tea &amp; trail mix on the East Temple sandstone ledges.<br/><b>See:</b> Pine Creek Canyon abyss, switchbacks below, and West Temple glowing crimson at sunset.<br/><b>Highway:</b> UT-9 E · Zion–Mt. Carmel Highway]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-112.9408,37.2136,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Mt. Carmel Junction / Kanab (UT)</name>
+        <description><![CDATA[<b>Best Western East Zion Thunderbird Lodge, US-89 &amp; UT-9, Mt. Carmel Junction, UT 84755</b><br/><b>Note:</b> Sleep on the East Zion plateau so you don't backtrack tomorrow. Options: Best Western Thunderbird Lodge (Mt. Carmel Jct), Canyons Boutique Hotel (Kanab), Zion Ponderosa Cowboy Cabin, or East Zion BLM camp.<br/><b>Eat:</b> Cordwood at Zion Mountain Ranch (farm-to-table bison/trout), Thunderbird Restaurant ('Ho-Made' pies), or Peekaboo Canyon Wood Fired Kitchen (Kanab).<br/><b>See:</b> Checkerboard Mesa on the drive out of East Zion and star-filled plateau skies.<br/><b>Highway:</b> UT-9 E · US-89]]></description>
         <styleUrl>#hotel-pin</styleUrl>
-        <Point><coordinates>-86.7816,36.1627,0</coordinates></Point>
+        <Point><coordinates>-112.6811,37.2266,0</coordinates></Point>
       </Placemark>
     </Folder>
     <Folder>
-      <name>Day 4 — Nashville → Memphis → the plains (Thu Nov 5, 2026)</name>
+      <name>Day 3 — Scenic Highway 12, Red Canyon &amp; Bryce Canyon amphitheater (Wed Nov 4, 2026)</name>
       <Placemark>
-        <name>Memphis (TN)</name>
-        <description><![CDATA[<b>National Civil Rights Museum, 450 Mulberry St, Memphis, TN 38103</b><br/><b>Note:</b> 2.5 hr stop total: 90 min museum + 45 min lunch + walk.<br/><b>Eat:</b> Central BBQ, 147 E Butler Ave — pulled pork plate.<br/><b>See:</b> National Civil Rights Museum at the Lorraine Motel. 90 min minimum.<br/><b>Highway:</b> I-40 W]]></description>
-        <styleUrl>#meal-pin</styleUrl>
-        <Point><coordinates>-90.0578,35.1341,0</coordinates></Point>
+        <name>Red Canyon (Scenic Byway UT-12) (UT)</name>
+        <description><![CDATA[<b>Red Canyon Visitor Center &amp; Arch Tunnels, UT-12, Panguitch, UT 84759</b><br/><b>Note:</b> Drive through the two hand-carved red-rock highway arches on UT-12, then stop at Ruby's Inn General Store for warm layers, fuel, and trail provisions.<br/><b>Eat:</b> Roadside espresso + hot lunch provisions from Ruby's Inn General Store.<br/><b>See:</b> Vibrant crimson Claron limestone hoodoos and the iconic Red Canyon arch tunnels.<br/><b>Highway:</b> US-89 N · Scenic Byway UT-12 E]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-112.3177,37.7433,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Amarillo (TX)</name>
-        <description><![CDATA[<b>I-40 corridor, Amarillo, TX</b><br/><b>Note:</b> THE transit day. Over 11 hrs door to door. Arrive ~10 PM. Sleep hard.<br/><b>Eat:</b> Late arrival — hotel bar or 24-hr taqueria off I-40.<br/><b>See:</b> The horizon flattening for hours. Sunset in Oklahoma.<br/><b>Highway:</b> I-40 W · through Little Rock, OKC]]></description>
+        <name>Bryce Canyon National Park (UT)</name>
+        <description><![CDATA[<b>Sunset Point / Inspiration Point &amp; Ruby's Inn, UT-63, Bryce Canyon City, UT 84764</b><br/><b>Note:</b> FREE entry w/ $80 Pass. Hike the Figure-8 Combination Loop (Wall Street + Navajo Loop + Queens Garden + Peekaboo Loop, 10.3 km) or Fairyland Loop (12.9 km). Watch sunset at Inspiration Point (5:23 PM MST). Night temp drops to -6°C (21°F). Sleep: Ruby's Inn, Bryce Pioneer Village (Tropic), North Campground, or Dixie NF FR-117.<br/><b>Eat:</b> i.d.k. Barbecue (Tropic, UT — local smoked brisket &amp; ribs) or Valhalla Pizzeria &amp; Coffee Shop at Bryce Canyon Lodge.<br/><b>See:</b> Thousands of glowing orange hoodoo spires, Thor's Hammer, Wall Street slot, and 8,100-ft stargazing.<br/><b>Highway:</b> UT-12 E · UT-63 S]]></description>
         <styleUrl>#hotel-pin</styleUrl>
-        <Point><coordinates>-101.8313,35.2219,0</coordinates></Point>
+        <Point><coordinates>-112.1656,37.6238,0</coordinates></Point>
       </Placemark>
     </Folder>
     <Folder>
-      <name>Day 5 — Palo Duro and the high desert (Fri Nov 6, 2026)</name>
+      <name>Day 4 — Bryce sunrise, Buckskin Gulch slot canyon &amp; Horseshoe Bend (Thu Nov 5, 2026)</name>
       <Placemark>
-        <name>Palo Duro Canyon (TX)</name>
-        <description><![CDATA[<b>Palo Duro Canyon State Park, 11450 State Hwy Park Rd 5, Canyon, TX 79015</b><br/><b>Note:</b> Real 2-hour stop, not a drive-by. Cadillac Ranch cut.<br/><b>Eat:</b> Nothing — provisions from Amarillo.<br/><b>See:</b> 'Grand Canyon of Texas.' Red rock, 800 ft deep.<br/><b>Highway:</b> TX-217 · Park Rd 5]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-101.6579,34.9349,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Tucumcari (NM)</name>
-        <description><![CDATA[<b>Route 66, Tucumcari, NM 88401</b><br/><b>Note:</b> Get off I-40, drive Tucumcari Blvd end to end, then back on the highway.<br/><b>Eat:</b> Del's Restaurant — neon cow sign, real green chile.<br/><b>See:</b> Blue Swallow Motel neon at dusk.<br/><b>Highway:</b> I-40 W · Route 66 downtown loop]]></description>
+        <name>Kanab Creek Bakery (UT)</name>
+        <description><![CDATA[<b>Kanab Creek Bakery, 238 E 300 S, Kanab, UT 84741</b><br/><b>Note:</b> After catching the 7:04 AM sunrise over Bryce Point, descend US-89 S to Kanab for freshly baked sourdough, croissants, espresso, and packed trail sandwiches.<br/><b>Eat:</b> Kanab Creek Bakery — scratch sourdough, savory quiche, French pastries, and trail baguettes.<br/><b>See:</b> Dawn light igniting the Bryce amphitheater before dropping 3,000 ft down the Grand Staircase.<br/><b>Highway:</b> UT-12 W · US-89 S]]></description>
         <styleUrl>#meal-pin</styleUrl>
-        <Point><coordinates>-103.725,35.1717,0</coordinates></Point>
+        <Point><coordinates>-112.5263,37.0475,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Albuquerque (NM)</name>
-        <description><![CDATA[<b>BLM dispersed camping, west of Albuquerque, NM</b><br/><b>Note:</b> First car-camping night. Elevation ~5,300 ft, near-freezing overnight.<br/><b>Eat:</b> Green chile cheeseburger at Sadie's, 5400 Cutler Ave.<br/><b>See:</b> Sandia Peak turning pink at sunset.<br/><b>Highway:</b> I-40 W]]></description>
-        <styleUrl>#camp-pin</styleUrl>
-        <Point><coordinates>-106.6504,35.0844,0</coordinates></Point>
-      </Placemark>
-    </Folder>
-    <Folder>
-      <name>Day 6 — Painted rock to the great crack (Sat Nov 7, 2026)</name>
-      <Placemark>
-        <name>Painted Desert (AZ)</name>
-        <description><![CDATA[<b>Painted Desert Visitor Center, Petrified Forest NP, AZ</b><br/><b>Note:</b> Enter north, exit south. 2 hours minimum inside the park.<br/><b>Eat:</b> Cold breakfast from the cooler on the rim.<br/><b>See:</b> Painted Desert rim + Petrified Forest 28-mi scenic road.<br/><b>Highway:</b> I-40 W · PEFO N entrance]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-109.781,35.0654,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Meteor Crater (AZ)</name>
-        <description><![CDATA[<b>Meteor Crater Natural Landmark, Winslow, AZ 86047</b><br/><b>Note:</b> 20 min off I-40, ~45 min at the rim.<br/><b>Eat:</b> Small deli inside the visitor center.<br/><b>See:</b> 0.7-mi-wide asteroid impact crater. 50,000 years old.<br/><b>Highway:</b> I-40 W · exit 233]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-111.0224,35.0272,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Grand Canyon (AZ)</name>
-        <description><![CDATA[<b>Mather Campground, Grand Canyon South Rim, AZ</b><br/><b>Note:</b> Mather Campground — Sat Nov 7 = weekend, book EARLY.<br/><b>Eat:</b> Camp stove: pasta + a can of chile. Or Bright Angel restaurant.<br/><b>See:</b> South Rim at sunset. Hopi Point or Yavapai Point.<br/><b>Highway:</b> US-180 N · AZ-64 N]]></description>
-        <styleUrl>#camp-pin</styleUrl>
-        <Point><coordinates>-112.1394,36.0553,0</coordinates></Point>
-      </Placemark>
-    </Folder>
-    <Folder>
-      <name>Day 7 — Slot canyon light, red rock camp (Sun Nov 8, 2026)</name>
-      <Placemark>
-        <name>Antelope Canyon (AZ)</name>
-        <description><![CDATA[<b>Upper Antelope Canyon, Page, AZ 86040</b><br/><b>Note:</b> The one time-locked booking of the trip. 8-10 AM slot for the beams.<br/><b>Eat:</b> Coffee in Page — Big John's or Ravens Cafe.<br/><b>See:</b> Sandstone light beams. Navajo-guided only.<br/><b>Highway:</b> US-89 N]]></description>
+        <name>Wire Pass to Buckskin Gulch (UT)</name>
+        <description><![CDATA[<b>Wire Pass Trailhead, House Rock Valley Rd, Kanab, UT 84741</b><br/><b>Note:</b> Midday unguided slot canyon hike! Option 1: Wire Pass into Buckskin Gulch ($6 permit, 9–13 km round-trip into the longest/deepest slot canyon in the Southwest). Option 2 (if muddy): Willis Creek Narrows + Toadstool Hoodoos (2.4 km right off US-89).<br/><b>Eat:</b> Packed Kanab Creek Bakery sandwich &amp; trail snacks at the Wire Pass / Buckskin confluence alcove.<br/><b>See:</b> 200-ft sculpted Navajo sandstone narrows, petroglyph panel at the confluence, and balanced Toadstool boulders.<br/><b>Highway:</b> US-89 E · House Rock Valley Rd (BLM 1065)]]></description>
         <styleUrl>#activity-pin</styleUrl>
-        <Point><coordinates>-111.3743,36.8619,0</coordinates></Point>
+        <Point><coordinates>-112.0252,37.0188,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Horseshoe Bend (AZ)</name>
-        <description><![CDATA[<b>Horseshoe Bend Overlook, Page, AZ</b><br/><b>Note:</b> 45 min stop. Then push west through Kanab to Zion.<br/><b>Eat:</b> Post-tour lunch: State 48 Tavern or Bonkers in Page.<br/><b>See:</b> Colorado River in a perfect horseshoe, 1,000 ft below.<br/><b>Highway:</b> US-89 · 5 min south of Page]]></description>
+        <name>Glen Canyon Dam &amp; Horseshoe Bend Overlook (AZ)</name>
+        <description><![CDATA[<b>Horseshoe Bend Overlook, US-89 Milepost 545, Page, AZ 86040</b><br/><b>Note:</b> Stop at Glen Canyon Dam Overlook (3:45 PM, free w/ pass), then walk the 1.5 mi (2.4 km) round-trip trail to Horseshoe Bend Overlook ($10 Page parking) for sunset (5:22 PM MST) 1,000 ft above the Colorado River.<br/><b>Eat:</b> Post-sunset dinner in Page: The BirdHouse (crispy fried chicken &amp; honey butter biscuits) or El Tapatio.<br/><b>See:</b> 270-degree gooseneck bend of the emerald Colorado River framed by sheer 1,000-ft sandstone cliffs.<br/><b>Highway:</b> US-89 S across Glen Canyon Bridge]]></description>
         <styleUrl>#scenic-pin</styleUrl>
         <Point><coordinates>-111.5104,36.8791,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>Zion National Park (UT)</name>
-        <description><![CDATA[<b>Watchman Campground, Zion NP, Springdale, UT</b><br/><b>Note:</b> Two nights here (Sun + Mon). Watchman = walk-in campground with hot showers.<br/><b>Eat:</b> Springdale: Oscar's Cafe (fish tacos) or MeMe's Cafe (crepes).<br/><b>See:</b> Watchman peak turning red at sunset from camp.<br/><b>Highway:</b> US-89A · UT-9]]></description>
+        <name>Page / Lone Rock Beach (Lake Powell) (AZ)</name>
+        <description><![CDATA[<b>Lone Rock Beach Campground (Lake Powell) or Hyatt Place Page Lake Powell, 1126 N Navajo Dr, Page, AZ 86040</b><br/><b>Note:</b> Sleep on the sand right at the water's edge at Lone Rock Beach ($14 camp fee; $30 Glen Canyon entry waived by $80 pass), Wahweap Campground, or at Hyatt Place / Country Inn &amp; Suites in Page.<br/><b>Eat:</b> Campfire tea under the stars on Lake Powell shore or local craft draft at Grand Canyon Brewing (Page).<br/><b>See:</b> Lone Rock monolith rising directly out of Lake Powell under desert starlight.<br/><b>Highway:</b> US-89 · Lake Powell Blvd]]></description>
         <styleUrl>#camp-pin</styleUrl>
-        <Point><coordinates>-112.9868,37.2,0</coordinates></Point>
+        <Point><coordinates>-111.4558,36.9147,0</coordinates></Point>
       </Placemark>
     </Folder>
     <Folder>
-      <name>Day 9 — Mojave to the Pacific (Tue Nov 10, 2026)</name>
+      <name>Day 5 — Antelope Canyon light beams, Forrest Gump Point &amp; Monument Valley (Fri Nov 6, 2026)</name>
       <Placemark>
-        <name>Valley of Fire (NV)</name>
-        <description><![CDATA[<b>Valley of Fire State Park Visitor Center, Overton, NV</b><br/><b>Note:</b> 1.5 hr stop before the LA push. Last true desert of the trip.<br/><b>Eat:</b> Provisions from Springdale gas station or St. George.<br/><b>See:</b> Red sandstone spires. Feels like Mars. The Fire Wave loop is 1.5 mi.<br/><b>Highway:</b> I-15 S · NV-169]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-114.5225,36.4293,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>Los Angeles (CA)</name>
-        <description><![CDATA[<b>Santa Monica / Venice / Malibu, Los Angeles, CA</b><br/><b>Note:</b> Book Santa Monica specifically — Wed morning is PCH north to Point Dume + El Matador.<br/><b>Eat:</b> Gjelina in Venice or Bay Cities Deli in Santa Monica.<br/><b>See:</b> The Pacific. Stand there until the engine ticks cool.<br/><b>Highway:</b> I-15 S · I-10 W]]></description>
-        <styleUrl>#hotel-pin</styleUrl>
-        <Point><coordinates>-118.4973,34.0089,0</coordinates></Point>
-      </Placemark>
-    </Folder>
-    <Folder>
-      <name>Day 10 — PCH morning + wheels up (Wed Nov 11 – Thu Nov 12, 2026)</name>
-      <Placemark>
-        <name>Point Dume (CA)</name>
-        <description><![CDATA[<b>Point Dume State Beach &amp; Nature Preserve, 6800 Westward Beach Rd, Malibu, CA 90265</b><br/><b>Note:</b> First real PCH stop, Wed ~9 AM. 45 min: cliff loop trail + optional 15 min down the stairs to sea level.<br/><b>Eat:</b> Coffee at Malibu Farm Pier Cafe on the way out. Nothing at the point itself — bring water.<br/><b>See:</b> Cliffside overlook of the whale-migration channel. Gray whales southbound in November. Stairs down to the tide pools.<br/><b>Highway:</b> PCH (CA-1) · north from Santa Monica]]></description>
-        <styleUrl>#scenic-pin</styleUrl>
-        <Point><coordinates>-118.805,34.0,0</coordinates></Point>
-      </Placemark>
-      <Placemark>
-        <name>El Matador (CA)</name>
-        <description><![CDATA[<b>El Matador State Beach, 32350 Pacific Coast Hwy, Malibu, CA 90265</b><br/><b>Note:</b> The Pacific recovery plunge, if the surf is calm: 3 min cold, 10 min in the sun, repeat twice. Cold water on marathon-tired quads.<br/><b>Eat:</b> Neptune's Net (42505 PCH, 5 mi further north) — burger + fried shrimp if the mood strikes. Otherwise cooler snacks.<br/><b>See:</b> Sea stacks, sandstone arches, tide pools. The postcard-Malibu photograph.<br/><b>Highway:</b> PCH (CA-1) · 4 mi north of Point Dume]]></description>
+        <name>Antelope Canyon (Navajo Guided Tour) (AZ)</name>
+        <description><![CDATA[<b>Lower Antelope Canyon (Ken's / Dixie's Tours) or Upper Antelope Canyon, Page, AZ 86040</b><br/><b>Note:</b> 9:15 AM Guided Navajo Slot Canyon Tour (check in 8:30 AM). Lower Antelope (Ken's or Dixie's Tours) descends staircases through corkscrewing V-shaped sandstone corridors; Upper Antelope is a flat walk-in.<br/><b>Eat:</b> Morning espresso &amp; breakfast sandwich at LP Espresso or Canyon Crepes Cafe in Page.<br/><b>See:</b> World-famous swirling orange-and-violet Navajo sandstone cathedral walls and sculpted light beams.<br/><b>Highway:</b> AZ-98 E · Antelope Point Rd]]></description>
         <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-111.4114,36.9028,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Forrest Gump Point (US-163 MP 13) (UT)</name>
+        <description><![CDATA[<b>Forrest Gump Point, US-163 Milepost 13, Mexican Hat, UT 84531</b><br/><b>Note:</b> Iconic straight-arrow highway viewpoint looking south into the Monument Valley buttes. Pull completely onto the paved shoulder turnout for photos.<br/><b>Eat:</b> Roadside snack and hydration break before entering Navajo Tribal Park.<br/><b>See:</b> The classic telephoto road panorama leading straight into the towering red stone mittens and mesas.<br/><b>Highway:</b> AZ-98 E · US-160 E · US-163 N]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-109.9908,37.1014,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Monument Valley Navajo Tribal Park (AZ/UT)</name>
+        <description><![CDATA[<b>The View Hotel &amp; Wildcat Trailhead, Indn Route 42, Oljato-Monument Valley, AZ 84536</b><br/><b>Note:</b> $8 Tribal Park entry. Hike the unguided 5.4 mi (8.7 km) Wildcat Trail right around the base of West Mitten Butte (1:15–3:30 PM), drive the 17-Mile Valley Floor Loop (John Ford's Point, Artist's Point, North Window), and watch sunset over the Mittens (5:16 PM MST). Sleep: The View Hotel / Cabins / Campground or Goulding's Lodge.<br/><b>Eat:</b> Navajo Taco on frybread or green chile stew at The View Restaurant or Goulding's Stagecoach Dining Room.<br/><b>See:</b> West Mitten, East Mitten, and Merrick Butte glowing deep crimson at sunset and sunrise right outside your door.<br/><b>Highway:</b> US-163 · Monument Valley Rd]]></description>
+        <styleUrl>#hotel-pin</styleUrl>
+        <Point><coordinates>-110.1117,36.9818,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 6 — Monument Valley sunrise, Desert View &amp; Below the Grand Canyon Rim (Sat Nov 7, 2026)</name>
+      <Placemark>
+        <name>Cameron Trading Post (AZ)</name>
+        <description><![CDATA[<b>Cameron Trading Post, 466 US-89, Cameron, AZ 86020</b><br/><b>Note:</b> Watch the 6:52 AM sunrise over the Monument Valley Mittens, then drive 1h 45m south to historic 1916 Cameron Trading Post at the Little Colorado River Gorge. Top off fuel here before entering the park.<br/><b>Eat:</b> Historic dining room brunch (Navajo Taco or huevos rancheros) + browse authentic Native American basketry &amp; rugs.<br/><b>See:</b> 1911 suspension bridge spanning the Little Colorado River Gorge.<br/><b>Highway:</b> US-160 W · US-89 S]]></description>
+        <styleUrl>#meal-pin</styleUrl>
+        <Point><coordinates>-111.4129,35.8756,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Desert View Watchtower &amp; East Rim Drive (AZ)</name>
+        <description><![CDATA[<b>Desert View Watchtower, AZ-64 (Desert View Dr), Grand Canyon NP, AZ</b><br/><b>Note:</b> FREE entry w/ $80 Pass. Enter via the dramatic East Entrance along Desert View Drive (25 mi). Stop at Mary Colter's 1932 stone Watchtower, Lipan Point (best view of the Colorado River &amp; Unkar Delta), and Moran Point.<br/><b>Eat:</b> Trail snacks &amp; espresso before heading to the South Kaibab shuttle.<br/><b>See:</b> 70-ft stone Watchtower overlooking the widest eastern sweep of the Grand Canyon and the Painted Desert.<br/><b>Highway:</b> AZ-64 W · Grand Canyon East Entrance]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-111.8262,36.0442,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Grand Canyon South Rim (South Kaibab Trail) (AZ)</name>
+        <description><![CDATA[<b>South Kaibab Trailhead &amp; Mather Campground, Grand Canyon Village, AZ 86023</b><br/><b>Note:</b> Hike below the rim on the exposed ridge of the South Kaibab Trail: Option 1: Ooh Aah Point &amp; Cedar Ridge (3.0 mi / 5.5 km, 1,140 ft vertical), Option 2: Skeleton Point (6.0 mi / 9.7 km, 2,040 ft vertical), or Option 3: Paved Rim Trail to Hopi Point. Sunset at Hopi or Yavapai Point (5:26 PM MST). Sleep: Mather Campground ($18), Yavapai Lodge, or Kaibab NF FR-302 free camp.<br/><b>Eat:</b> El Tovar Lounge / Harvey House Cafe at Bright Angel Lodge or hot camp dinner at Mather.<br/><b>See:</b> 360-degree inner-canyon panoramas from Cedar Ridge and a 1-billion-year geological abyss glowing violet at dusk.<br/><b>Highway:</b> AZ-64 W · South Rim Village]]></description>
+        <styleUrl>#camp-pin</styleUrl>
+        <Point><coordinates>-112.0837,36.053,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 7 — Flagstaff coffee, Oak Creek Canyon switchbacks &amp; Sedona red rocks (Sun Nov 8, 2026)</name>
+      <Placemark>
+        <name>Flagstaff (Macy's European Coffeehouse) (AZ)</name>
+        <description><![CDATA[<b>Macy's European Coffeehouse &amp; Bakery, 14 S Beaver St, Flagstaff, AZ 86001</b><br/><b>Note:</b> Scenic pine-forest drive past the 12,633-ft San Francisco Peaks into historic downtown Flagstaff (7,000 ft) for Arizona's best independent coffeehouse.<br/><b>Eat:</b> Macy's Special (house mocha w/ real whipped cream) + fresh vegetarian breakfast burrito or waffle.<br/><b>See:</b> Historic Route 66 brick storefronts and ponderosa pine mountain air.<br/><b>Highway:</b> AZ-64 S · US-180 E]]></description>
+        <styleUrl>#meal-pin</styleUrl>
+        <Point><coordinates>-111.6491,35.1973,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Oak Creek Canyon Scenic Byway (AZ-89A) (AZ)</name>
+        <description><![CDATA[<b>Oak Creek Vista Overlook, N State Route 89A, Sedona, AZ 86336</b><br/><b>Note:</b> Stop at Oak Creek Vista Overlook at the rim of the Mogollon Rim, then descend 2,500 ft down hairpin switchbacks under sycamore canopy alongside rushing Oak Creek.<br/><b>Eat:</b> Fresh apple cider or fruit from the Native American artisan stands at Oak Creek Vista.<br/><b>See:</b> Vertical white-and-crimson canyon walls plunging into lush riparian forest.<br/><b>Highway:</b> AZ-89A S · Oak Creek Canyon Switchbacks]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-111.7372,35.0286,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sedona (Red Rocks &amp; Cathedral Rock) (AZ)</name>
+        <description><![CDATA[<b>Cathedral Rock &amp; Dry Creek Vista, Sedona, AZ 86336</b><br/><b>Note:</b> Red Rock Pass FREE w/ $80 America the Beautiful Pass; use free weekend Sedona Shuttle to trailheads! Afternoon hike: Option 1: Devil's Bridge (6.8 km), Option 2: Soldier Pass Cave &amp; Seven Sacred Pools (7.2 km), or Option 3: Boynton Canyon (10.0 km). At 4:00 PM, scramble up Cathedral Rock Trail (2.4 km) for 5:27 PM MST sunset. Sleep: Sedona boutique hotel or FR 525 Loy Butte BLM camp.<br/><b>Eat:</b> Lunch at Indian Gardens Cafe &amp; Market (Oak Creek); dinner at The Hudson, Elote Cafe, or Tortas de Fuego.<br/><b>See:</b> Natural sandstone arch at Devil's Bridge and the fiery orange spires of Cathedral Rock at sunset.<br/><b>Highway:</b> AZ-89A · AZ-179 (Red Rock Scenic Byway)]]></description>
+        <styleUrl>#hotel-pin</styleUrl>
+        <Point><coordinates>-111.7897,34.8239,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 8 — Red Rocks to the Pacific: Joshua Tree &amp; Laguna Beach Ocean Swim #1 (Mon Nov 9, 2026)</name>
+      <Placemark>
+        <name>Joshua Tree National Park (Barker Dam Loop) (CA)</name>
+        <description><![CDATA[<b>Barker Dam Trailhead, Park Blvd, Joshua Tree National Park, CA 92284</b><br/><b>Note:</b> Gain 1 extra hour crossing AZ -&gt; CA (MST to PST)! Optional 60-min Mojave leg-flush stop on the flat 1.1 mi (1.8 km) Barker Dam Loop (FREE entry w/ $80 Pass), or stay straight on I-10 W to reach the ocean 90 mins earlier.<br/><b>Eat:</b> 6:30 AM pour-over at FreeForm Coffee Roasters (Sedona); midday date shake &amp; fish tacos in Indio/Palm Springs.<br/><b>See:</b> Surreal monzogranite boulder wonderland, desert bighorn habitat, and thousands of twisted Joshua trees.<br/><b>Highway:</b> I-17 S · I-10 W · Park Blvd]]></description>
+        <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-116.1469,34.0309,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Laguna Beach (1,000 Steps Beach &amp; Heisler Park) (CA)</name>
+        <description><![CDATA[<b>Heisler Park &amp; 1,000 Steps Beach (9th Ave &amp; Coast Hwy), Laguna Beach, CA 92651</b><br/><b>Note:</b> OCEAN NIGHT #1! Arrive Laguna Beach 1:30–2:30 PM. Take your first Pacific Ocean swim (18°C / 64°F water, 22°C sunny air) at 1,000 Steps Beach sea caves or Main Beach coves, walk to Victoria Beach's 1926 Pirate Tower, and stroll Heisler Park tide pools at sunset (4:52 PM PST). Sleep: Laguna Beach House / Art Hotel or Crystal Cove Moro Campground.<br/><b>Eat:</b> Banzai Bowls (acai bowl after swim) + sunset dinner overlooking the surf at The Cliff Restaurant, Nick's Laguna Beach, or La Sirena Grill.<br/><b>See:</b> Turquoise coves, sea caves, tide pools, and the Pacific sun sinking behind Catalina Island.<br/><b>Highway:</b> I-10 W · CA-91 W · CA-133 S to Coast Hwy (CA-1)]]></description>
+        <styleUrl>#hotel-pin</styleUrl>
+        <Point><coordinates>-117.7854,33.5427,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 9 — Crystal Cove bluffs, Venice Canals &amp; Santa Monica sunset bike ride (Tue Nov 10, 2026)</name>
+      <Placemark>
+        <name>Crystal Cove State Park (CA)</name>
+        <description><![CDATA[<b>Crystal Cove Historic District &amp; Reef Point, 8471 N Coast Hwy, Laguna Beach, CA 92651</b><br/><b>Note:</b> Morning coffee at Jedidiah Coffee (Laguna). Hike the 3.0 mi (5.0 km) Reef Point &amp; Pelican Point Bluff-to-Beach Loop and take a refreshing morning ocean swim #2 in the protected marine preserve alongside 1930s vintage beach cottages.<br/><b>Eat:</b> Brunch right on the sand at The Beachcomber at Crystal Cove + date shake at Ruby's Shake Shack on the cliff.<br/><b>See:</b> 3.2 miles of untouched golden sand, Pelican Point tide pools, and dolphins cruising just beyond the breakers.<br/><b>Highway:</b> Pacific Coast Hwy (CA-1 N) · 10 mins north of Laguna]]></description>
+        <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-117.8398,33.575,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Venice Beach (Canals &amp; Boardwalk) (CA)</name>
+        <description><![CDATA[<b>Venice Canals Historic District &amp; Windward Plaza, Venice, CA 90291</b><br/><b>Note:</b> Stroll the peaceful Venice Canals walkways, watch skaters drop into the beachfront Venice Skatepark &amp; Muscle Beach, then rent a cruiser bike and ride the 6.2 mi (10 km) round-trip Marvin Braude Oceanfront Trail ('The Strand') to Santa Monica Pier at golden hour.<br/><b>Eat:</b> Coffee at Menotti's Coffee Stop (Windward Ave) or Intelligentsia (Abbot Kinney Blvd).<br/><b>See:</b> 1905 Venice canal bridges, palm-lined oceanfront boardwalk, and golden-hour views up the Santa Monica Bay.<br/><b>Highway:</b> CA-73 N · I-405 N · CA-90 W]]></description>
+        <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-118.4695,33.985,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Santa Monica (Pier &amp; Ocean Ave) (CA)</name>
+        <description><![CDATA[<b>Santa Monica Pier &amp; Sea Blue Hotel, 1670 Ocean Ave, Santa Monica, CA 90401</b><br/><b>Note:</b> OCEAN NIGHTS #2 &amp; #3! Watch sunset at the end of the Santa Monica Pier (Route 66 End of the Trail sign, 4:53 PM PST). Base here for two consecutive nights (Tue + Wed) so there is zero hotel packing tomorrow morning. (Alt camp: Leo Carrillo or Point Mugu Thornhill Broome beachfront).<br/><b>Eat:</b> Dinner at Gjelina (Abbot Kinney Blvd), The Misfit Bar, or the iconic Godmother sandwich at Bay Cities Italian Deli.<br/><b>See:</b> Pacific Park Ferris wheel lights reflecting on the low-tide ocean mirror at dusk.<br/><b>Highway:</b> Ocean Ave · Pacific Coast Hwy (CA-1)]]></description>
+        <styleUrl>#hotel-pin</styleUrl>
+        <Point><coordinates>-118.4973,34.0092,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 10 — Malibu PCH (Point Dume, El Matador &amp; Malibu Seafood) &amp; Griffith sunset (Wed Nov 11, 2026)</name>
+      <Placemark>
+        <name>Point Dume Nature Preserve &amp; Pirates Cove (CA)</name>
+        <description><![CDATA[<b>Point Dume State Beach &amp; Nature Preserve, Cliffside Dr &amp; Birdview Ave, Malibu, CA 90265</b><br/><b>Note:</b> Morning espresso at Caffe Luxxe (Montana Ave) or Dogtown Coffee, then cruise PCH along the Malibu surf. Hike the 1.5 mi (2.4 km) Point Dume Cove Trail over the basalt headlands and climb down the wooden stairs into sheltered Pirates Cove for a morning Pacific swim.<br/><b>Eat:</b> Morning pastry &amp; espresso before driving PCH; bring water &amp; towel down the cove stairs.<br/><b>See:</b> 360-degree views of Zuma Beach, the Santa Monica Mountains, Catalina Island, and harbor seals in the kelp beds.<br/><b>Highway:</b> Pacific Coast Hwy (CA-1 N) · 21 mi north of Santa Monica]]></description>
+        <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-118.8065,34.0012,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>El Matador State Beach (CA)</name>
+        <description><![CDATA[<b>El Matador State Beach, 32350 Pacific Coast Hwy, Malibu, CA 90265</b><br/><b>Note:</b> Descend the dramatic bluff stairs to Malibu's most cinematic pocket beach. Walk through hollowed-out sea caves, sandstone arches, and towering sea stacks, and take one last Pacific plunge.<br/><b>Eat:</b> Hydrate after the beach stairs — big oceanfront seafood feast is next.<br/><b>See:</b> Wave-carved sea caves, keyhole rock arches, and emerald breakers crashing against golden cliffs.<br/><b>Highway:</b> PCH (CA-1 N) · 4 mi north of Point Dume]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
         <Point><coordinates>-118.8737,34.0357,0</coordinates></Point>
       </Placemark>
       <Placemark>
-        <name>LAX — Wheels Up (CA)</name>
-        <description><![CDATA[<b>Los Angeles International Airport (LAX)</b><br/><b>Note:</b> Wed ~2 PM back at Santa Monica (wash car, gas, repack). Sleep SM. Thu Nov 12: leave hotel 10:30, rental drop 11:30, LAX 12:00, wheels up 15:00.<br/><b>Eat:</b> Coffee at the gate. You made it.<br/><b>See:</b> The Pacific one more time out the window on takeoff.<br/><b>Highway:</b> PCH S → I-10 E → I-405 S]]></description>
+        <name>Malibu Seafood Fresh Fish Market &amp; Patio Cafe (CA)</name>
+        <description><![CDATA[<b>Malibu Seafood, 25653 Pacific Coast Hwy, Malibu, CA 90265</b><br/><b>Note:</b> Iconic fishermen-owned Malibu institution sitting directly across PCH from Dan Blocker Beach. Eat outdoors on the terraced ocean-view patio.<br/><b>Eat:</b> Grilled wild Pacific salmon or halibut, clam chowder in sourdough, fish tacos, or classic fish &amp; chips.<br/><b>See:</b> Unobstructed panoramic views across the sparkling Pacific while eating lunch in the sun.<br/><b>Highway:</b> PCH (CA-1 S)]]></description>
+        <styleUrl>#meal-pin</styleUrl>
+        <Point><coordinates>-118.7301,34.0361,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Griffith Observatory &amp; Mount Hollywood Trail (CA)</name>
+        <description><![CDATA[<b>Griffith Observatory, 2800 E Observatory Rd, Los Angeles, CA 90027</b><br/><b>Note:</b> 3:15 PM: Hike the 3.0 mi (4.8 km) Mount Hollywood Trail from the Observatory lawn to the summit for 360° golden-hour views of the Hollywood Sign, Downtown LA skyline, and the Pacific Ocean at sunset (4:52 PM PST). Return to Santa Monica afterward to pack your checked bag.<br/><b>Eat:</b> Celebratory final-night dinner back in Santa Monica / Venice: Forma Restaurant &amp; Cheese Bar, Cassia, or Felix Trattoria.<br/><b>See:</b> The Hollywood Sign, Art Deco Observatory domes, and the entire Los Angeles basin lighting up from the mountains to the sea.<br/><b>Highway:</b> I-10 E · I-5 N · Los Feliz Blvd]]></description>
+        <styleUrl>#activity-pin</styleUrl>
+        <Point><coordinates>-118.3004,34.1184,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Day 11 — Santa Monica morning walk, LAX SUV return &amp; Lufthansa LH 457 (Thu Nov 12, 2026)</name>
+      <Placemark>
+        <name>Santa Monica Palisades Park &amp; Refuel (CA)</name>
+        <description><![CDATA[<b>Palisades Park (Ocean Ave, Santa Monica) &amp; Fuel Stop (Aviation Blvd &amp; Century Blvd, Los Angeles, CA)</b><br/><b>Note:</b> 7:30–9:30 AM final morning walk &amp; coffee along the palm-lined Palisades Park ocean bluffs. Check out by 10:15 AM. Top off fuel tank to 100% full near Aviation Blvd / Century Blvd at 11:00 AM.<br/><b>Eat:</b> Final California breakfast burrito &amp; flat white at Huckleberry Bakery &amp; Cafe (1014 Wilshire Blvd) or Primo Passo Coffee.<br/><b>See:</b> Morning surfers at the pier and one last deep breath of salt air before heading to LAX.<br/><b>Highway:</b> Ocean Ave · Lincoln Blvd (CA-1 S) · Century Blvd]]></description>
+        <styleUrl>#scenic-pin</styleUrl>
+        <Point><coordinates>-118.5015,34.0155,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>LAX Rental Return &amp; Terminal B (TBIT) — Wheels Up (CA)</name>
+        <description><![CDATA[<b>Enterprise/National Return (5251 W 98th St, Los Angeles, CA 90045) &amp; LAX Terminal B (TBIT)</b><br/><b>Note:</b> Return Midsize SUV at 5251 W 98th St by 11:30 AM sharp (exact 10.0-day $466.67 clock). Shuttle to LAX Terminal B (TBIT) by 12:00 PM. Board 15:00 Lufthansa LH 457 -&gt; FRA (Seat 29A) -&gt; LH 1480 -&gt; EVN (Booking 9Y6YC9).<br/><b>Eat:</b> Pre-flight meal in Tom Bradley International Terminal Great Hall before boarding at 14:15.<br/><b>See:</b> Takeoff west over the Pacific beaches before banking northeast over the Mojave and Southwest canyons you just conquered.<br/><b>Highway:</b> Aviation Blvd · W 98th St · LAX Terminal B]]></description>
         <styleUrl>#finish-pin</styleUrl>
         <Point><coordinates>-118.4085,33.9416,0</coordinates></Point>
       </Placemark>
     </Folder>
     <Folder>
-      <name>Day 0 — Start (NYC)</name>
+      <name>Day 0 — Start (Las Vegas LAS)</name>
       <Placemark>
-        <name>New York City</name>
-        <description><![CDATA[Leave the LIC / UWS hotel by 7 AM. Uber to EWR to pick up the SUV. Wheels rolling on I-78 W by 8:15.]]></description>
+        <name>Las Vegas (LAS Rental Car Center)</name>
+        <description><![CDATA[Land LAS at 10:56 AM on American Airlines AA 2356 from JFK. Pick up confirmed Midsize SUV (Nissan Rogue or similar) at 11:30 AM ($466.67 total, unlimited miles, CDW + SLP + Roadside PLUS included).]]></description>
         <styleUrl>#start-pin</styleUrl>
-        <Point><coordinates>-74.006,40.7128,0</coordinates></Point>
+        <Point><coordinates>-115.1636,36.0602,0</coordinates></Point>
       </Placemark>
     </Folder>
   </Document>
