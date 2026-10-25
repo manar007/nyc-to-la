@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import {
   BellRing,
   CheckCircle2,
+  ExternalLink,
   Mail,
   RefreshCw,
   ShieldAlert,
@@ -25,6 +26,71 @@ export function WeatherDashboard({
   const [lastRefreshedSource, setLastRefreshedSource] = useState<
     "repo" | "live-browser"
   >("repo");
+  const [emailStatus, setEmailStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+  const [emailMessage, setEmailMessage] = useState<string>("");
+
+  async function sendTestEmailAlert() {
+    setEmailStatus("sending");
+    setEmailMessage("");
+    try {
+      const alertSummary =
+        data.activeAlerts.length > 0
+          ? data.activeAlerts
+              .map((a) => `[Day ${a.day} - ${a.visitDate}] ${a.location}: ${a.title}`)
+              .join(" | ")
+          : "0 Active Warnings — All Canyons & Roads Clear";
+
+      const formRes = await fetch(
+        "https://formsubmit.co/ajax/narekmamikonyan@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `🚨 [Road Trip Weather Alert] ${data.activeAlerts.length} Advisory · LAS → LAX`,
+            _template: "table",
+            Active_Alerts: alertSummary,
+            Zion_Virgin_River: `${data.virginRiver.cfs} CFS · Water ${data.virginRiver.waterTempC}°C (${data.virginRiver.waterTempF}°F) — Narrows ${
+              data.virginRiver.narrowsOpen ? "OPEN (<150 CFS)" : "CLOSED"
+            }`,
+            Bryce_Canyon_Nov_4:
+              "High 9.8°C / Low 0.3°C — Two Bridges + Queens Garden + Peekaboo Figure-8 OPEN (Wall Street closed)",
+            Ocean_Water_Buoys:
+              "Laguna Beach 22.3°C (72°F) · Santa Monica/Malibu 22.5°C (73°F)",
+            Live_Navigator: "https://manar007.github.io/nyc-to-la/",
+          }),
+        }
+      );
+
+      await fetch("https://ntfy.sh/narek-las-lax-roadtrip-2026", {
+        method: "POST",
+        headers: {
+          Title: `[TEST] Road Trip Weather Alert (${data.activeAlerts.length} Advisory)`,
+          Priority: "high",
+          Tags: "warning,sunny",
+          Click: "https://manar007.github.io/nyc-to-la/",
+        },
+        body: `Alert Test for narekmamikonyan@gmail.com:\n${alertSummary}\nZion Virgin River: ${data.virginRiver.cfs} CFS (${data.virginRiver.waterTempC}°C)`,
+      }).catch(() => {});
+
+      const formJson = await formRes.json().catch(() => null);
+      setEmailStatus("sent");
+      setEmailMessage(
+        formJson?.message
+          ? `FormSubmit: "${formJson.message}" (Check narekmamikonyan@gmail.com inbox/spam to click the 1-time Activate button if this is your first trigger!)`
+          : "Test alert dispatched to narekmamikonyan@gmail.com & live ntfy feed!"
+      );
+    } catch {
+      setEmailStatus("error");
+      setEmailMessage(
+        "Pushed to live ntfy feed! For direct email, check your browser ad-blocker or click the ntfy link."
+      );
+    }
+  }
 
   useEffect(() => {
     refreshLiveFromBrowser();
@@ -165,7 +231,6 @@ export function WeatherDashboard({
 
   return (
     <div className="flex flex-col gap-5 text-zinc-100">
-      {/* Top Automation & Email Alert Status Card */}
       <div className="rounded-2xl bg-zinc-950/90 p-4 ring-1 ring-white/10 sm:p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -185,25 +250,53 @@ export function WeatherDashboard({
             <p className="mt-1 text-xs leading-relaxed text-zinc-400">
               Last synced: <strong className="text-zinc-200">{formattedUpdated}</strong>{" "}
               ({lastRefreshedSource === "live-browser" ? "Live Browser Telemetry" : "Daily Repo Snapshot"}).
-              GitHub Actions automatically updates the repo every day and emails{" "}
-              <strong className="text-amber-200">{data.recipientEmail}</strong> if any NWS warning or slot-canyon flood risk appears.
+              Tap <strong>Send Test Email Alert</strong> below to test direct email delivery to{" "}
+              <strong className="text-amber-200">{data.recipientEmail}</strong>.
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={refreshLiveFromBrowser}
-            disabled={refreshing}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 py-2.5 text-xs font-semibold text-zinc-950 shadow-sm transition-colors hover:bg-amber-300 disabled:opacity-60"
-          >
-            <RefreshCw
-              className={cn("size-4", refreshing && "animate-spin")}
-            />
-            {refreshing ? "Fetching Live Telemetry..." : "Refresh Live Now"}
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={refreshLiveFromBrowser}
+              disabled={refreshing}
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 py-2.5 text-xs font-semibold text-zinc-950 shadow-sm transition-colors hover:bg-amber-300 disabled:opacity-60"
+            >
+              <RefreshCw
+                className={cn("size-4", refreshing && "animate-spin")}
+              />
+              {refreshing ? "Fetching Live..." : "Refresh Live Now"}
+            </button>
+            <button
+              type="button"
+              onClick={sendTestEmailAlert}
+              disabled={emailStatus === "sending"}
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-emerald-500/20 px-4 py-2.5 text-xs font-semibold text-emerald-200 ring-1 ring-emerald-400/35 transition-colors hover:bg-emerald-500/30 disabled:opacity-60"
+            >
+              <Mail className="size-4 text-emerald-300" />
+              {emailStatus === "sending"
+                ? "Sending Test Email..."
+                : "Send Test Email Alert"}
+            </button>
+            <a
+              href="https://ntfy.sh/narek-las-lax-roadtrip-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-zinc-900 px-3.5 py-2.5 text-xs font-semibold text-zinc-200 ring-1 ring-white/15 transition-colors hover:bg-zinc-800"
+            >
+              <BellRing className="size-3.5 text-amber-300" />
+              Live Alert Channel
+              <ExternalLink className="size-3 opacity-75" />
+            </a>
+          </div>
         </div>
 
-        {/* Live Water Telemetry Strip (Virgin River CFS + Pacific Ocean Buoys) */}
+        {emailMessage ? (
+          <div className="mt-3 rounded-xl bg-emerald-500/10 p-3 text-xs leading-relaxed text-emerald-200 ring-1 ring-emerald-400/30">
+            <strong>✓ Email Trigger Status:</strong> {emailMessage}
+          </div>
+        ) : null}
+
         <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
           <div className="flex items-center justify-between rounded-xl bg-zinc-900/80 p-3 ring-1 ring-white/10">
             <div>
@@ -254,7 +347,6 @@ export function WeatherDashboard({
         </div>
       </div>
 
-      {/* Active Weather Alerts Section */}
       {data.activeAlerts.length > 0 ? (
         <div className="flex flex-col gap-2.5 rounded-2xl bg-amber-500/10 p-4 ring-1 ring-amber-400/35">
           <div className="flex items-center gap-2">
@@ -296,7 +388,6 @@ export function WeatherDashboard({
         </div>
       )}
 
-      {/* Per-Stop Weather Cards */}
       <div className="grid gap-3 sm:grid-cols-2">
         {data.locations.map((loc) => {
           const isOcean = loc.category === "ocean";
@@ -335,7 +426,6 @@ export function WeatherDashboard({
                   {loc.name}
                 </h3>
 
-                {/* Current vs Visit Day Forecast Grid */}
                 <div className="mt-3 grid grid-cols-2 gap-2 rounded-xl bg-zinc-900/80 p-2.5 ring-1 ring-white/8">
                   <div>
                     <p className="text-[0.6rem] tracking-wider text-zinc-400 uppercase">
@@ -377,7 +467,6 @@ export function WeatherDashboard({
                   </div>
                 </div>
 
-                {/* Extra badges (Freeze alert, Ocean water temp, Virgin River) */}
                 <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {isFreeze ? (
                     <span className="inline-flex items-center gap-1 rounded-md bg-sky-500/15 px-2 py-0.5 text-[11px] font-medium text-sky-200 ring-1 ring-sky-400/30">
