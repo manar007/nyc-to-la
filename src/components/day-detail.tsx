@@ -22,7 +22,6 @@ import {
   ShieldCheck,
   Sun,
   Sunrise,
-  Sunset,
   Tent,
   Thermometer,
   Ticket,
@@ -49,7 +48,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
 
   return (
     <div className="flex flex-col gap-5">
-      {/* Header */}
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-md bg-amber-400/15 px-2 py-0.5 text-[0.7rem] font-semibold tracking-[0.2em] text-amber-300 uppercase ring-1 ring-amber-400/30">
@@ -68,7 +66,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </p>
       </div>
 
-      {/* Confirmed Booking Banner if applicable */}
       {guide?.bookedBanner ? (
         <div className="flex items-start gap-2.5 rounded-xl bg-emerald-500/10 p-3 text-xs leading-relaxed text-emerald-200 ring-1 ring-emerald-500/30">
           <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-400" />
@@ -81,7 +78,13 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </div>
       ) : null}
 
-      {/* Time Zone Change Alert if applicable */}
+      {guide?.kidFriendlyPick ? (
+        <div className="flex items-start gap-2.5 rounded-xl bg-rose-500/10 p-3 text-xs leading-relaxed text-rose-100 ring-1 ring-rose-400/30">
+          <span className="mt-0.5 text-base leading-none">👧</span>
+          <div>{guide.kidFriendlyPick}</div>
+        </div>
+      ) : null}
+
       {guide?.timeZoneNote ? (
         <div className="flex items-start gap-2.5 rounded-xl bg-amber-400/10 p-3 text-xs leading-relaxed text-amber-200 ring-1 ring-amber-400/30">
           <Clock className="mt-0.5 size-4 shrink-0 text-amber-300" />
@@ -94,7 +97,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </div>
       ) : null}
 
-      {/* 1-Tap Google Maps Full Day Navigation CTA */}
       <a
         href={plan.url}
         target="_blank"
@@ -108,7 +110,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         <ExternalLink className="size-3.5 opacity-75" />
       </a>
 
-      {/* Drive + Weather + Daylight Dashboard */}
       <div className="grid grid-cols-3 gap-2 rounded-xl bg-zinc-900/80 p-3 ring-1 ring-white/10">
         <Stat label="Drive" value={`${plan.driveMiles} mi`} />
         <Stat label="Road Time" value={formatHours(plan.driveHours)} />
@@ -169,7 +170,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </div>
       ) : null}
 
-      {/* Pass & Permit Rules */}
       {guide?.passAndPermitSummary ? (
         <div className="flex items-start gap-2.5 rounded-xl bg-zinc-900/70 p-3 text-xs leading-relaxed text-zinc-300 ring-1 ring-white/10">
           <Ticket className="mt-0.5 size-4 shrink-0 text-amber-300" />
@@ -182,7 +182,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </div>
       ) : null}
 
-      {/* Hiking Options with 1-Tap AllTrails Links */}
       {guide && guide.hikes.length > 0 ? (
         <section className="flex flex-col gap-2.5">
           <div className="flex items-center gap-2">
@@ -245,7 +244,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
 
       <Separator className="bg-white/10" />
 
-      {/* Hour-by-Hour Route Timetable */}
       <div className="flex items-center justify-between">
         <p className="text-xs font-semibold tracking-[0.2em] text-amber-300 uppercase">
           Stop-by-Stop Driving Timetable
@@ -373,7 +371,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         })}
       </ol>
 
-      {/* Food, Coffee & Water Provisioning */}
       {guide && guide.foodAndWater.length > 0 ? (
         <>
           <Separator className="bg-white/10" />
@@ -429,7 +426,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </>
       ) : null}
 
-      {/* Sleep Options (Hotels + Campgrounds + BLM) */}
       {guide && guide.sleepOptions.length > 0 ? (
         <>
           <Separator className="bg-white/10" />
@@ -437,7 +433,7 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
             <div className="flex items-center gap-2">
               <BedDouble className="size-4 text-amber-300" />
               <h3 className="text-xs font-semibold tracking-[0.2em] text-amber-300 uppercase">
-                Overnight Sleep Options (Hotel vs. Car Camp)
+                Overnight Hotel, Cabin & Heated Pool Options
               </h3>
             </div>
             <div className="flex flex-col gap-2.5">
@@ -504,7 +500,6 @@ export function DayDetail({ day, onSelectStop }: DayDetailProps) {
         </>
       ) : null}
 
-      {/* Key Nuances & Road Gotchas */}
       {guide && guide.nuances.length > 0 ? (
         <>
           <Separator className="bg-white/10" />

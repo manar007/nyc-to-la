@@ -41,8 +41,8 @@ const CATEGORY_FILTER_PILLS: {
   { id: "marathon", label: "NYC Marathon" },
   { id: "recovery", label: "Flight & Recovery" },
   { id: "hiking", label: "Canyon Hiking" },
-  { id: "camping", label: "SUV Camp / Vegas Buy" },
-  { id: "ocean-general", label: "Ocean & Docs" },
+  { id: "camping", label: "8yo Daughter & Road Kit" },
+  { id: "ocean-general", label: "Ocean, Pools & Docs" },
 ];
 
 const SCOPE_FILTER_PILLS: {
@@ -222,7 +222,6 @@ export function PackingList() {
 
   return (
     <div className="flex flex-col gap-5 text-zinc-100">
-      {/* Progress & Logistics Header Card */}
       <div className="rounded-2xl bg-zinc-950/90 p-4 ring-1 ring-white/10 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -237,7 +236,7 @@ export function PackingList() {
             </h2>
             <p className="mt-1.5 text-xs leading-relaxed text-zinc-400 sm:text-sm">
               Sun Nov 1 Marathon (3:20 goal) · Mon Nov 2 AA 2356 (JFK ➔ LAS) ·
-              10-Day Canyon &amp; Coast SUV Loop · Thu Nov 12 LH 457 (LAX ➔ EVN)
+              Father &amp; 8yo Daughter Canyon &amp; Coast Loop · Thu Nov 12 LH 457
             </p>
           </div>
 
@@ -267,7 +266,6 @@ export function PackingList() {
           </div>
         </div>
 
-        {/* Visual Progress Bar */}
         <div className="mt-4 h-2.5 w-full overflow-hidden rounded-full bg-zinc-900 ring-1 ring-white/8">
           <div
             className="h-full rounded-full bg-linear-to-r from-amber-400 via-amber-300 to-emerald-400 transition-all duration-300"
@@ -275,7 +273,6 @@ export function PackingList() {
           />
         </div>
 
-        {/* Quick Logistics Breakdown Stat Cards */}
         <div className="mt-4 grid grid-cols-3 gap-2.5 sm:gap-3">
           <button
             type="button"
@@ -301,7 +298,7 @@ export function PackingList() {
               {stats.carryOnPacked}/{stats.carryOnTotal}
             </p>
             <p className="mt-1 text-[0.68rem] text-zinc-400">
-              Race shoes, gels &amp; IDs
+              Race shoes, iPad &amp; IDs
             </p>
           </button>
 
@@ -323,7 +320,7 @@ export function PackingList() {
               {stats.checkedBagPacked}/{stats.checkedBagTotal}
             </p>
             <p className="mt-1 text-[0.68rem] text-zinc-400">
-              Hiking layers &amp; boots
+              Layers, shoes &amp; swimsuits
             </p>
           </button>
 
@@ -351,19 +348,18 @@ export function PackingList() {
               {stats.vegasBuyPacked}/{stats.vegasBuyTotal}
             </p>
             <p className="mt-1 text-[0.68rem] text-zinc-400">
-              Day 1 Walmart / REI
+              $18 Booster &amp; snacks
             </p>
           </button>
         </div>
 
-        {/* Day 1 Las Vegas Provisioning Quick-Links Banner */}
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-zinc-900/60 px-3.5 py-2.5 ring-1 ring-white/8">
           <div className="flex items-center gap-2 text-xs text-zinc-300">
             <Flame className="size-4 shrink-0 text-amber-400" />
             <span>
-              <strong className="text-zinc-100">Day 1 Vegas Stop:</strong> Pick
-              up SUV at LAS (11:30 AM) ➔ grab 15°F bag, pad &amp; water before
-              Valley of Fire
+              <strong className="text-zinc-100">Day 1 Vegas &amp; Zion Setup:</strong>{" "}
+              Pick up SUV at LAS (11:30 AM) ➔ grab $18 booster cushion &amp; road
+              snacks at Walmart ➔ Kid&apos;s Full Drysuit ($59) at Zion Outfitter
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -377,37 +373,26 @@ export function PackingList() {
               <ExternalLink className="size-3 opacity-75" />
             </a>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=REI+2220+Village+Walk+Dr+Henderson+NV+89052"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-lg bg-zinc-950 px-2.5 py-1.5 text-xs font-medium text-emerald-300 ring-1 ring-emerald-400/30 transition-colors hover:bg-emerald-400/10"
-            >
-              REI Henderson
-              <ExternalLink className="size-3 opacity-75" />
-            </a>
-            <a
-              href="https://zionoutfitter.com/"
+              href="https://zionoutfitter.com/product/kids-drysuit-package/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 rounded-lg bg-zinc-950 px-2.5 py-1.5 text-xs font-medium text-rose-300 ring-1 ring-rose-400/30 transition-colors hover:bg-rose-400/10"
             >
-              Zion Outfitter
+              Zion Outfitter Kid&apos;s Drysuit
               <ExternalLink className="size-3 opacity-75" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Search & Filter Controls */}
       <div className="flex flex-col gap-3 rounded-2xl bg-zinc-950/80 p-4 ring-1 ring-white/10">
-        {/* Search Input */}
         <div className="relative">
           <Search className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-zinc-500" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search gear (e.g., gels, compression, Narrows, 15°F bag, passport)..."
+            placeholder="Search gear (e.g., drysuit, booster, Junior Ranger, gels, passport)..."
             aria-label="Search gear items"
             className="h-11 w-full rounded-xl bg-zinc-900/90 pr-10 pl-10 text-sm text-zinc-100 placeholder:text-zinc-500 ring-1 ring-white/10 transition-shadow outline-none focus:ring-2 focus:ring-amber-400/60"
           />
@@ -423,7 +408,6 @@ export function PackingList() {
           ) : null}
         </div>
 
-        {/* Primary Category Filter Pills */}
         <div className="flex flex-wrap gap-1.5">
           {CATEGORY_FILTER_PILLS.map((pill) => {
             const active = selectedCategory === pill.id;
@@ -445,7 +429,6 @@ export function PackingList() {
           })}
         </div>
 
-        {/* Secondary Scope Toggle Filter */}
         <div className="flex flex-wrap items-center gap-1.5 border-t border-white/8 pt-2.5">
           <span className="mr-1 text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase">
             Filter:
@@ -471,7 +454,6 @@ export function PackingList() {
         </div>
       </div>
 
-      {/* Category Sections & Interactive Checkboxes */}
       {groupedCategories.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-zinc-950/70 p-10 text-center ring-1 ring-white/10">
           <Sparkles className="size-7 text-amber-400" />
