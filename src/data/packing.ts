@@ -243,21 +243,39 @@ export const PACKING_ITEMS: PackingItem[] = [
   },
   {
     id: "hiking-warm-layers-both",
-    name: "Warm layering system for both (Base layer + Fleece + Packable Puffy Jacket)",
+    name: "Outer & Mid Layers (Each): 1 Packable Down Puffy + 1 Wind/Rain Shell + 2 Fleece/Hoodies + 1 Thermal Base Set",
     category: "hiking",
     source: "checked-bag",
     essential: true,
     detail:
-      "Essential for 8,000 ft Bryce Canyon (0°C morning / 10°C afternoon) and 7,000 ft Grand Canyon South Rim.",
+      "The 3-climate 'Onion System': wear all 4 layers at 0°C Bryce/Grand Canyon sunrise, peel down to a t-shirt by 2:00 PM! Also wear the thermal leggings + fleece underneath your Zion Narrows drysuits (never wear jeans under a drysuit).",
+  },
+  {
+    id: "hiking-tops-bottoms-dad",
+    name: "Dad's Hiking & Road Clothes: 5 Technical Tees + 2 Long-Sleeve Sun Shirts + 2 Hiking Pants + 2 Shorts",
+    category: "hiking",
+    source: "checked-bag",
+    essential: true,
+    detail:
+      "Plus 1 pair of jeans/chinos + 2 casual shirts for dinners, 8 pairs underwear, and 6 pairs merino/synthetic hiking socks (plan 1 quick 45-min hotel laundry load in Page or Goulding's!).",
+  },
+  {
+    id: "hiking-clothes-daughter",
+    name: "8yo Daughter's Clothes: 6 Tees + 2 Long-Sleeve Tops + 4 Leggings/Joggers + 2 Shorts/Skorts + 2 Cozy Pajamas",
+    category: "hiking",
+    source: "checked-bag",
+    essential: true,
+    detail:
+      "Plus 1 pair of fleece-lined leggings (for Bryce Canyon & under her Narrows drysuit), 1 cute outfit for Santa Monica/Laguna dinners, 8 pairs underwear, and 7 pairs warm crew socks.",
   },
   {
     id: "hiking-beanie-gloves-both",
-    name: "Warm beanies, neck gaiters / Buffs & gloves (Adult + Kid sizes)",
+    name: "Warm Beanies (1 each), Neck Buffs (1 each) & Gloves (1 pair each — Adult + Kid sizes)",
     category: "hiking",
     source: "checked-bag",
     essential: true,
     detail:
-      "Keeps ears and fingers warm during Bryce Canyon sunrise, Monument Valley breeze, and Canyon Overlook sunset.",
+      "Keeps ears and fingers warm during Bryce Canyon sunrise (0°C), Monument Valley breeze, and Canyon Overlook sunset.",
   },
   {
     id: "hiking-headlamps-two",
@@ -354,12 +372,12 @@ export const PACKING_ITEMS: PackingItem[] = [
   },
   {
     id: "ocean-swimsuits-goggles",
-    name: "Swimsuits + Kid's swim goggles (for Heated Hotel Pools & Pacific Ocean!)",
+    name: "Swimwear: 2 Swimsuits for Daughter + 2 Swim Trunks for Dad + Kid's Swim Goggles",
     category: "ocean-general",
     source: "checked-bag",
     essential: true,
     detail:
-      "Used almost every evening at the heated hotel pools/hot tubs (La Quinta La Verkin, Ruby's Inn Bryce, Goulding's, Laguna Beach) AND for swimming in the 22°C (72°F) Pacific Ocean!",
+      "Bring 2 swimsuits each so nobody ever has to put on a cold, damp swimsuit the next day! Used at heated hotel pools (La Quinta, Ruby's Inn Bryce, Page, Goulding's, Laguna) AND in the 22.3°C (72°F) Pacific Ocean.",
   },
   {
     id: "ocean-towels-watershoes",
