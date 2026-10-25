@@ -1,66 +1,505 @@
-export type DayHikeOption =
-  { optionLabel: string; name: string; distance: string; elevation: string; duration: string; allTrailsUrl: string; permitNote: string; permitUrl?: string; highlights: string;
-}; export type DayFoodStop =
-  { time: string; kind: "Coffee & Breakfast" | "Snacks & Water" | "Lunch" | "Dinner"; name: string; url: string; mapUrl: string; notes: string;
-}; export type DaySleepOption =
-  { optionLabel: string; name: string; type: "Hotel / Cabin" | "Campground" | "Free BLM / Forest"; price: string; booked?: boolean; url: string; mapUrl: string; notes: string;
-}; export type DayGuide =
-  { day: number; date: string; title: string; routeSummary: string; tempDay: string; tempNight: string; waterTemp?: string; sunrise: string; sunset: string; daylightHours: string; timeZoneNote?: string; passAndPermitSummary: string; bookedBanner?: string; hikes: DayHikeOption[]; foodAndWater: DayFoodStop[]; sleepOptions: DaySleepOption[]; nuances: string[];
-}; export const DAY_GUIDES_1_5: Record<number, DayGuide> =
-  { 1:
-  { day: 1, date: "Mon, Nov 2, 2026", title: "JFK → Las Vegas → Gear Run → Valley of Fire State Park → La Verkin (Zion Gateway)", routeSummary: "Fly AA 2356 (7:59 AM JFK → 10:56 AM LAS) · 11:30 AM Midsize SUV Pick-up (7135 Gilespie St) · Vegas Gear & Food Run (Walmart Supercenter Eastern Ave / North Las Vegas & REI Henderson) · Valley of Fire State Park · La Verkin, UT (~168 mi / 270 km · ~3h 05m drive)", tempDay: "23°C – 25°C (73°F – 77°F)", tempNight: "8°C – 10°C (46°F – 50°F)", sunrise: "6:03 AM PST (Las Vegas)", sunset: "4:46 PM PST (Valley of Fire) / 5:28 PM MST (La Verkin, UT)", daylightHours: "10h 43m", timeZoneNote: "+1 hr clock jump (PT → MT): You lose 1 hour crossing from Nevada (Pacific Time, UTC-8) into Arizona/Utah (Mountain Time, UTC-7) on I-15 North through the Virgin River Gorge.", passAndPermitSummary: "Valley of Fire State Park entry is a $15 NV out-of-state vehicle fee ($10 NV plates) paid at the West Entrance booth or self-pay kiosk (https://parks.nv.gov/parks/valley-of-fire) — not covered by the federal pass.", bookedBanner: "BOOKED: Flight AA 2356 (7:59 AM JFK T8 → 10:56 AM LAS, $483.40) · Midsize SUV Pick-up 11:30 AM at LAS Rental Car Center (7135 Gilespie St, $466.67) · Night 1 Hotel at La Quinta Inn & Suites by Wyndham La Verkin - Gateway to Zion (101 E 500 N, La Verkin, UT 84745).", hikes: [
-  { optionLabel: "Option A · Golden-Hour Recovery Loop (Recommended)", name: "Fire Wave & Seven Wonders Loop (Pink Canyon)", distance: "3.1 km (1.9 mi) loop", elevation: "55 m (180 ft) gain", duration: "45 – 60 mins", allTrailsUrl: "https://www.alltrails.com/trail/us/nevada/fire-wave-and-pink-canyon", permitNote: "Included with $15 Valley of Fire State Park vehicle fee; park at Lot #3 near the north end of Mouse's Tank Road", permitUrl: "https://parks.nv.gov/parks/valley-of-fire", highlights: "Swirling orange, crimson, and white zebra-striped Aztec sandstone at the Fire Wave paired with the pastel narrows of Pink Canyon (Pastel Canyon) and Kaolin Wash.", },
-  { optionLabel: "Option B · Extended Slot & Slickrock Loop", name: "Fire Wave, White Domes & Seven Wonders Loop", distance: "5.1 km (3.2 mi) loop", elevation: "115 m (377 ft) gain", duration: "1h 30m – 1h 45m", allTrailsUrl: "https://www.alltrails.com/trail/us/nevada/fire-wave-white-domes-seven-wonders-loop", permitNote: "Included with $15 Valley of Fire State Park vehicle fee; start at White Domes Parking Lot or Fire Wave Lot #3", permitUrl: "https://parks.nv.gov/parks/valley-of-fire", highlights: "Combines the tight White Domes slot canyon narrows, 1966 movie set stone ruins, Kaolin Wash, Pink Canyon, and the iconic Fire Wave into one grand desert loop at the scenic end of Mouse's Tank Road.", }, ], foodAndWater: [
-  { time: "12:00 PM PT", kind: "Snacks & Water", name: "Walmart Supercenter #1560 (Eastern Ave) · Alt: Walmart North Las Vegas (1807 W Craig Rd)", url: "https://www.walmart.com/store/1560-las-vegas-nv", mapUrl: "https://www.google.com/maps/search/?api=1&query=Walmart+Supercenter+6005+S+Eastern+Ave+Las+Vegas+NV+89119", notes: "Primary gear & grocery run 8 mins east of LAS Rental Car Center at 6005 S Eastern Ave: buy 15°F sleeping bag, foam pad, pillow, 2.5-gal water jug, fruit, and electrolytes.", },
-  { time: "12:40 PM PT", kind: "Lunch", name: "REI Henderson & The District at Green Valley Ranch", url: "https://www.rei.com/stores/henderson", mapUrl: "https://www.google.com/maps/search/?api=1&query=REI+2220+Village+Walk+Dr+Henderson+NV+89052", notes: "Stop at REI Henderson (2220 Village Walk Dr, Henderson, NV — 12 mins from LAS) for technical camp stove fuel canisters, high-R insulated sleeping pad, or freeze-dried meals.", },
-  { time: "7:15 PM MT", kind: "Dinner", name: "River Rock Roasting Company (La Verkin)", url: "https://www.riverrockroasters.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=River+Rock+Roasting+Company+394+S+State+St+La+Verkin+UT+84745", notes: "Locally owned canyon-rim cafe, bakery & specialty coffee roaster at 394 S State St, La Verkin, UT 84745 (2 mins from La Quinta Inn).", }, ], sleepOptions: [
-  { optionLabel: "Option 1 · BOOKED Hotel (Night 1 Confirmed)", name: "La Quinta Inn & Suites by Wyndham La Verkin - Gateway to Zion", type: "Hotel / Cabin", price: "BOOKED (Prepaid)", booked: true, url: "https://www.wyndhamhotels.com/laquinta/la-verkin-utah/la-quinta-inn-and-suites-la-verkin-gateway-to-zion/overview", mapUrl: "https://www.google.com/maps/search/?api=1&query=La+Quinta+Inn+Suites+101+E+500+N+La+Verkin+UT+84745", notes: "Confirmed Night 1 base at 101 E 500 N, La Verkin, UT 84745 (25 mins from Zion South Entrance).", },
-  { optionLabel: "Option 2 · National Park Campground (Backup)", name: "Watchman Campground (Zion South Entrance)", type: "Campground", price: "$35 / night", url: "https://www.recreation.gov/camping/campgrounds/232445", mapUrl: "https://www.google.com/maps/search/?api=1&query=Watchman+Campground+Zion+National+Park+Springdale+UT", notes: "Located directly inside Zion National Park's South Entrance in Springdale with electric hookups, flush toilets, and walking access to the Zion Canyon Visitor Center.", },
-  { optionLabel: "Option 3 · Free BLM Dispersed Car Camp (Backup)", name: "Hurricane Cliffs BLM Dispersed Camping", type: "Free BLM / Forest", price: "$0 (Free — numbered designated BLM pads)", url: "https://www.campendium.com/hurricane-cliffs-road", mapUrl: "https://www.google.com/maps/search/?api=1&query=37.1636,-113.2261", notes: "Designated numbered gravel BLM pads off UT-59 just south of Hurricane/La Verkin; level parking for SUV sleeping, strong cell reception, and views below Gooseberry Mesa.", }, ], nuances: [ "Morning JFK Transfer & Flight: Leave Astoria Inn LaGuardia by Uber at 5:45 AM for JFK Terminal 8. Fly American Airlines AA 2356 (7:59 AM JFK → 10:56 AM LAS). Wear 20–30 mmHg knee-high compression socks on the 6-hour flight to prevent post-marathon calf swelling.", "LAS Midsize SUV Pick-up (11:30 AM at 7135 Gilespie St): In the Midsize SUV aisle, target a Nissan Rogue (set the Divide-N-Hide cargo floor panel to the upper position for a dead-flat ~72 in / 183 cm bed), Subaru Outback (~75 in flat), or Toyota RAV4.", "Golden-Hour Timing at Valley of Fire: Sunset is 4:46 PM PST. Enter the West Entrance by 2:30 PM PST, drive scenic Mouse's Tank Road ('The Highway' photo spot) to Lot #3, and hike the Fire Wave in warm late-afternoon light.", "Optional Zion Angels Landing Day-Before Lottery: If you want to add the final chained spine of Angels Landing on Day 2, submit the Day-Before Lottery on recreation.gov (https://www.recreation.gov/permits/4675309, $6 fee) before 3:00 PM MT on Mon Nov 2.", ], }, 2:
-  { day: 2, date: "Tue, Nov 3, 2026", title: "Zion Main Canyon (Scout Lookout / West Rim / Narrows) → Zion–Mt. Carmel Tunnel → Canyon Overlook Sunset → East Zion / Kanab", routeSummary: "La Verkin (7:00 AM River Rock Roasting Co + Davis Food & Drug) · 7:45 AM Zion South Gate (Buy $80 Pass) · Zion Main Canyon Hike · 3:00 PM Sol Foods Springdale · 3:45 PM Drive Zion–Mt. Carmel Tunnel · 4:10 PM Canyon Overlook Sunset · East Zion / Mt. Carmel Jct / Kanab (~42–60 mi / 68–96 km · ~1h 15m–1h 35m drive)", tempDay: "17°C – 19°C (63°F – 66°F)", tempNight: "3°C – 5°C (37°F – 41°F)", waterTemp: "10°C (50°F) in the Virgin River (The Narrows)", sunrise: "7:04 AM MST", sunset: "5:27 PM MST", daylightHours: "10h 23m", timeZoneNote: "All of Day 2 is in Utah on Mountain Standard Time (MST, UTC-7). Direct sunlight leaves the floor of Zion Canyon by ~4:45 PM, while the elevated East Zion rim at Canyon Overlook holds sunset light until 5:27 PM MST.", passAndPermitSummary: "Buy the $80 America the Beautiful Interagency Annual Pass at the Zion South Entrance booth at 7:45 AM (https://www.nps.gov/planyourvisit/passes.htm) — covers Zion, Bryce, Glen Canyon, Grand Canyon, Sedona & Joshua Tree.", hikes: [
-  { optionLabel: "Option A · Main Canyon Classic (Scout Lookout / Angels Landing + Afternoon Narrows)", name: "Scout Lookout via West Rim Trail (+ Optional Angels Landing Chains & Afternoon Narrows)", distance: "6.8 km (4.2 mi) to Scout Lookout · 8.7 km (5.4 mi) w/ Angels Landing", elevation: "340 m (1,115 ft) to Scout Lookout · 453 m (1,488 ft) w/ Angels Landing", duration: "3h 00m – 4h 00m (+ 1.5h afternoon Narrows walk)", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/scout-lookout-trail", permitNote: "NO permit required to Scout Lookout & West Rim Trail. Optional final 0.8 km Angels Landing chained spine (https://www.alltrails.com/trail/us/utah/angels-landing-trail) requires $6 Day-Before Lottery permit.", permitUrl: "https://www.recreation.gov/permits/4675309", highlights: "Start at The Grotto (#6), climb Refrigerator Canyon and the 21 historic stone switchbacks of Walter's Wiggles to Scout Lookout for sweeping views down Zion Canyon.", },
-  { optionLabel: "Option B · High-Canyon Dry-Feet Panoramas (Zero Permit Needed)", name: "Extended West Rim Trail above Scout Lookout + Riverside Walk", distance: "9.5 km (5.9 mi) West Rim + 3.5 km (2.2 mi) Riverside Walk", elevation: "515 m (1,690 ft) gain", duration: "4h 30m – 5h 15m combined", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/the-zion-narrows-riverside-walk", permitNote: "100% permit-free for both trails", highlights: "Climb past Scout Lookout onto the high slickrock bench of the West Rim Trail so you look DOWN onto the top of Angels Landing with zero crowds or permits.", },
-  { optionLabel: "Option C · Deep Slot Canyon River Hike (Bottom-Up Narrows)", name: "The Zion Narrows Bottom-Up (Riverside Walk to Wall Street & Big Spring)", distance: "8.0 – 15.1 km (5.0 – 9.4 mi) out-and-back", elevation: "102 m (334 ft) gain", duration: "3h 30m – 5h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/zion-narrows-trail-to-imlay-temple-and-big-spring", permitNote: "NO permit required for Bottom-Up hikes to Big Spring (when Virgin River flow is <150 CFS). Rent dry pants, neoprene socks, canyoneering boots & wooden walking stick at Zion Outfitter right at the South Entrance (~$55–$65).", permitUrl: "https://zionoutfitter.com/", highlights: "Wade directly up the Virgin River between 300-meter-tall (1,000 ft) vertical Navajo sandstone walls past Mystery Falls, Orderville Canyon junction, and the narrowest sculpted 'Wall Street' corridor.", },
-  { optionLabel: "Sunset Hike (All Options · 4:10 PM – 5:35 PM)", name: "Zion Canyon Overlook Trail", distance: "1.6 km (1.0 mi) round-trip", elevation: "50 m (163 ft) gain", duration: "45 – 60 mins", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/canyon-overlook-trail", permitNote: "Included with $80 America the Beautiful Pass; trailhead is immediately east of the 1.1-mile Zion–Mt. Carmel Tunnel", highlights: "Short, thrilling slickrock trail above Pine Creek Slot Canyon ending at a clifftop viewpoint looking straight west over the lower Zion switchbacks, Bridge Mountain, and the Towers of the Virgin.", }, ], foodAndWater: [
-  { time: "7:00 AM", kind: "Coffee & Breakfast", name: "River Rock Roasting Co. + Davis Food & Drug (La Verkin)", url: "https://www.riverrockroasters.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=River+Rock+Roasting+Company+394+S+State+St+La+Verkin+UT+84745", notes: "Fuel up at 7:00 AM sharp at River Rock Roasting Co. (394 S State St, La Verkin) for espresso & breakfast burritos, plus grab extra trail fruit at Davis Food & Drug across the street.", },
-  { time: "3:00 PM", kind: "Snacks & Water", name: "Sol Foods Supermarket & Deli (Springdale)", url: "https://www.solfoods.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Sol+Foods+Supermarket+995+Zion+Park+Blvd+Springdale+UT+84767", notes: "Post-hike refuel at Springdale's full-service gourmet grocery & deli (995 Zion Park Blvd, Springdale): made-to-order deli sandwiches, hot soup, espresso bar, and cold drinks before driving the tunnel.", },
-  { time: "6:15 PM", kind: "Dinner", name: "East Zion / Kanab Dinner Pick: Cordwood at ZMR · Thunderbird Restaurant · Peekaboo Kitchen · Rocking V Cafe", url: "https://www.zmr.com/dining", mapUrl: "https://www.google.com/maps/search/?api=1&query=Cordwood+Restaurant+Zion+Mountain+Ranch+Mt+Carmel+UT", notes: "3 East Zion / Kanab dinner pairings: Cordwood at Zion Mountain Ranch (farm-to-table bison/trout), Thunderbird Restaurant ('Ho-Made' pies, open until 10 PM), or Peekaboo Wood Fired Kitchen in Kanab.", }, ], sleepOptions: [
-  { optionLabel: "Pick 1A · Mt. Carmel Junction Hotel (Directly on US-89 Route to Bryce)", name: "Best Western East Zion Thunderbird Lodge & Restaurant", type: "Hotel / Cabin", price: "~$130 – $165 / night", url: "https://www.thunderbirdutah.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Best+Western+East+Zion+Thunderbird+Lodge+Mt+Carmel+Junction+UT", notes: "Located right at the UT-9 / US-89 junction (15 mins east of Canyon Overlook Trail). On-site Thunderbird Restaurant and 10 mins from Cordwood at Zion Mountain Ranch (https://www.zmr.com/dining).", },
-  { optionLabel: "Pick 1B · East Zion Free BLM Car Camp (Mt. Carmel / East Entrance)", name: "Mt. Carmel BLM Dispersed Camping", type: "Free BLM / Forest", price: "$0 (Free BLM dispersed)", url: "https://www.campendium.com/utah/mt-carmel", mapUrl: "https://www.google.com/maps/search/?api=1&query=37.2325,-112.6845", notes: "Quiet pine-and-juniper pullouts on BLM land just outside Zion's East Entrance / Mt. Carmel Junction (~5,800 ft elevation; night low ~3°C / 37°F).", },
-  { optionLabel: "Pick 2 · Kanab Boutique Hotel (Best Walkable Food Scene)", name: "Canyons Boutique Hotel — A Canyons Collection Property (Kanab)", type: "Hotel / Cabin", price: "~$145 – $185 / night", url: "https://www.canyonscollection.com/canyons-boutique-hotel/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Canyons+Boutique+Hotel+121+W+Center+St+Kanab+UT+84741", notes: "Boutique hotel at 121 W Center St, Kanab, UT (30 mins from Canyon Overlook). Walk 2 minutes to dinner at Peekaboo Canyon Wood Fired Kitchen (https://www.peekaboocanyonkitchen.com/) or Rocking V Cafe.", },
-  { optionLabel: "Pick 3 · East Zion Rim Cabin (Closest to Observation Point Trailhead)", name: "Zion Ponderosa Ranch Resort — Cowboy Cabins", type: "Hotel / Cabin", price: "~$109 – $149 / night", url: "https://www.zionponderosa.com/lodging/cowboy-cabins/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Zion+Ponderosa+Ranch+Resort+Twin+Knolls+Rd+Orderville+UT", notes: "Heated timber Cowboy Cabins at 6,500 ft on Zion's eastern rim with hot tub, showers, and immediate access to the East Mesa Trailhead for an optional Day 3 morning hike to Observation Point.", }, ], nuances: [ "7:45 AM Zion South Gate Pass Purchase: Buy your $80 America the Beautiful Interagency Pass (https://www.nps.gov/planyourvisit/passes.htm) at the entrance booth. Arriving before 8:00 AM secures free parking at the Zion Canyon Visitor Center before the lot fills.", "Zion Outfitter Cold-Water Gear (Option C): In early November, the Virgin River is ~10°C (50°F). If hiking Deep Narrows Bottom-Up, pick up dry pants, neoprene socks, canyoneering boots, and a wooden hiking stick at Zion Outfitter (https://zionoutfitter.com/) right beside the pedestrian entrance.", "3:45 PM Zion–Mt. Carmel Tunnel Drive: Drive up the historic canyon switchbacks and through the 1.1-mile 1930 rock-window tunnel in late-afternoon daylight, parking at the triangular lot immediately east of the tunnel by 4:10 PM for Canyon Overlook.", "Headlamp in Pocket for Sunset: Sunset at Canyon Overlook is 5:27 PM MST—carry your headlamp so you can enjoy the full twilight glow and walk the 0.8 km slickrock trail back to your SUV safely.", ], }, 3:
-  { day: 3, date: "Wed, Nov 4, 2026", title: "East Zion → Red Canyon Tunnels (UT-12) → Bryce Canyon Amphitheater Hike → Inspiration Point Sunset", routeSummary: "East Zion (Optional morning Observation Point via East Mesa Trail) · US-89 North · Red Canyon Tunnels on Scenic Byway UT-12 · 10:00 AM Ruby's Inn General Store · Bryce Canyon National Park · 5:24 PM Sunset at Inspiration Point (~65 mi / 105 km · ~1h 30m drive)", tempDay: "10°C (50°F)", tempNight: "-6°C (21°F) HARD FREEZE at 8,000 ft!", sunrise: "7:03 AM MST", sunset: "5:24 PM MST (Inspiration Point)", daylightHours: "10h 21m", timeZoneNote: "Mountain Standard Time (MST, UTC-7). Bryce Canyon sits at 8,000–9,100 ft (2,440–2,775 m) — daytime highs top out around 10°C (50°F) and temperatures plunge to -6°C (21°F) after the 5:24 PM sunset.", passAndPermitSummary: "Bryce Canyon National Park entry ($35 value) is 100% FREE with your $80 America the Beautiful Pass (https://www.nps.gov/planyourvisit/passes.htm).", hikes: [
-  { optionLabel: "Optional Morning Add-On · East Zion Plateau (Before Driving to Bryce)", name: "Observation Point via East Mesa Trail", distance: "11.3 km (7.0 mi) out-and-back", elevation: "214 m (702 ft) gain", duration: "2h 30m – 3h 00m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/east-mesa-trail-to-observation-point", permitNote: "No permit required; trailhead accessed via dirt road past Zion Ponderosa Ranch", highlights: "Gentle high-plateau ponderosa pine walk ending at the iconic 6,521-ft Observation Point cliff edge looking 2,100 ft straight down onto Angels Landing and the entire Zion Main Canyon.", },
-  { optionLabel: "Option A · Bryce Signature Amphitheater Hike (Top Pick)", name: "Wall Street, Queens Garden & Peekaboo Loop (Figure-8 Combination)", distance: "10.5 km (6.5 mi) figure-8 loop", elevation: "481 m (1,578 ft) gain", duration: "3h 30m – 4h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wall-street-and-queens-garden-loop-to-peekaboo-loop-figure-eight-trail", permitNote: "FREE with $80 America the Beautiful Pass; descend Wall Street first (clockwise on Peekaboo) for the best views", highlights: "Widely rated the greatest 10.5 km day hike in the National Park System: descend the dramatic slot switchbacks of Wall Street, weave through the Wall of Windows on Peekaboo Loop, and exit Queens Garden.", },
-  { optionLabel: "Option B · Shorter Classic Hoodoo Loop", name: "Wall Street (Navajo Loop) & Queens Garden Combination Trail", distance: "5.3 km (3.3 mi) loop", elevation: "200 m (656 ft) gain", duration: "1h 45m – 2h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wall-street-and-queens-garden-loop-trail", permitNote: "FREE with $80 America the Beautiful Pass; start at Sunset Point, exit at Sunrise Point", highlights: "Covers all the iconic highlights of the main Bryce Amphitheater—the towering Douglas firs inside Wall Street, Two Bridges, Thor's Hammer, and Queens Garden—at half the distance and elevation of the full Figure-8.", },
-  { optionLabel: "Option C · Solitude & Endurance Hoodoo Loop", name: "Fairyland Loop Trail", distance: "13.0 km (8.1 mi) loop", elevation: "523 m (1,716 ft) gain", duration: "4h 00m – 5h 00m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/fairyland-loop-trail", permitNote: "FREE with $80 America the Beautiful Pass; starts at Fairyland Point (1 mi inside park boundary)", highlights: "Drops into the quiet northern amphitheater past Tower Bridge, the Chinese Wall, and Campbell Canyon with a fraction of the crowds found at Sunset/Sunrise Points.", }, ], foodAndWater: [
-  { time: "10:00 AM", kind: "Snacks & Water", name: "Ruby's Inn General Store & Deli (Bryce Canyon City)", url: "https://www.rubysinn.com/general-store/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Rubys+Inn+General+Store+26+S+Main+St+Bryce+Canyon+City+UT+84764", notes: "Stop 1 mile before the Bryce entrance gate for hot coffee, trail sandwiches, electrolytes, and water jug refills.", },
-  { time: "6:00 PM", kind: "Dinner", name: "Bryce Canyon Pines Restaurant · I.D.K. Barbecue (Tropic) · Cowboy's Buffet at Ruby's Inn", url: "https://bcpines.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Bryce+Canyon+Pines+Restaurant+Hwy+12+Milepost+10+Bryce+UT", notes: "Three warm post-sunset dinner choices: Bryce Canyon Pines (UT-12 MP 10, famous homemade pies & steaks), I.D.K. Barbecue in Tropic (smoked brisket), or Cowboy's Steak Room at Ruby's Inn.", }, ], sleepOptions: [
-  { optionLabel: "Option 1 · Park Gateway Hotel (1 Mile from Entrance & Indoor Pool)", name: "Best Western Plus Ruby's Inn (or Bryce View Lodge)", type: "Hotel / Cabin", price: "~$115 – $155 / night", url: "https://www.rubysinn.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Best+Western+Plus+Rubys+Inn+26+S+Main+St+Bryce+Canyon+City+UT+84764", notes: "Warm lodge room + indoor heated pool & hot tub just 5 minutes from Sunrise/Inspiration Point. Skips the -6°C (21°F) overnight freeze and puts you 7 minutes from the rim for Thursday's 6:58 AM sunrise.", },
-  { optionLabel: "Option 2 · Cozy Cabins in Tropic (1,700 ft Lower & Warmer)", name: "Bryce Pioneer Village (Tropic, UT)", type: "Hotel / Cabin", price: "~$95 – $130 / night", url: "https://brycepioneervillage.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Bryce+Pioneer+Village+80+S+Main+St+Tropic+UT+84776", notes: "Timber cabins & motel rooms at 6,300 ft in Tropic (12 mins east down UT-12 past Mossy Cave), typically 4°C–5°C warmer overnight than the 8,000 ft rim and walking distance to I.D.K. Barbecue.", },
-  { optionLabel: "Option 3 · Inside-the-Park Campground (Walk to Rim at Dawn)", name: "North Campground (Bryce Canyon National Park)", type: "Campground", price: "$30 / night", url: "https://www.recreation.gov/camping/campgrounds/234079", mapUrl: "https://www.google.com/maps/search/?api=1&query=North+Campground+Bryce+Canyon+National+Park+UT", notes: "Walking distance to Sunrise Point; Loop A stays open in November. Requires a true 0°F–15°F (-18°C to -9°C) sleeping bag and R≥4.0 insulated sleeping pad for the -6°C (21°F) freeze.", },
-  { optionLabel: "Option 4 · Free National Forest Dispersed Car Camp", name: "Dixie National Forest — Dave's Hollow / FR-117", type: "Free BLM / Forest", price: "$0 (Free USFS dispersed)", url: "https://www.campendium.com/dixie-national-forest-fr-117", mapUrl: "https://www.google.com/maps/search/?api=1&query=37.6697,-112.1925", notes: "Level gravel pullouts among ponderosa pines on Forest Road 117 just 1.5 miles west of Ruby's Inn and the park boundary.", }, ], nuances: [ "Red Canyon Tunnels on Scenic Byway UT-12: En route from East Zion/Mt. Carmel Junction, US-89 turns east onto All-American Road UT-12 through Red Canyon—slow down for the two famous hand-carved red-rock tunnels and bright vermilion hoodoos.", "Hike Direction on the Figure-8 / Navajo Loop: Descend the steep switchbacks of Wall Street first while your legs are fresh, complete the Peekaboo Loop clockwise so you hike uphill toward the Wall of Windows facing you, and exit up the gentler sunny incline of Queens Garden.", "5:24 PM Sunset at Inspiration Point: Drive or walk to Upper Inspiration Point by 4:50 PM to watch the Silent City hoodoo amphitheater glow amber and violet against the distant 10,388-ft silhouette of Navajo Mountain.", "-6°C (21°F) High-Altitude Freeze Discipline: At 8,000 ft, any liquid left in uninsulated SUV door pockets will freeze overnight. If car-camping at North Campground or Dixie NF FR-117, sleep in full merino base layers + beanie and fill a Nalgene with boiling water as a sleeping-bag heater.", ], }, 4:
-  { day: 4, date: "Thu, Nov 5, 2026", title: "Bryce Rim Sunrise (-5°C) → Kanab Creek Bakery → Midday Slot Canyon (Buckskin Gulch / Willis Creek / Toadstools) → Glen Canyon Dam → Horseshoe Bend Sunset → Page, AZ", routeSummary: "6:58 AM Sunrise at Bryce Rim (-5°C) · Kanab Creek Bakery & Honey's Marketplace · Midday Slot Canyon (Option A: Wire Pass to Buckskin Gulch w/ $6 permit · Option B: Willis Creek Slot Canyon · Option C: Toadstool Hoodoos on paved US-89) · Glen Canyon Dam Overlook · Sunset at Horseshoe Bend ($10 parking) · Page, AZ / Lake Powell (~155 mi / 250 km · ~3h 15m drive)", tempDay: "16°C – 19°C (61°F – 66°F) in Kanab & Page", tempNight: "-5°C (23°F) at Bryce dawn · 6°C – 8°C (43°F – 46°F) at Lake Powell", sunrise: "6:58 AM MST (Bryce Rim first glow / 7:04 AM horizon)", sunset: "5:22 PM MST (Horseshoe Bend, Page, AZ)", daylightHours: "10h 18m", timeZoneNote: "Both Utah (after DST ends in Nov) and Page, Arizona are on the exact same clock time: Mountain Standard Time (MST, UTC-7). Zero clock change driving from Bryce/Kanab into Page, AZ.", passAndPermitSummary: "Bryce sunrise & Glen Canyon NRA ($30 entry fee at Dam Overlook and Lone Rock Beach) are FREE with your $80 America the Beautiful Pass. Wire Pass ($6) and Horseshoe Bend ($10) are separate.", hikes: [
-  { optionLabel: "Option A · World-Class Non-Commercial Slot Canyon (Top Pick)", name: "Wire Pass Slot Canyon to Buckskin Gulch Confluence", distance: "6.0 – 9.7 km (3.7 – 6.0 mi) out-and-back", elevation: "80 m (262 ft) gain", duration: "2h 30m – 3h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wire-pass-trail", permitNote: "Requires $6 per person Paria Canyon-Vermilion Cliffs Day-Use Permit on recreation.gov (also see extended route: https://www.alltrails.com/trail/us/utah/buckskin-gulch-to-wire-pass-trail). Reached via 8.3 mi of unpaved House Rock Valley Rd (dry weather only).", permitUrl: "https://www.recreation.gov/activitypass/10006177", highlights: "Follow a desert wash into the narrow, twisting Navajo sandstone corridors of Wire Pass (including an 8-ft boulder drop with a fixed ladder/steps) until it merges with Buckskin Gulch and ancient petroglyphs.", },
-  { optionLabel: "Option B · Grand Staircase Slot Canyon (Closer to Bryce via Cannonville)", name: "Willis Creek Slot Canyon Narrows", distance: "4.8 – 7.7 km (3.0 – 4.8 mi) out-and-back", elevation: "98 m (321 ft) gain", duration: "1h 45m – 2h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/willis-creek-narrows-trail", permitNote: "No permit or fee required; 20 mins south of Tropic/Cannonville on Skutumpah Rd (dry conditions only)", highlights: "Sculpted Navajo limestone and sandstone narrows with a shallow trickling creek, golden reflected light, and zero climbing obstacles right off the Bryce-to-Page corridor.", },
-  { optionLabel: "Option C · 100% Paved-Road Badlands & Hoodoos (Or Quick Bonus Stop)", name: "Toadstool Hoodoos Trail (Grand Staircase-Escalante)", distance: "2.9 km (1.8 mi) out-and-back", elevation: "43 m (141 ft) gain", duration: "45 – 60 mins", allTrailsUrl: "https://www.alltrails.com/trail/us/utah/toadstool-hoodoos-trail", permitNote: "Free BLM trailhead directly on paved US-89 (Milepost 19.5 between Kanab and Page) — no permit required", highlights: "Mars-like crimson and white Entrada sandstone toadstools balanced beneath giant Dakota sandstone boulder caps. Perfect all-weather backup if dirt roads are wet, or an easy 45-minute add-on right after Wire Pass.", },
-  { optionLabel: "Afternoon Viewpoint · Page Slickrock Rim (3:45 PM)", name: "Glen Canyon Dam Overlook Trail", distance: "0.5 km (0.3 mi) round-trip", elevation: "25 m (82 ft) down/up carved sandstone steps", duration: "25 – 35 mins", allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/glen-canyon-dam-overlook", permitNote: "Free entry off Scenic View Rd in Page (covered by $80 America the Beautiful Pass)", highlights: "Descend hand-carved sandstone steps with a steel railing to a dramatic cliff rim overlooking the 710-ft Glen Canyon Dam arch, steel bridge, and emerald Colorado River.", },
-  { optionLabel: "Sunset Finale · Colorado River Canyon Rim (4:30 PM – 5:35 PM)", name: "Horseshoe Bend Overlook Trail", distance: "2.4 km (1.5 mi) round-trip", elevation: "61 m (200 ft) gain", duration: "60 – 75 mins", allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/horseshoe-bend-trail", permitNote: "$10 per vehicle parking fee (City of Page municipal lot — NOT covered by the federal $80 NPS pass)", permitUrl: "https://www.pageaz.gov/268/Horseshoe-Bend", highlights: "Stand on the 1,000-foot sheer Navajo sandstone cliff edge as the setting sun drops directly behind the 270-degree emerald bend of the Colorado River at 5:22 PM MST.", }, ], foodAndWater: [
-  { time: "8:45 AM", kind: "Coffee & Breakfast", name: "Kanab Creek Bakery (Kanab, UT)", url: "https://www.kanabcreekbakery.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Kanab+Creek+Bakery+238+W+Center+St+Kanab+UT+84741", notes: "Warm up after Bryce sunrise at Kanab Creek Bakery (238 W Center St, Kanab) with authentic French croissants, sourdough, espresso, and trail sandwiches.", },
-  { time: "9:20 AM", kind: "Snacks & Water", name: "Honey's Marketplace (Kanab, UT)", url: "https://www.honeysmarketplace.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Honeys+Marketplace+260+E+300+S+Kanab+UT+84741", notes: "Stock up on 4L+ of water, deli wraps, fruit, and snacks at Honey's Marketplace (260 E 300 S, Kanab) before heading east on US-89 toward Wire Pass / Buckskin Gulch.", },
-  { time: "6:15 PM", kind: "Dinner", name: "Big John's Texas BBQ · The BirdHouse · Grand Canyon Brewery (Page, AZ)", url: "https://bigjohnstexasbbq.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Big+Johns+Texas+BBQ+153+S+Lake+Powell+Blvd+Page+AZ+86040", notes: "Post-sunset dinner in Page: Big John's Texas BBQ (smoked brisket & live patio music), BirdHouse (crispy fried chicken & craft beer), or Grand Canyon Brewery.", }, ], sleepOptions: [
-  { optionLabel: "Option 1 · Lake Powell Shoreline Car Camp (Signature Pick)", name: "Lone Rock Beach Primitive Camping (Lake Powell)", type: "Campground", price: "$14 / night ($30 park entry waived w/ $80 Pass)", url: "https://www.nps.gov/glca/planyourvisit/lone-rock-beach.htm", mapUrl: "https://www.google.com/maps/search/?api=1&query=Lone+Rock+Beach+Campground+Lake+Powell+UT", notes: "Car-camp directly overlooking Lake Powell and the monolithic Lone Rock (15 mins north of Page off US-89). Park on the firm upper gravel/sand shelf.", },
-  { optionLabel: "Option 2 · Developed Lake View Campground (Hot Showers & Wi-Fi)", name: "Wahweap RV & Campground (Lake Powell Resort)", type: "Campground", price: "~$36 – $45 / night", url: "https://www.lakepowell.com/rv-campgrounds/wahweap-rv-campground/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Wahweap+Campground+100+Lakeshore+Dr+Page+AZ+86040", notes: "Paved, level campsites overlooking Wahweap Bay & Lake Powell with hot coin-operated showers, flush restrooms, laundry, and Wi-Fi just 10 minutes from Page.", },
-  { optionLabel: "Option 3 · Modern Upscale Hotel in Page", name: "Hyatt Place Page / Lake Powell", type: "Hotel / Cabin", price: "~$135 – $175 / night", url: "https://www.hyatt.com/hyatt-place/en-US/pgezp-hyatt-place-page-lake-powell", mapUrl: "https://www.google.com/maps/search/?api=1&query=Hyatt+Place+Page+Lake+Powell+1126+N+Navajo+Dr+Page+AZ+86040", notes: "Modern hotel at 1126 N Navajo Dr with red-rock views, fitness center, hot breakfast, and 8 minutes from Friday morning's 9:15 AM Antelope Canyon tour check-in.", },
-  { optionLabel: "Option 4 · Reliable Value Hotel Near Horseshoe Bend", name: "Country Inn & Suites by Radisson, Page, AZ", type: "Hotel / Cabin", price: "~$95 – $130 / night", url: "https://www.choicehotels.com/arizona/page/country-inn-suites-hotels/az396", mapUrl: "https://www.google.com/maps/search/?api=1&query=Country+Inn+Suites+880+S+Coppermine+Rd+Page+AZ+86040", notes: "Clean, quiet rooms with indoor pool, hot tub, and complimentary hot breakfast right off US-89 (2 minutes from Horseshoe Bend and 10 minutes from Lower Antelope Canyon).", }, ], nuances: [ "6:58 AM Sunrise at Bryce Rim (-5°C / 23°F): Stand at Sunrise Point or Bryce Point 15–20 minutes before horizon sunrise when the first pre-dawn alpenglow lights the frost-covered orange hoodoos from below. Wear your full cold-weather layer stack (merino base, fleece, down puffy, shell, beanie, gloves).", "House Rock Valley Road & Slot Canyon Weather Check: Wire Pass lies 8.3 miles down unpaved House Rock Valley Road (off US-89 between mileposts 25 and 26). In dry conditions a Midsize SUV handles it easily; if rain has fallen or is forecast, skip the dirt road (wet bentonite clay becomes impassable) and hike Toadstool Hoodoos right on paved US-89.", "Horseshoe Bend $10 Parking Fee: Because Horseshoe Bend Overlook is managed by the City of Page (https://www.pageaz.gov/268/Horseshoe-Bend), the federal $80 America the Beautiful Pass does not apply—pay $10 by credit/debit card at the gate.", "Lone Rock Beach Sand Discipline: If camping at Lone Rock Beach ($14), test the surface on foot first and camp on the firm upper gravel/hardpack shelf rather than soft windblown sand.", ], }, 5:
-  { day: 5, date: "Fri, Nov 6, 2026", title: "Page, AZ (9:15 AM Guided Antelope Canyon Tour) → Forrest Gump Point (US-163) → Monument Valley Wildcat Trail & 17-Mile Drive → Mittens Sunset", routeSummary: "Morning Coffee at LP Espresso + Safeway Page Snacks · 9:15 AM Guided Antelope Canyon Tour (Lower Antelope Ken's / Dixie's, Upper Antelope, or Antelope X) · Forrest Gump Point (US-163 MP 13) · Monument Valley Navajo Tribal Park ($8 fee; Option A: Wildcat Trail 8.7 km · Option B: 17-Mile Valley Drive) · 5:17 PM Sunset over the Mittens (~125 mi / 201 km · ~2h 15m drive)", tempDay: "13°C – 16°C (55°F – 61°F)", tempNight: "1°C – 3°C (34°F – 37°F) on the Monument Valley rim", sunrise: "6:57 AM MST (Page, AZ)", sunset: "5:17 PM MST (Sunset over the Mittens, Monument Valley)", daylightHours: "10h 20m", timeZoneNote: "Both Page, AZ and the Navajo Nation (Monument Valley) are on Mountain Standard Time (MST, UTC-7) in November after DST ends on Nov 1. Zero clock change today.", passAndPermitSummary: "Both stops today are on sovereign Navajo Nation land and are NOT covered by the federal $80 America the Beautiful Pass: Antelope Canyon requires an advance guided tour (~$55–$95) and Monument Valley is $8 at the gate.", hikes: [
-  { optionLabel: "9:15 AM · Mandatory Navajo-Guided Slot Canyon Tour (Page, AZ)", name: "Guided Antelope Canyon Tour (Lower Antelope, Upper Antelope, or Antelope X)", distance: "1.8 km (1.1 mi) guided slot canyon walk", elevation: "35 m (115 ft) via steel stairs/ladders (Lower) or flat sand (Upper)", duration: "1h 15m – 1h 30m (check in 8:30 AM)", allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/lower-antelope-canyon", permitNote: "Book 9:15 AM tour in advance: Lower Antelope Ken's Tours (https://www.lowerantelope.com/), Dixie's Lower Antelope (https://www.antelopecanyon.az/), Upper Antelope (https://navajotours.com/), or Antelope Canyon X (https://www.antelopecanyon-x.com/). No bags or backpacks allowed inside.", permitUrl: "https://www.lowerantelope.com/", highlights: "Descend steel staircases into the world-famous corkscrew sandstone waves of Lower Antelope Canyon (or walk the cathedral chambers of Upper Antelope / Canyon X) as morning sun illuminates the glowing walls.", },
-  { optionLabel: "Monument Valley Option A · Unguided Hike Around West Mitten Butte", name: "Wildcat Trail (West Mitten Butte Loop)", distance: "8.7 km (5.4 mi) lollipop loop", elevation: "118 m (387 ft) gain", duration: "2h 00m – 2h 30m", allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/wildcat-trail", permitNote: "Included with $8/person Monument Valley Navajo Tribal Park entry; sign in & out at the self-register trailhead kiosk beside the Visitor Center lot", permitUrl: "https://navajonationparks.org/navajo-tribal-parks/monument-valley/", highlights: "The only self-guided hiking trail inside Monument Valley: descend off the rim into sandy desert washes and walk a full 360-degree loop directly around the base of the 1,000-foot West Mitten Butte.", },
-  { optionLabel: "Monument Valley Option B · Iconic Valley Floor Scenic Loop", name: "17-Mile Valley Drive (Monument Valley Scenic Drive)", distance: "27.4 km (17.0 mi) unpaved loop drive", elevation: "170 m (558 ft) road undulation", duration: "1h 45m – 2h 15m with photo stops", allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/monument-valley-scenic-drive--2", permitNote: "Included with $8/person Monument Valley entry; open roughly 8:00 AM – 4:30 PM (enter before 2:30 PM in November)", permitUrl: "https://navajonationparks.org/navajo-tribal-parks/monument-valley/", highlights: "Drive your Midsize SUV (take the initial unpaved switchbacks slowly at 5–10 mph) past The Mittens, Elephant Butte, Three Sisters, John Ford's Point, Totem Pole, The Cube, and Artist's Point.", }, ], foodAndWater: [
-  { time: "7:30 AM", kind: "Coffee & Breakfast", name: "LP Espresso (Page, AZ)", url: "https://www.google.com/maps/search/?api=1&query=LP+Espresso+639+Elm+St+Page+AZ+86040", mapUrl: "https://www.google.com/maps/search/?api=1&query=LP+Espresso+639+Elm+St+Page+AZ+86040", notes: "Local independent coffee house & bakery at 639 Elm St in downtown Page serving espresso, breakfast burritos, bagel sandwiches, and fresh pastries before your 8:30 AM Antelope Canyon check-in.", },
-  { time: "8:00 AM", kind: "Snacks & Water", name: "Safeway Page (Page Plaza)", url: "https://local.safeway.com/safeway/az/page/650-elm-st.html", mapUrl: "https://www.google.com/maps/search/?api=1&query=Safeway+650+Elm+St+Page+AZ+86040", notes: "Right next door to LP Espresso at 650 Elm St, Page, AZ. Grab lunch sandwiches, fruit, trail mix, and extra water jugs before driving east across the Navajo Nation toward Kayenta and Monument Valley.", },
-  { time: "5:45 PM", kind: "Dinner", name: "The View Restaurant · Stagecoach Dining Room at Goulding's Lodge", url: "https://monumentvalleyview.com/dining/", mapUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Restaurant+Monument+Valley+UT", notes: "After watching the 5:17 PM sunset over the Mittens: eat Navajo tacos on house-made frybread and green-chile stew at The View Restaurant or Goulding's Stagecoach Dining Room.", }, ], sleepOptions: [
-  { optionLabel: "Option 1 · Premier Rim Hotel & Private Cabins (Wake Up Facing the Mittens)", name: "The View Hotel & Valley Rim Cabins (Monument Valley)", type: "Hotel / Cabin", price: "~$215 – $275 / night", url: "https://monumentvalleyview.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Hotel+Monument+Valley+Navajo+Tribal+Park+AZ", notes: "The only hotel and cabin complex located directly inside Monument Valley Navajo Tribal Park on the cliff edge—every east-facing balcony and cabin front window looks straight out at the Mittens.", },
-  { optionLabel: "Option 2 · Rim-Edge Campground (Unbeatable Sunrise Car Camp)", name: "The View Rim Campground (Monument Valley)", type: "Campground", price: "~$40 – $45 / night", url: "https://monumentvalleyview.com/campground/", mapUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Campground+Monument+Valley+UT", notes: "Car-camping sites perched directly on the western rim of Monument Valley overlooking the Mittens, with heated restroom and hot shower facilities near the Visitor Center (night low ~2°C / 35°F).", },
-  { optionLabel: "Option 3 · Historic Western Lodge & Campground", name: "Goulding's Lodge & Campground", type: "Hotel / Cabin", price: "~$165 – $215 / night (Lodge) · ~$42 (Campground)", url: "https://www.gouldings.com/", mapUrl: "https://www.google.com/maps/search/?api=1&query=Gouldings+Lodge+1000+Gouldings+Trading+Post+Rd+Oljato-Monument+Valley+UT+84536", notes: "Historic 1920s trading post and lodge nestled against 800-foot red cliffs 10 minutes across US-163 from the park entrance.", }, ], nuances: [ "9:15 AM Antelope Canyon Tour Bag Policy: Check in by 8:30–8:45 AM at your chosen operator booth (Lower Antelope Ken's Tours https://www.lowerantelope.com/, Dixie's https://www.antelopecanyon.az/, Upper Antelope https://navajotours.com/, or Antelope X https://www.antelopecanyon-x.com/). Backpacks, camera bags, fanny packs, and tripods are strictly prohibited inside the slot canyon—carry only your phone and a water bottle.", "Forrest Gump Point (US-163 Milepost 13): Located just north of Monument Valley in Utah (37.1014, -109.9908). Pull completely off the highway onto the wide gravel shoulder turnouts and watch carefully for fast-moving traffic in both directions before stepping out for photos.", "Wildcat Trail + 17-Mile Valley Drive Timing: Arrive at Monument Valley Visitor Center by ~1:15 PM so you have ample afternoon daylight to hike the 8.7 km Wildcat Trail or drive the 17-Mile Valley Loop before the 5:17 PM sunset over the Mittens.", "Navajo Nation Etiquette & Dry Law: Monument Valley is sovereign Navajo Nation land—stay strictly on the marked Wildcat Trail and 17-Mile Drive (climbing on any rock formation or entering private residential tracks is prohibited), and note that alcohol is prohibited throughout the Navajo Nation.", ], },
+export type DayHikeOption = {
+  optionLabel: string;
+  name: string;
+  distance: string;
+  elevation: string;
+  duration: string;
+  allTrailsUrl: string;
+  permitNote: string;
+  permitUrl?: string;
+  highlights: string;
+};
+
+export type DayFoodStop = {
+  time: string;
+  kind: "Coffee & Breakfast" | "Snacks & Water" | "Lunch" | "Dinner";
+  name: string;
+  url: string;
+  mapUrl: string;
+  notes: string;
+};
+
+export type DaySleepOption = {
+  optionLabel: string;
+  name: string;
+  type: "Hotel / Cabin" | "Campground" | "Free BLM / Forest";
+  price: string;
+  booked?: boolean;
+  url: string;
+  mapUrl: string;
+  notes: string;
+};
+
+export type DayGuide = {
+  day: number;
+  date: string;
+  title: string;
+  routeSummary: string;
+  tempDay: string;
+  tempNight: string;
+  waterTemp?: string;
+  sunrise: string;
+  sunset: string;
+  daylightHours: string;
+  timeZoneNote?: string;
+  passAndPermitSummary: string;
+  bookedBanner?: string;
+  kidFriendlyPick?: string;
+  hikes: DayHikeOption[];
+  foodAndWater: DayFoodStop[];
+  sleepOptions: DaySleepOption[];
+  nuances: string[];
+};
+
+export const DAY_GUIDES_1_5: Record<number, DayGuide> = {
+  1: {
+    day: 1,
+    date: "Mon, Nov 2, 2026",
+    title: "JFK → Las Vegas → Walmart Kid & Road Kit → Valley of Fire → La Verkin Hotel",
+    routeSummary: "Fly AA 2356 (7:59 AM JFK → 10:56 AM LAS) · 11:30 AM Midsize SUV Pick-up · Walmart Eastern Ave ($18 Booster Cushion & Road Snacks) · Valley of Fire State Park · La Verkin, UT (~168 mi · ~3h 05m drive)",
+    tempDay: "23°C – 25°C (73°F – 77°F)",
+    tempNight: "8°C – 10°C (46°F – 50°F)",
+    sunrise: "6:03 AM PST (Las Vegas)",
+    sunset: "4:46 PM PST (Valley of Fire) / 5:28 PM MST (La Verkin, UT)",
+    daylightHours: "10h 43m",
+    timeZoneNote: "+1 hr clock jump (PT → MT): Lose 1 hour crossing from Nevada (PST) into Utah (MST) on I-15 North through the Virgin River Gorge.",
+    passAndPermitSummary: "Valley of Fire State Park entry is $15 per vehicle paid at the West Entrance booth (https://parks.nv.gov/parks/valley-of-fire).",
+    bookedBanner: "BOOKED: Flight AA 2356 (7:59 AM JFK T8 → 10:56 AM LAS) · Midsize SUV Pick-up 11:30 AM at LAS (7135 Gilespie St, $466.67) · Night 1 Hotel at La Quinta Inn & Suites La Verkin (101 E 500 N, La Verkin, UT).",
+    kidFriendlyPick: "👧 8yo Daughter Highlight: At Walmart Eastern Ave, grab a $18 backless booster cushion so she sits 4 inches higher and can see all the red rocks out the SUV window! In Valley of Fire, do Option A (Fire Wave & Pink Canyon, 3.1 km) — walking through the narrow pink sandstone slot feels like exploring Mars.",
+    hikes: [
+      {
+        optionLabel: "Option A · Best for 8yo & Post-Marathon Recovery (Recommended)",
+        name: "Fire Wave & Seven Wonders Loop (Pink Canyon)",
+        distance: "3.1 km (1.9 mi) loop",
+        elevation: "55 m (180 ft) gain",
+        duration: "45 – 60 mins",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/nevada/fire-wave-and-pink-canyon",
+        permitNote: "Included with $15 Valley of Fire State Park vehicle fee; park at Lot #3 on Mouse's Tank Road",
+        permitUrl: "https://parks.nv.gov/parks/valley-of-fire",
+        highlights: "Swirling orange, crimson, and white zebra-striped sandstone at the Fire Wave paired with the fun pastel narrows of Pink Canyon. Easy 1-hour walk ideal for an 8-year-old!",
+      },
+      {
+        optionLabel: "Option B · Extended Movie-Set Slot Loop",
+        name: "Fire Wave, White Domes & Seven Wonders Loop",
+        distance: "5.1 km (3.2 mi) loop",
+        elevation: "115 m (377 ft) gain",
+        duration: "1h 30m – 1h 45m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/nevada/fire-wave-white-domes-seven-wonders-loop",
+        permitNote: "Included with $15 Valley of Fire State Park vehicle fee",
+        permitUrl: "https://parks.nv.gov/parks/valley-of-fire",
+        highlights: "Adds the narrow White Domes slot canyon and 1966 movie set stone ruins if she has extra energy.",
+      },
+    ],
+    foodAndWater: [
+      {
+        time: "12:00 PM PT",
+        kind: "Snacks & Water",
+        name: "Walmart Supercenter #1560 (6005 S Eastern Ave, Las Vegas)",
+        url: "https://www.walmart.com/store/1560-las-vegas-nv",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Walmart+Supercenter+6005+S+Eastern+Ave+Las+Vegas+NV+89119",
+        notes: "8 mins east of LAS Car Rental. Grab a $18 backless booster cushion, cozy car blanket, 2.5-gal water jug, fresh berries, fruit pouches, granola bars, and road snacks.",
+      },
+      {
+        time: "7:15 PM MT",
+        kind: "Dinner",
+        name: "River Rock Roasting Company (La Verkin)",
+        url: "https://www.riverrockroasters.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=River+Rock+Roasting+Company+394+S+State+St+La+Verkin+UT+84745",
+        notes: "2 mins from your La Quinta Inn: kid-friendly wood-fired pizzas, warm cinnamon rolls, sandwiches, and canyon views.",
+      },
+    ],
+    sleepOptions: [
+      {
+        optionLabel: "Option 1 · BOOKED Hotel (Night 1 Confirmed)",
+        name: "La Quinta Inn & Suites by Wyndham La Verkin - Gateway to Zion",
+        type: "Hotel / Cabin",
+        price: "BOOKED (Prepaid)",
+        booked: true,
+        url: "https://www.wyndhamhotels.com/laquinta/la-verkin-utah/la-quinta-inn-and-suites-la-verkin-gateway-to-zion/overview",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=La+Quinta+Inn+Suites+101+E+500+N+La+Verkin+UT+84745",
+        notes: "Confirmed Night 1 hotel at 101 E 500 N, La Verkin (20 mins from Zion South Gate) with heated pool/hot tub and free hot breakfast.",
+      },
+    ],
+    nuances: [
+      "Morning JFK Transfer & Flight: Leave Astoria Inn LaGuardia by Uber at 5:45 AM for JFK Terminal 8. Fly AA 2356 (7:59 AM JFK → 10:56 AM LAS).",
+      "$18 Backless Booster Cushion at Walmart: Even though age 8 is legally exempt, a $18 backless booster keeps the SUV shoulder seatbelt comfortable and lifts your daughter 4 inches higher so she can see out the windows!",
+      "Golden-Hour Timing at Valley of Fire: Sunset is 4:46 PM PST. Drive scenic Mouse's Tank Road ('The Highway' photo spot) to Lot #3 by 2:45 PM.",
+    ],
+  },
+  2: {
+    day: 2,
+    date: "Tue, Nov 3, 2026",
+    title: "Zion National Park (The Narrows in Kid's Drysuit!) → Mt. Carmel Tunnel → Canyon Overlook → East Zion Lodge",
+    routeSummary: "La Verkin (7:00 AM River Rock Roasting Co) · 7:45 AM Zion South Gate (Buy $80 Pass + Pick up Kid's Drysuit at Zion Outfitter) · Zion Main Canyon · 3:00 PM Sol Foods Springdale · 3:45 PM Zion–Mt. Carmel Tunnel · 4:10 PM Canyon Overlook Sunset · East Zion / Kanab Hotel (~42–60 mi drive)",
+    tempDay: "17°C – 19°C (63°F – 66°F)",
+    tempNight: "3°C – 5°C (37°F – 41°F)",
+    waterTemp: "10.5°C (51°F) in Virgin River (Drysuits keep you 100% dry & warm!)",
+    sunrise: "7:04 AM MST",
+    sunset: "5:27 PM MST",
+    daylightHours: "10h 23m",
+    timeZoneNote: "Mountain Standard Time (MST, UTC-7). Drive up through the 1.1-mile Zion–Mt. Carmel Tunnel at 3:45 PM so you hike Canyon Overlook in warm golden-hour light.",
+    passAndPermitSummary: "Buy the $80 America the Beautiful Pass at the Zion South Entrance booth (covers your entire SUV at Zion, Bryce, Lake Powell, Grand Canyon, Sedona & Joshua Tree!).",
+    kidFriendlyPick: "👧 8yo Daughter Highlight: Pick up her Kid's Full Drysuit Package ($59, fits ages 8–14) at Zion Outfitter right at the park entrance and do Option C (The Narrows)! Walking in the shallow river with a wooden staff in a head-to-toe waterproof drysuit is an 8-year-old's ultimate adventure. Also grab her FREE Zion Junior Ranger Badge at the Visitor Center! (Skip Angels Landing chains — too exposed for age 8).",
+    hikes: [
+      {
+        optionLabel: "Option C · #1 Kid & Dad Favorite (River Slot Canyon Expedition!)",
+        name: "Riverside Walk + The Zion Narrows (Wade 45–60 Mins Upstream & Back)",
+        distance: "5.0 – 8.0 km (3.1 – 5.0 mi) flat out-and-back (turn around anytime!)",
+        elevation: "65 m (210 ft) flat river walk",
+        duration: "2h 30m – 3h 30m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/the-zion-narrows-riverside-walk",
+        permitNote: "NO permit needed. Rent 1 Adult Dry Bib Package ($59) + 1 Kid's Full Drysuit Package ($59, ages 8–14) at Zion Outfitter right at the South Entrance bridge.",
+        permitUrl: "https://zionoutfitter.com/product/kids-drysuit-package/",
+        highlights: "Start on the paved 1.6 km Riverside Walk (spotting deer & squirrels), then step into the shallow Virgin River in your waterproof drysuits with wooden hiking sticks! Turn around whenever she's ready.",
+      },
+      {
+        optionLabel: "Option B · Dry-Feet Canyon Views (Emerald Pools + Scout Lookout)",
+        name: "Emerald Pools Trail OR West Rim to Walter's Wiggles / Scout Lookout",
+        distance: "4.8 – 6.1 km (3.0 – 3.8 mi)",
+        elevation: "190 – 338 m gain",
+        duration: "2h 00m – 2h 45m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/scout-lookout-trail",
+        permitNote: "100% permit-free (Skip the final Angels Landing chain spine with an 8yo)",
+        highlights: "Walk under sparkling waterfalls at Emerald Pools or climb the paved switchbacks of Walter's Wiggles to Scout Lookout.",
+      },
+      {
+        optionLabel: "Sunset Hike (4:10 PM – 5:25 PM · Fun 1-Hour Trail)",
+        name: "Zion Canyon Overlook Trail",
+        distance: "1.9 km (1.2 mi) round-trip",
+        elevation: "50 m (163 ft) gain",
+        duration: "45 – 60 mins",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/canyon-overlook-trail",
+        permitNote: "Included w/ $80 Pass; right outside the east end of the 1.1-mile tunnel",
+        highlights: "Short, super fun trail through a cool shady fern alcove to a steel-railed viewpoint overlooking lower Zion Canyon at sunset (hold her hand along the sandstone ledges).",
+      },
+    ],
+    foodAndWater: [
+      {
+        time: "7:00 AM",
+        kind: "Coffee & Breakfast",
+        name: "River Rock Roasting Co. + Davis Food & Drug (La Verkin)",
+        url: "https://www.riverrockroasters.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=River+Rock+Roasting+Company+394+S+State+St+La+Verkin+UT+84745",
+        notes: "Hot pastries, breakfast burritos, and espresso before heading 20 mins up to Zion.",
+      },
+      {
+        time: "3:00 PM",
+        kind: "Snacks & Water",
+        name: "Sol Foods Supermarket & Deli (Springdale) + Bumbleberry Pie",
+        url: "https://www.solfoods.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Sol+Foods+Supermarket+995+Zion+Park+Blvd+Springdale+UT+84767",
+        notes: "Grab fresh deli sandwiches, ice cream, and snacks after returning your Narrows drysuits at Zion Outfitter.",
+      },
+      {
+        time: "6:15 PM",
+        kind: "Dinner",
+        name: "Cordwood at Buffalo Ranch · Thunderbird Restaurant ('Ho-Made' Pies) · Peekaboo Wood-Fired Pizza",
+        url: "https://www.zmr.com/dining",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Cordwood+Restaurant+Zion+Mountain+Ranch+Mt+Carmel+UT",
+        notes: "Watch real roaming buffalo outside Cordwood at Zion Mountain Ranch, eat homemade pie at Thunderbird Restaurant (Mt. Carmel Jct), or wood-fired pizza at Peekaboo Kitchen in Kanab.",
+      },
+    ],
+    sleepOptions: [
+      {
+        optionLabel: "Pick 1 · Mt. Carmel Junction Hotel (On Route to Bryce + Outdoor Hot Tub)",
+        name: "Best Western East Zion Thunderbird Lodge",
+        type: "Hotel / Cabin",
+        price: "~$125 – $155 / night",
+        url: "https://www.thunderbirdutah.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Best+Western+East+Zion+Thunderbird+Lodge+Mt+Carmel+Junction+UT",
+        notes: "Right at the UT-9 / US-89 turnoff to Bryce Canyon (15 mins from Canyon Overlook) with attached pie diner and 10 mins from the Zion Mountain Ranch buffalo herd.",
+      },
+      {
+        optionLabel: "Pick 2 · Kanab Boutique Hotel (Walkable to Pizza & Bakeries)",
+        name: "Canyons Boutique Hotel — Kanab",
+        type: "Hotel / Cabin",
+        price: "~$135 – $175 / night",
+        url: "https://www.canyonscollection.com/canyons-boutique-hotel/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Canyons+Boutique+Hotel+121+W+Center+St+Kanab+UT+84741",
+        notes: "Warm boutique hotel in Kanab, 2 minutes' walk from Peekaboo Canyon Wood Fired Pizza and Kanab Creek Bakery.",
+      },
+      {
+        optionLabel: "Pick 3 · East Zion Ranch Cabin (Hot Tub, Mini-Golf & Buffalo Next Door)",
+        name: "Zion Ponderosa Ranch Resort — Cabin Suite / Cowboy Cabin",
+        type: "Hotel / Cabin",
+        price: "~$109 – $165 / night",
+        url: "https://www.zionponderosa.com/lodging/cowboy-cabins/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Zion+Ponderosa+Ranch+Resort+Twin+Knolls+Rd+Orderville+UT",
+        notes: "Heated log cabins on the East Rim with resort hot tub, bungee trampoline, and mini-golf that 8-year-olds love.",
+      },
+    ],
+    nuances: [
+      "How to Get the Kid's Full Drysuit at Zion Outfitter: Arrive at Zion Outfitter (right at the South Entrance pedestrian bridge) at 7:45 AM. They fit kids ages 8–14 with a full drysuit + grippy boots + wooden stick ($59).",
+      "Zion Junior Ranger Badge: Stop at the Visitor Center desk so your daughter can pick up the free Junior Ranger booklet and get her official Zion badge!",
+      "3:45 PM Tunnel Drive: Kids love driving through the 1.1-mile dark rock tunnel with giant windows looking out over the cliffs.",
+    ],
+  },
+  3: {
+    day: 3,
+    date: "Wed, Nov 4, 2026",
+    title: "East Zion → Red Canyon Rock Tunnels → Bryce Canyon Hoodoos → Indoor Heated Pool at Ruby's Inn",
+    routeSummary: "East Zion · US-89 North · Red Canyon Arch Tunnels (UT-12) · 10:00 AM Ruby's Inn General Store · Bryce Canyon National Park · Sunset at Inspiration Point · Warm Hotel & Indoor Pool (~65 mi · ~1h 30m drive)",
+    tempDay: "10°C (50°F) Crisp Mountain Sun",
+    tempNight: "-6°C (21°F) Outside (Warm Hotel & Heated Indoor Pool Inside!)",
+    sunrise: "7:03 AM MST",
+    sunset: "5:24 PM MST",
+    daylightHours: "10h 21m",
+    timeZoneNote: "Mountain Standard Time (MST). Dress your daughter in her warm base layer, fleece, puffy jacket, beanie, and gloves for the 8,000-ft rim!",
+    passAndPermitSummary: "Bryce Canyon entry ($35 value) is 100% FREE with your $80 America the Beautiful Pass.",
+    kidFriendlyPick: "👧 8yo Daughter Highlight: Choose Option B (Two Bridges + Queen's Garden Loop — 5.3 km / 3.3 mi)! It is half the distance of the full Figure-8, and she gets to walk through magical tunnels carved straight through the orange hoodoo rocks and see 'Thor's Hammer' & 'Queen Victoria' rock! Afterward, earn her Bryce Junior Ranger Badge and swim in the heated indoor pool at Best Western Plus Ruby's Inn!",
+    hikes: [
+      {
+        optionLabel: "Option B · #1 Kid-Friendly Bryce Hike (5.3 km · Rock Tunnels & Thor's Hammer!)",
+        name: "Navajo Loop (Two Bridges) & Queen's Garden Combination Trail",
+        distance: "5.3 km (3.3 mi) loop",
+        elevation: "196 m (643 ft) gain",
+        duration: "1h 45m – 2h 15m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wall-street-and-queens-garden-loop-trail",
+        permitNote: "FREE w/ $80 Pass · Start at Sunset Point (via Two Bridges since Wall Street is closed for winter) and exit at Sunrise Point",
+        highlights: "The perfect distance for an 8-year-old at 8,000 ft: walk past Thor's Hammer, descend between towering red rock walls at Two Bridges, walk through 3 hand-carved rock tunnels in Queen's Garden, and climb gently back to Sunrise Point!",
+      },
+      {
+        optionLabel: "Option A · Longer Figure-8 Loop (Only if She Wants More After Queen's Garden)",
+        name: "Navajo Loop, Queen's Garden & Peekaboo Loop (Figure-8)",
+        distance: "10.5 km (6.5 mi) loop",
+        elevation: "446 m (1,466 ft) gain",
+        duration: "3h 30m – 4h 00m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wall-street-and-queens-garden-loop-to-peekaboo-loop-figure-eight-trail",
+        permitNote: "FREE w/ $80 Pass · You can decide at the bottom of Queen's Garden whether to add the Peekaboo Loop",
+        highlights: "Adds the steeper Peekaboo Loop past the Wall of Windows (often shares the trail with trail horses/mules!).",
+      },
+    ],
+    foodAndWater: [
+      {
+        time: "10:00 AM",
+        kind: "Snacks & Water",
+        name: "Ruby's Inn General Store & Bakery (Bryce Canyon City)",
+        url: "https://www.rubysinn.com/general-store/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Rubys+Inn+General+Store+26+S+Main+St+Bryce+Canyon+City+UT+84764",
+        notes: "1 mile before the park entrance: hot cocoa for your daughter, coffee for you, trail sandwiches, and souvenirs.",
+      },
+      {
+        time: "5:45 PM",
+        kind: "Dinner",
+        name: "Bryce Canyon Pines (Famous Homemade Pies!) · I.D.K. Barbecue · Ruby's Inn Cowboy Buffet",
+        url: "https://bcpines.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Bryce+Canyon+Pines+Restaurant+Hwy+12+Milepost+10+Bryce+UT",
+        notes: "Warm comfort food & homemade berry/chocolate pies at Bryce Canyon Pines (6 mins west) or right inside Ruby's Inn.",
+      },
+    ],
+    sleepOptions: [
+      {
+        optionLabel: "Option 1 · #1 Kid Pick (Heated Indoor Pool & Hot Tub 1 Mile from Park Gate!)",
+        name: "Best Western Plus Ruby's Inn",
+        type: "Hotel / Cabin",
+        price: "~$115 – $145 / night",
+        url: "https://www.rubysinn.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Best+Western+Plus+Rubys+Inn+26+S+Main+St+Bryce+Canyon+City+UT+84764",
+        notes: "Warm lodge rooms with a large heated indoor swimming pool & hot tub — only 5 minutes from Sunrise Point for Thursday morning's sunrise!",
+      },
+      {
+        optionLabel: "Option 2 · Cozy Cabins in Tropic (1,700 ft Lower & Warmer)",
+        name: "Bryce Pioneer Village (Tropic, UT)",
+        type: "Hotel / Cabin",
+        price: "~$95 – $125 / night",
+        url: "https://brycepioneervillage.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Bryce+Pioneer+Village+80+S+Main+St+Tropic+UT+84776",
+        notes: "Cozy heated cabins 12 mins down the mountain in Tropic where temperatures are 5°C warmer.",
+      },
+    ],
+    nuances: [
+      "Red Canyon Rock Tunnels on UT-12: Have your daughter look out the front windshield as you drive right through the two red-rock arches carved over the highway!",
+      "Wall Street vs. Two Bridges: Wall Street slot is closed for winter freeze safety, so take the Two Bridges path at Sunset Point — it connects to the exact same Queen's Garden trail.",
+    ],
+  },
+  4: {
+    day: 4,
+    date: "Thu, Nov 5, 2026",
+    title: "Bryce Sunrise → Kanab Creek Bakery → Toadstool 'Mushroom' Rocks & Slot Canyon → Horseshoe Bend → Page Hotel",
+    routeSummary: "6:58 AM Sunrise at Bryce Rim · Kanab Creek Bakery · Midday Kid-Friendly Slot Canyon & Toadstool Hoodoos · Glen Canyon Dam Overlook · Horseshoe Bend Sunset · Page, AZ Hotel (~155 mi · ~3h 15m drive)",
+    tempDay: "17°C – 19°C (63°F – 66°F) in Kanab & Page",
+    tempNight: "7°C – 10°C (45°F – 50°F) in Page",
+    sunrise: "6:58 AM MST (Bryce Sunrise Point)",
+    sunset: "5:22 PM MST (Horseshoe Bend)",
+    daylightHours: "10h 18m",
+    timeZoneNote: "Both Utah and Page, Arizona are on Mountain Standard Time (MST, UTC-7) in November — zero clock change today!",
+    passAndPermitSummary: "Glen Canyon Dam Overlook is FREE w/ your $80 Pass. Toadstool Hoodoos & Willis Creek are FREE ($0). Horseshoe Bend is $10 parking at the City of Page gate.",
+    kidFriendlyPick: "👧 8yo Daughter Highlight: Kids go crazy for Toadstool Hoodoos (2.9 km easy walk right off paved US-89) — it looks like giant red-and-white Super Mario mushroom rocks! Pair it with Willis Creek Slot Canyon (or Wire Pass if dry) and French croissants at Kanab Creek Bakery!",
+    hikes: [
+      {
+        optionLabel: "Option C · #1 Kid Favorite (Giant Mushroom Rocks Right on Paved Highway US-89!)",
+        name: "Toadstool Hoodoos Trail",
+        distance: "2.9 km (1.8 mi) round-trip",
+        elevation: "34 m (111 ft) easy walk",
+        duration: "45 – 60 mins",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/toadstool-hoodoos-trail",
+        permitNote: "100% FREE — paved parking lot directly on Highway US-89 (30 mins before Page)",
+        highlights: "A fun, easy treasure-hunt walk to giant red boulders balanced on skinny white rock stems like giant desert mushrooms!",
+      },
+      {
+        optionLabel: "Option B · Easy Flat Slot Canyon Walk (Zero Ladders)",
+        name: "Willis Creek Slot Canyon (Short Trail)",
+        distance: "4.3 km (2.7 mi) round-trip",
+        elevation: "55 m (180 ft) gentle walk",
+        duration: "1h 00m – 1h 30m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/willis-creek-short-trail",
+        permitNote: "100% FREE — 25 mins from Bryce Canyon near Cannonville",
+        highlights: "Walk between narrow, sculpted golden canyon walls alongside a tiny shallow stream with zero steep climbing.",
+      },
+      {
+        optionLabel: "Option A · Deeper Adventure Slot Canyon (Has 8-ft Boulder/Ladder Drop)",
+        name: "Wire Pass Slot Canyon to Buckskin Gulch Petroglyphs",
+        distance: "5.6 km (3.5 mi) round-trip",
+        elevation: "73 m (240 ft) gain",
+        duration: "2h 00m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/utah/wire-pass-trail",
+        permitNote: "$6 Adult Permit on Recreation.gov (Kids under 16 are FREE!). Dry weather only.",
+        permitUrl: "https://www.recreation.gov/activitypass/10006177",
+        highlights: "Narrow slot canyon leading to ancient rock petroglyphs at the Buckskin Gulch confluence (spot/lift your daughter down the 8-ft ladder drop inside the slot).",
+      },
+      {
+        optionLabel: "Sunset Walk (4:15 PM – 5:30 PM)",
+        name: "Horseshoe Bend Overlook Trail",
+        distance: "2.4 km (1.5 mi) round-trip",
+        elevation: "58 m (190 ft) wide path",
+        duration: "45 – 60 mins",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/horseshoe-bend-trail",
+        permitNote: "$10 per vehicle at City of Page parking booth",
+        permitUrl: "https://www.pageaz.gov/268/Horseshoe-Bend",
+        highlights: "Wide path with shaded benches leading to the fenced viewing platform 1,000 ft above the emerald Colorado River bend (stay inside the main railed platform with your daughter).",
+      },
+    ],
+    foodAndWater: [
+      {
+        time: "8:45 AM",
+        kind: "Coffee & Breakfast",
+        name: "Kanab Creek Bakery (Kanab, UT)",
+        url: "https://www.kanabcreekbakery.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kanab+Creek+Bakery+238+W+Center+St+Kanab+UT+84741",
+        notes: "Warm chocolate croissants, sweet pastries, fruit smoothies, and espresso after leaving chilly Bryce Canyon.",
+      },
+      {
+        time: "6:00 PM",
+        kind: "Dinner",
+        name: "Big John's Texas BBQ (Live Music & Yard Games!) · The BirdHouse (Crispy Chicken & Honey Biscuits)",
+        url: "https://bigjohnstexasbbq.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Big+Johns+Texas+BBQ+153+S+Lake+Powell+Blvd+Page+AZ+86040",
+        notes: "Kids love Big John's patio (live music, cornhole & giant Jenga!) or The BirdHouse for honey-butter biscuits and crispy chicken tenders.",
+      },
+    ],
+    sleepOptions: [
+      {
+        optionLabel: "Option 1 · Upscale Modern Hotel in Page (8 Mins from Antelope Canyon)",
+        name: "Hyatt Place Page / Lake Powell",
+        type: "Hotel / Cabin",
+        price: "~$135 – $170 / night",
+        url: "https://www.hyatt.com/hyatt-place/en-US/pgezp-hyatt-place-page-lake-powell",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Hyatt+Place+Page+Lake+Powell+1126+N+Navajo+Dr+Page+AZ+86040",
+        notes: "Spacious rooms with cozy sofa-sleeper, outdoor pool, hot breakfast, and views of the red mesas.",
+      },
+      {
+        optionLabel: "Option 2 · Family Favorite w/ Indoor Heated Pool & Hot Tub",
+        name: "Country Inn & Suites by Radisson — Page, AZ",
+        type: "Hotel / Cabin",
+        price: "~$95 – $125 / night",
+        url: "https://www.choicehotels.com/arizona/page/country-inn-suites-hotels/az396",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Country+Inn+Suites+880+S+Coppermine+Rd+Page+AZ+86040",
+        notes: "2 minutes from Horseshoe Bend with a warm indoor swimming pool, hot tub, and complimentary hot waffle breakfast.",
+      },
+    ],
+    nuances: [
+      "Bryce Sunrise Warmth Tip: You can park right at Sunrise Point, step out for 15 minutes in your warm jackets as the hoodoos light up at 6:58 AM, and hop right back into the heated SUV!",
+      "Horseshoe Bend Safety: Stay at the main steel-railed viewing deck at the center of Horseshoe Bend where it's 100% fenced for kids.",
+    ],
+  },
+  5: {
+    day: 5,
+    date: "Fri, Nov 6, 2026",
+    title: "Page (9:15 AM Antelope Canyon Tour & Crepes) → Forrest Gump Point → Monument Valley 17-Mile Drive & View Cabins",
+    routeSummary: "8:00 AM Canyon Crepes Cafe (Page) · 9:15 AM Guided Antelope Canyon Tour · Forrest Gump Point (US-163) · Monument Valley 17-Mile Scenic Drive (Enter before 2:30 PM!) · Sunset over the Mittens (~125 mi · ~2h 15m drive)",
+    tempDay: "15°C – 18°C (59°F – 64°F)",
+    tempNight: "5°C – 8°C (41°F – 46°F)",
+    sunrise: "6:57 AM MST",
+    sunset: "5:17 PM MST (Monument Valley Mittens)",
+    daylightHours: "10h 20m",
+    timeZoneNote: "Mountain Standard Time (MST, UTC-7) all day. Zero clock change between Page and Monument Valley in November.",
+    passAndPermitSummary: "Antelope Canyon requires a pre-booked Navajo guided tour (1 Adult + 1 Child age 8). Monument Valley entry is $8/person at the gate.",
+    kidFriendlyPick: "👧 8yo Daughter Highlight: Start with sweet Nutella/berry crepes at Canyon Crepes Cafe before walking through the glowing orange waves of Antelope Canyon! At Monument Valley, do Option B (the 17-Mile Scenic SUV Drive) rather than the long 8.7 km sandy hike — she can see the Navajo horses at John Ford's Point and watch sunset right from your cabin balcony at The View or swim in the indoor pool at Goulding's Lodge!",
+    hikes: [
+      {
+        optionLabel: "9:15 AM · Mandatory Navajo-Guided Slot Canyon Tour (Page, AZ)",
+        name: "Lower Antelope Canyon (Ken's / Dixie's) OR Upper Antelope Canyon",
+        distance: "1.8 km (1.1 mi) guided slot walk",
+        elevation: "Fun steel staircases (Lower) or flat sandy floor + 4x4 truck ride (Upper)",
+        duration: "1h 15m – 1h 30m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/lower-antelope-canyon",
+        permitNote: "Book 1 Adult + 1 Child (Age 8) for ~9:15 AM: Ken's Tours (https://www.lowerantelope.com/), Dixie's (https://www.antelopecanyon.az/), or Upper Antelope (https://navajotours.com/).",
+        permitUrl: "https://www.lowerantelope.com/",
+        highlights: "Navajo guides point out hidden shapes in the swirling purple-and-orange rock walls (sharks, eagles, dragons, and hearts) and help take awesome father-daughter photos!",
+      },
+      {
+        optionLabel: "Monument Valley Option B · #1 Kid-Friendly Pick (17-Mile Valley Drive)",
+        name: "17-Mile Scenic Valley Drive (John Ford's Point, Three Sisters & Totem Pole)",
+        distance: "27.4 km (17.0 mi) scenic loop drive + short viewpoint walks",
+        elevation: "Minimal walking — hop out at every viewpoint",
+        duration: "1h 45m – 2h 15m (Enter before 2:30 PM winter cutoff!)",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/monument-valley-scenic-drive--2",
+        permitNote: "Included w/ $8 Monument Valley entry; last entry onto the loop road is 2:30 PM in November",
+        permitUrl: "https://navajonationparks.org/navajo-tribal-parks/monument-valley/",
+        highlights: "Drive right among the towering 1,000-foot red rock mittens, stop for Navajo frybread and horse photos at John Ford's Point, and hear the echo at Artist's Point!",
+      },
+      {
+        optionLabel: "Monument Valley Option A · Foot Trail Option",
+        name: "Wildcat Trail (Around West Mitten Butte)",
+        distance: "8.7 km (5.4 mi) sandy loop",
+        elevation: "118 m (387 ft) gain",
+        duration: "2h 15m",
+        allTrailsUrl: "https://www.alltrails.com/trail/us/arizona/wildcat-trail",
+        permitNote: "Open 8:00 AM – 5:00 PM from Visitor Center lot",
+        highlights: "Walk the first 15–20 minutes down from the Visitor Center for up-close photos of West Mitten Butte without having to do the whole 8.7 km deep-sand loop.",
+      },
+    ],
+    foodAndWater: [
+      {
+        time: "7:45 AM",
+        kind: "Coffee & Breakfast",
+        name: "Canyon Crepes Cafe · LP Espresso (Page, AZ)",
+        url: "https://www.google.com/maps/search/?api=1&query=Canyon+Crepes+Cafe+Page+AZ",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Canyon+Crepes+Cafe+Page+AZ",
+        notes: "Fresh sweet berry/Nutella crepes for your daughter and savory egg crepes & espresso for you before your 8:30 AM Antelope Canyon check-in.",
+      },
+      {
+        time: "5:45 PM",
+        kind: "Dinner",
+        name: "The View Restaurant · Goulding's Stagecoach Dining Room",
+        url: "https://monumentvalleyview.com/dining/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Restaurant+Monument+Valley+UT",
+        notes: "Warm dinner overlooking the Mittens at dusk (kids love warm Navajo frybread drizzled with honey!).",
+      },
+    ],
+    sleepOptions: [
+      {
+        optionLabel: "Option 1 · Wake Up Facing the Mittens from Your Balcony / Cabin",
+        name: "The View Hotel & Premium Valley Rim Cabins",
+        type: "Hotel / Cabin",
+        price: "~$215 – $265 / night",
+        url: "https://monumentvalleyview.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=The+View+Hotel+Monument+Valley+Navajo+Tribal+Park+AZ",
+        notes: "Every room and private wooden cabin sits right on the cliff rim facing the Three Mittens — you and your daughter can watch Saturday's 6:52 AM sunrise from your warm balcony in pajamas!",
+      },
+      {
+        optionLabel: "Option 2 · Historic Red-Rock Lodge w/ Heated Indoor Pool & Western Movie Museum",
+        name: "Goulding's Lodge (Monument Valley)",
+        type: "Hotel / Cabin",
+        price: "~$160 – $205 / night",
+        url: "https://www.gouldings.com/",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Gouldings+Lodge+1000+Gouldings+Trading+Post+Rd+Oljato-Monument+Valley+UT+84536",
+        notes: "10 mins across the valley with a heated indoor pool, free John Wayne Western movie museum, and private balconies facing the buttes.",
+      },
+    ],
+    nuances: [
+      "No Backpacks Inside Antelope Canyon: Leave bags in your locked SUV trunk — carry only your phones and water bottles.",
+      "Beat the 2:30 PM Monument Valley Loop Cutoff: Leaving Page at 11:00 AM puts you at Monument Valley by 1:15 PM, well before the 2:30 PM winter gate cutoff for the 17-Mile Drive.",
+    ],
+  },
 };
