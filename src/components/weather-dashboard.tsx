@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import initialWeather from "@/data/live-weather.json";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -25,6 +25,11 @@ export function WeatherDashboard({
   const [lastRefreshedSource, setLastRefreshedSource] = useState<
     "repo" | "live-browser"
   >("repo");
+
+  useEffect(() => {
+    refreshLiveFromBrowser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function refreshLiveFromBrowser() {
     setRefreshing(true);
