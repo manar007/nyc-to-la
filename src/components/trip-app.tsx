@@ -5,6 +5,8 @@ import { DayDetail } from "@/components/day-detail";
 import { PackingList } from "@/components/packing-list";
 import { RouteMap } from "@/components/route-map";
 import { StopDetail } from "@/components/stop-detail";
+import { WeatherDashboard } from "@/components/weather-dashboard";
+import initialWeather from "@/data/live-weather.json";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -31,6 +33,7 @@ import {
   CalendarDays,
   Car,
   CheckCircle2,
+  CloudSun,
   Compass,
   ExternalLink,
   Footprints,
@@ -45,7 +48,7 @@ import {
   Waves,
 } from "lucide-react";
 
-type MainTab = "days" | "stops" | "packing" | "bookings";
+type MainTab = "days" | "stops" | "weather" | "packing" | "bookings";
 
 export function TripApp() {
   const [selectedId, setSelectedId] = useState(STOPS[0].id);
@@ -144,16 +147,24 @@ export function TripApp() {
       {/* Main Content */}
       <main className="mx-auto grid w-full max-w-6xl flex-1 gap-6 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(21rem,0.95fr)] lg:px-8 lg:py-8">
         <section className="flex min-w-0 flex-col gap-4">
-          {/* Top Navigation Tabs (Includes Packing List & Bookings!) */}
+          {/* Top Navigation Tabs (Includes Live Weather, Packing List & Bookings!) */}
           <div
             role="tablist"
             aria-label="Road trip sections"
-            className="grid grid-cols-2 gap-1.5 rounded-xl bg-zinc-900/90 p-1.5 ring-1 ring-white/10 sm:grid-cols-4"
+            className="grid grid-cols-2 gap-1.5 rounded-xl bg-zinc-900/90 p-1.5 ring-1 ring-white/10 sm:grid-cols-5"
           >
             {(
               [
                 { id: "days", label: "Daily Plan (1–11)", icon: CalendarDays },
                 { id: "stops", label: `All Stops (${STOPS.length})`, icon: MapPinned },
+                {
+                  id: "weather",
+                  label:
+                    initialWeather.alertCount > 0
+                      ? `Live Weather (${initialWeather.alertCount})`
+                      : "Live Weather",
+                  icon: CloudSun,
+                },
                 { id: "packing", label: "Packing List", icon: Backpack },
                 { id: "bookings", label: "Flights & SUV", icon: Ticket },
               ] as const
@@ -357,7 +368,16 @@ export function TripApp() {
             </ul>
           </div>
 
-          {/* TAB 3: PACKING LIST */}
+          {/* TAB 3: LIVE WEATHER & ALERTS */}
+          <div
+            role="tabpanel"
+            hidden={tab !== "weather"}
+            className={cn("outline-none", tab !== "weather" && "hidden")}
+          >
+            <WeatherDashboard onOpenDay={openDaySheet} />
+          </div>
+
+          {/* TAB 4: PACKING LIST */}
           <div
             role="tabpanel"
             hidden={tab !== "packing"}
@@ -366,7 +386,7 @@ export function TripApp() {
             <PackingList />
           </div>
 
-          {/* TAB 4: CONFIRMED FLIGHTS, SUV & PASSES */}
+          {/* TAB 5: CONFIRMED FLIGHTS, SUV & PASSES */}
           <div
             role="tabpanel"
             hidden={tab !== "bookings"}
@@ -500,6 +520,21 @@ export function TripApp() {
             variant="outline"
             className={cn(
               "min-h-11 px-3 border-white/15 text-xs font-semibold",
+              tab === "weather"
+                ? "bg-sky-500/20 text-sky-200 border-sky-400/40"
+                : "bg-zinc-900 text-zinc-200"
+            )}
+            onClick={() =>
+              setTab(tab === "weather" ? "days" : "weather")
+            }
+            aria-label="Live Weather"
+          >
+            <CloudSun className="size-4 text-sky-300" />
+          </Button>
+          <Button
+            variant="outline"
+            className={cn(
+              "min-h-11 px-3 border-white/15 text-xs font-semibold",
               tab === "packing"
                 ? "bg-emerald-500/20 text-emerald-200 border-emerald-400/40"
                 : "bg-zinc-900 text-zinc-200"
@@ -507,6 +542,7 @@ export function TripApp() {
             onClick={() =>
               setTab(tab === "packing" ? "days" : "packing")
             }
+            aria-label="Packing List"
           >
             <Backpack className="size-4" />
           </Button>
