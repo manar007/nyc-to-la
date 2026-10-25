@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0 --port 43187",
-    "build": "next build",
+    "weather": "node scripts/update-weather.mjs",
+    "build": "node scripts/update-weather.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
