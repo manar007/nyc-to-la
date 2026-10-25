@@ -129,6 +129,39 @@ async function main() {
     for (const alert of activeAlerts) reportLines.push(`- **[${alert.severity.toUpperCase()}] Day ${alert.day} (${alert.visitDate}) — ${alert.location}:** **${alert.title}** — ${alert.detail}`);
   }
   fs.writeFileSync("/tmp/weather-alert-report.md", reportLines.join("\n") + "\n");
+
+  if (activeAlerts.length > 0 || process.env.SEND_TEST_ALERT === "1") {
+    const ntfyBody = [
+      `Active Advisories: ${activeAlerts.length}`,
+      ...activeAlerts.map((a) => `• [Day ${a.day} - ${a.visitDate}] ${a.location}: ${a.title}`),
+      `• Zion Virgin River: ${virginRiver.cfs} CFS, Water ${virginRiver.waterTempC}°C (${virginRiver.waterTempF}°F) — Narrows ${virginRiver.narrowsOpen ? "OPEN" : "CLOSED"}`,
+      `Live Dashboard: https://manar007.github.io/nyc-to-la/`,
+    ].join("\n");
+
+    await fetch("https://ntfy.sh/narek-las-lax-roadtrip-2026", {
+      method: "POST",
+      headers: {
+        Title: `Road Trip Weather Alert (${activeAlerts.length} Advisory)`,
+        Priority: "high",
+        Tags: "warning,sunny",
+        Click: "https://manar007.github.io/nyc-to-la/",
+      },
+      body: ntfyBody,
+    }).catch(() => {});
+
+    if (process.env.RESEND_API_KEY) {
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: "Road Trip Weather <onboarding@resend.dev>",
+          to: ["narekmamikonyan@gmail.com"],
+          subject: `🚨 Road Trip Weather Alert (${activeAlerts.length} Active Advisory)`,
+          text: reportLines.join("\n"),
+        }),
+      }).catch(() => {});
+    }
+  }
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
