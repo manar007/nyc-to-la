@@ -81,7 +81,6 @@ export function TripApp() {
 
   return (
     <div className="flex min-h-full flex-col pb-16 lg:pb-0">
-      {/* Hero Header */}
       <header className="relative overflow-hidden border-b border-white/10">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(251,191,36,0.16)_0%,transparent_38%,rgba(14,165,233,0.16)_100%)]" />
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
@@ -115,7 +114,6 @@ export function TripApp() {
             <StatChip>7 Canyons + 3 Ocean Days</StatChip>
           </div>
 
-          {/* Mobile-First Quick Day Jump Strip */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-1 no-scrollbar">
             <span className="shrink-0 text-[0.65rem] font-semibold tracking-wider text-zinc-400 uppercase mr-1">
               Quick Day:
@@ -144,10 +142,8 @@ export function TripApp() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="mx-auto grid w-full max-w-6xl flex-1 gap-6 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(21rem,0.95fr)] lg:px-8 lg:py-8">
         <section className="flex min-w-0 flex-col gap-4">
-          {/* Top Navigation Tabs (Includes Live Weather, Packing List & Bookings!) */}
           <div
             role="tablist"
             aria-label="Road trip sections"
@@ -192,12 +188,10 @@ export function TripApp() {
             })}
           </div>
 
-          {/* Interactive Map (Shown on Days & Stops tabs) */}
           {(tab === "days" || tab === "stops") && (
             <RouteMap selectedId={selected.id} onSelect={select} />
           )}
 
-          {/* TAB 1: BY DAY (1–11) */}
           <div
             role="tabpanel"
             hidden={tab !== "days"}
@@ -259,7 +253,6 @@ export function TripApp() {
                           `${plan.origin.city} → ${plan.destination.city}`}
                       </p>
 
-                      {/* Weather & Hike count badges */}
                       {guide ? (
                         <div className="mt-3 flex flex-wrap gap-1.5">
                           <span className="inline-flex items-center gap-1 rounded-md bg-zinc-900/90 px-2 py-1 text-[11px] text-zinc-200 ring-1 ring-white/10">
@@ -318,7 +311,6 @@ export function TripApp() {
             </div>
           </div>
 
-          {/* TAB 2: ALL STOPS */}
           <div
             role="tabpanel"
             hidden={tab !== "stops"}
@@ -368,7 +360,6 @@ export function TripApp() {
             </ul>
           </div>
 
-          {/* TAB 3: LIVE WEATHER & ALERTS */}
           <div
             role="tabpanel"
             hidden={tab !== "weather"}
@@ -377,7 +368,6 @@ export function TripApp() {
             <WeatherDashboard onOpenDay={openDaySheet} />
           </div>
 
-          {/* TAB 4: PACKING LIST */}
           <div
             role="tabpanel"
             hidden={tab !== "packing"}
@@ -386,7 +376,6 @@ export function TripApp() {
             <PackingList />
           </div>
 
-          {/* TAB 5: CONFIRMED FLIGHTS, SUV & PASSES */}
           <div
             role="tabpanel"
             hidden={tab !== "bookings"}
@@ -437,7 +426,6 @@ export function TripApp() {
                 </div>
               </div>
 
-              {/* America the Beautiful Pass Cheat Sheet */}
               <div className="rounded-2xl bg-zinc-950/70 p-5 ring-1 ring-amber-400/25">
                 <div className="flex items-center gap-2">
                   <Ticket className="size-4 text-amber-300" />
@@ -478,7 +466,6 @@ export function TripApp() {
           </div>
         </section>
 
-        {/* Desktop Sticky Stop Detail Sidebar */}
         <aside className="hidden lg:block">
           <div className="sticky top-6 rounded-2xl bg-zinc-950/75 p-5 ring-1 ring-white/10 backdrop-blur-sm">
             <StopDetail
@@ -498,7 +485,6 @@ export function TripApp() {
         </aside>
       </main>
 
-      {/* Mobile Sticky Bottom Navigation Bar */}
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#0b1220]/95 px-3 py-2.5 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-lg items-center gap-2">
           <Button
@@ -549,11 +535,11 @@ export function TripApp() {
         </div>
       </div>
 
-      {/* Mobile Stop Detail Sheet */}
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetContent
-          side="bottom"
-          className="max-h-[88vh] overflow-y-auto bg-zinc-950 p-0 lg:hidden"
+          side="full"
+          showCloseButton={false}
+          className="fixed inset-0 z-50 h-[100dvh] max-h-[100dvh] w-full overflow-y-auto bg-zinc-950 p-0"
         >
           <SheetHeader className="sr-only">
             <SheetTitle>
@@ -561,11 +547,12 @@ export function TripApp() {
             </SheetTitle>
             <SheetDescription>{selected.note}</SheetDescription>
           </SheetHeader>
-          <div className="p-5 pb-10">
+          <div className="mx-auto w-full max-w-2xl px-4 py-5 pb-16 sm:px-6 sm:py-7">
             <StopDetail
               stop={selected}
               index={selectedIndex}
               total={STOPS.length}
+              onClose={() => setMobileOpen(false)}
               onPrev={() =>
                 select(STOPS[Math.max(0, selectedIndex - 1)].id)
               }
@@ -579,7 +566,6 @@ export function TripApp() {
         </SheetContent>
       </Sheet>
 
-      {/* Day Detail Full Sheet (Mobile & Desktop) */}
       <Sheet
         open={openDay !== null}
         onOpenChange={(open) => {
@@ -587,8 +573,9 @@ export function TripApp() {
         }}
       >
         <SheetContent
-          side="right"
-          className="max-h-screen w-full overflow-y-auto bg-zinc-950 p-0 sm:max-w-xl"
+          side="full"
+          showCloseButton={false}
+          className="fixed inset-0 z-50 h-[100dvh] max-h-[100dvh] w-full overflow-y-auto bg-zinc-950 p-0"
         >
           <SheetHeader className="sr-only">
             <SheetTitle>Day {openDay ?? ""}</SheetTitle>
@@ -596,42 +583,18 @@ export function TripApp() {
               Full timetable, AllTrails links, temperatures, permits, and Google Maps navigation.
             </SheetDescription>
           </SheetHeader>
-          <div className="p-5 pb-12">
-            {/* Quick Day Prev/Next Switcher inside Sheet */}
-            {openDay !== null ? (
-              <div className="mb-4 flex items-center justify-between gap-2 border-b border-white/10 pb-3 pr-8">
-                <button
-                  type="button"
-                  disabled={openDay <= 1}
-                  onClick={() => setOpenDay(Math.max(1, openDay - 1))}
-                  className="rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-200 ring-1 ring-white/10 disabled:opacity-40"
-                >
-                  ← Day {Math.max(1, openDay - 1)}
-                </button>
-                <span className="text-xs font-semibold text-amber-300">
-                  Day {openDay} of 11
-                </span>
-                <button
-                  type="button"
-                  disabled={openDay >= 11}
-                  onClick={() => setOpenDay(Math.min(11, openDay + 1))}
-                  className="rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-200 ring-1 ring-white/10 disabled:opacity-40"
-                >
-                  Day {Math.min(11, openDay + 1)} →
-                </button>
-              </div>
-            ) : null}
-
-            {openDay !== null ? (
-              <DayDetail
-                day={openDay}
-                onSelectStop={(id) => {
-                  closeDaySheet();
-                  select(id);
-                }}
-              />
-            ) : null}
-          </div>
+          {openDay !== null ? (
+            <DayDetail
+              day={openDay}
+              onClose={closeDaySheet}
+              onPrevDay={() => setOpenDay(Math.max(1, openDay - 1))}
+              onNextDay={() => setOpenDay(Math.min(11, openDay + 1))}
+              onSelectStop={(id) => {
+                closeDaySheet();
+                select(id);
+              }}
+            />
+          ) : null}
         </SheetContent>
       </Sheet>
 
