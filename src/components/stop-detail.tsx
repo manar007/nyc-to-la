@@ -24,6 +24,7 @@ import {
   Thermometer,
   Ticket,
   Utensils,
+  X,
 } from "lucide-react";
 
 type QuickLink = {
@@ -45,6 +46,7 @@ type StopDetailProps = {
   total: number;
   onPrev: () => void;
   onNext: () => void;
+  onClose?: () => void;
 };
 
 export function StopDetail({
@@ -53,6 +55,7 @@ export function StopDetail({
   total,
   onPrev,
   onNext,
+  onClose,
 }: StopDetailProps) {
   const isOvernight =
     stop.kind === "overnight" || stop.kind === "camp" || stop.kind === "finish";
@@ -62,172 +65,223 @@ export function StopDetail({
   const quickLinks = stop?.links ?? [];
 
   return (
-    <div className="flex h-full flex-col gap-4">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-[0.7rem] tracking-[0.22em] text-amber-400/90 uppercase">
-            {stop.day === 0 ? "Departure" : `Day ${stop.day}`}
-          </p>
-          <h2
-            data-selected-city={stop.id}
-            className="font-display mt-1 text-4xl leading-none tracking-wide text-zinc-50 sm:text-5xl"
+    <div className="flex h-full flex-col">
+      {onClose ? (
+        <header className="sticky top-0 z-20 -mx-4 -mt-4 mb-4 flex items-center justify-between gap-3 border-b border-white/10 bg-zinc-950/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:-mt-6 sm:px-6">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClose}
+            className="h-9 gap-1.5 rounded-lg px-2.5 text-xs font-semibold text-zinc-300 hover:bg-zinc-900 hover:text-zinc-50"
           >
-            {stop.city}
-          </h2>
-          <p className="mt-1 text-sm text-zinc-400">{stop.state}</p>
-        </div>
-        <Badge variant="outline" className="mt-1 border-amber-400/30 text-amber-200">
-          {kindLabel(stop.kind)}
-        </Badge>
-      </div>
+            <X className="size-4" />
+            Close
+          </Button>
 
-      {hasMetaBadges ? (
-        <div className="flex flex-wrap gap-1.5">
-          {stop?.timeWindow ? (
-            <span className="inline-flex items-center gap-1.5 rounded-lg bg-amber-400/10 px-2.5 py-1 text-xs font-medium text-amber-200 ring-1 ring-amber-400/25">
-              <Clock className="size-3.5 shrink-0 text-amber-300" />
-              {stop.timeWindow}
+          <div className="flex items-center gap-1.5">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onPrev}
+              disabled={index === 0}
+              className="h-8 rounded-lg border-white/15 bg-zinc-900/80 px-2.5 text-xs font-medium text-zinc-200 hover:bg-zinc-800 disabled:opacity-40"
+            >
+              <ChevronLeft className="size-3.5" />
+              Prev
+            </Button>
+            <span className="px-2 text-xs font-semibold tabular-nums text-amber-300">
+              Stop {index + 1} of {total}
             </span>
-          ) : null}
-          {stop?.tempInfo ? (
-            <span className="inline-flex items-center gap-1.5 rounded-lg bg-sky-400/10 px-2.5 py-1 text-xs font-medium text-sky-200 ring-1 ring-sky-400/25">
-              <Thermometer className="size-3.5 shrink-0 text-sky-300" />
-              {stop.tempInfo}
-            </span>
-          ) : null}
-          {stop?.permitInfo ? (
-            <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-200 ring-1 ring-emerald-400/25">
-              <Ticket className="size-3.5 shrink-0 text-emerald-300" />
-              {stop.permitInfo}
-            </span>
-          ) : null}
-        </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onNext}
+              disabled={index === total - 1}
+              className="h-8 rounded-lg border-white/15 bg-zinc-900/80 px-2.5 text-xs font-medium text-zinc-200 hover:bg-zinc-800 disabled:opacity-40"
+            >
+              Next
+              <ChevronRight className="size-3.5" />
+            </Button>
+          </div>
+        </header>
       ) : null}
 
-      <div className="grid grid-cols-3 gap-2 rounded-xl bg-zinc-900/70 p-3 ring-1 ring-white/8">
-        <Stat label="Mile" value={stop.milesFromStart.toLocaleString()} />
-        <Stat
-          label="Leg"
-          value={
-            stop.driveFromPrevMiles
-              ? `${stop.driveFromPrevMiles} mi`
-              : "—"
-          }
-        />
-        <Stat label="Drive" value={formatHours(stop.driveFromPrevHours)} />
-      </div>
+      <div className="flex flex-col gap-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.24em] text-amber-300 uppercase">
+              {stop.day === 0 ? "Departure" : `Day ${stop.day}`}
+            </p>
+            <h2
+              data-selected-city={stop.id}
+              className="font-display mt-1 text-3xl font-bold leading-tight tracking-wide text-zinc-50 sm:text-4xl lg:text-5xl"
+            >
+              {stop.city}
+            </h2>
+            <p className="mt-1 text-sm font-medium text-zinc-300">{stop.state}</p>
+          </div>
+          <Badge
+            variant="outline"
+            className="mt-1 border-amber-400/40 bg-amber-400/10 px-2.5 py-1 text-xs font-semibold text-amber-200"
+          >
+            {kindLabel(stop.kind)}
+          </Badge>
+        </div>
 
-      <p className="text-[0.7rem] tracking-[0.18em] text-zinc-500 uppercase">
-        {stop.highway}
-      </p>
+        {hasMetaBadges ? (
+          <div className="flex flex-wrap gap-2">
+            {stop?.timeWindow ? (
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-amber-400/10 px-3 py-1.5 text-xs font-medium text-amber-200 ring-1 ring-amber-400/30">
+                <Clock className="size-3.5 shrink-0 text-amber-300" />
+                {stop.timeWindow}
+              </span>
+            ) : null}
+            {stop?.tempInfo ? (
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-sky-400/10 px-3 py-1.5 text-xs font-medium text-sky-200 ring-1 ring-sky-400/30">
+                <Thermometer className="size-3.5 shrink-0 text-sky-300" />
+                {stop.tempInfo}
+              </span>
+            ) : null}
+            {stop?.permitInfo ? (
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-200 ring-1 ring-emerald-400/30">
+                <Ticket className="size-3.5 shrink-0 text-emerald-300" />
+                {stop.permitInfo}
+              </span>
+            ) : null}
+          </div>
+        ) : null}
 
-      {stop.address ? (
-        <p className="text-xs leading-relaxed text-zinc-400">{stop.address}</p>
-      ) : null}
+        <div className="grid grid-cols-3 gap-2.5 rounded-2xl bg-zinc-900/80 p-3.5 ring-1 ring-white/10 sm:p-4">
+          <Stat label="Total Mile" value={stop.milesFromStart.toLocaleString()} />
+          <Stat
+            label="Leg Dist"
+            value={
+              stop.driveFromPrevMiles
+                ? `${stop.driveFromPrevMiles} mi`
+                : "—"
+            }
+          />
+          <Stat label="Leg Drive" value={formatHours(stop.driveFromPrevHours)} />
+        </div>
 
-      <p className="text-[15px] leading-relaxed text-zinc-200">{stop.note}</p>
+        <p className="text-xs font-semibold tracking-[0.2em] text-zinc-400 uppercase">
+          🛣️ {stop.highway}
+        </p>
 
-      <a
-        href={stopDirectionsUrl(stop)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-amber-400 px-4 py-3 text-base font-semibold text-zinc-950 shadow-md shadow-amber-500/10 transition-all hover:bg-amber-300 active:scale-[0.99]"
-      >
-        <Navigation className="size-4 shrink-0" />
-        Navigate in Google Maps
-        <ExternalLink className="size-4 shrink-0 opacity-75" />
-      </a>
-
-      {quickLinks.length > 0 ? (
-        <div className="flex flex-col gap-2">
-          <p className="text-[0.68rem] font-medium tracking-[0.2em] text-amber-300/90 uppercase">
-            1-Tap Quick Links
+        {stop.address ? (
+          <p className="text-xs leading-relaxed text-zinc-400 sm:text-sm">
+            📍 {stop.address}
           </p>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {quickLinks.map((link, idx) => {
-              const meta = getLinkBadgeMeta(link);
-              const Icon = meta.icon;
-              return (
-                <a
-                  key={`${link.url}-${idx}`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex min-h-12 items-center justify-between gap-2.5 rounded-xl bg-zinc-900/85 px-3 py-2.5 text-left ring-1 ring-white/10 transition-all hover:bg-zinc-800/90 hover:ring-amber-400/30 active:scale-[0.99]"
-                >
-                  <div className="flex min-w-0 items-center gap-2.5">
-                    <span
-                      className={cn(
-                        "flex size-8 shrink-0 items-center justify-center rounded-lg",
-                        meta.iconClass
-                      )}
-                    >
-                      <Icon className="size-4" />
-                    </span>
-                    <div className="min-w-0">
+        ) : null}
+
+        <p className="text-sm leading-relaxed text-zinc-100 sm:text-base sm:leading-relaxed">
+          {stop.note}
+        </p>
+
+        <a
+          href={stopDirectionsUrl(stop)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-amber-500/15 transition-all hover:bg-amber-300 active:scale-[0.99] sm:text-base"
+        >
+          <Navigation className="size-4 shrink-0" />
+          Navigate Here in Google Maps
+          <ExternalLink className="size-4 shrink-0 opacity-75" />
+        </a>
+
+        {quickLinks.length > 0 ? (
+          <div className="flex flex-col gap-2.5">
+            <p className="text-xs font-bold tracking-[0.2em] text-amber-300 uppercase">
+              1-Tap Quick Links &amp; Hikes
+            </p>
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {quickLinks.map((link, idx) => {
+                const meta = getLinkBadgeMeta(link);
+                const Icon = meta.icon;
+                return (
+                  <a
+                    key={`${link.url}-${idx}`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-12 items-center justify-between gap-3 rounded-xl bg-zinc-900/90 px-3.5 py-3 text-left ring-1 ring-white/10 transition-all hover:bg-zinc-800 hover:ring-amber-400/35 active:scale-[0.99]"
+                  >
+                    <div className="flex min-w-0 items-center gap-3">
                       <span
                         className={cn(
-                          "inline-block rounded px-1.5 py-0.5 text-[0.6rem] font-semibold tracking-wider uppercase",
-                          meta.badgeClass
+                          "flex size-8 shrink-0 items-center justify-center rounded-lg",
+                          meta.iconClass
                         )}
                       >
-                        {meta.badge}
+                        <Icon className="size-4" />
                       </span>
-                      <p className="mt-0.5 truncate text-xs font-medium text-zinc-100 group-hover:text-amber-200">
-                        {link.label}
-                      </p>
+                      <div className="min-w-0">
+                        <span
+                          className={cn(
+                            "inline-block rounded px-1.5 py-0.5 text-[0.62rem] font-bold tracking-wider uppercase",
+                            meta.badgeClass
+                          )}
+                        >
+                          {meta.badge}
+                        </span>
+                        <p className="mt-0.5 truncate text-xs font-medium text-zinc-100 group-hover:text-amber-200 sm:text-sm">
+                          {link.label}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <ExternalLink className="size-3.5 shrink-0 text-zinc-500 transition-colors group-hover:text-amber-300" />
-                </a>
-              );
-            })}
+                    <ExternalLink className="size-3.5 shrink-0 text-zinc-400 transition-colors group-hover:text-amber-300" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
+        ) : null}
+
+        <Separator className="bg-white/10" />
+
+        <div className="flex flex-col gap-3">
+          <NoteRow icon={Utensils} label="Eat & Coffee" text={stop.eat} />
+          <NoteRow icon={Landmark} label="See & Explore" text={stop.see} />
+          {isOvernight ? (
+            <NoteRow
+              icon={stop.kind === "finish" ? Navigation : Moon}
+              label={stop.kind === "finish" ? "Arrive & Flight" : "Overnight Lodging"}
+              text={
+                stop.kind === "finish"
+                  ? "Return SUV at LAX by 11:30 AM. Shuttle to TBIT for 15:00 Lufthansa LH 457."
+                  : stop.kind === "camp"
+                  ? `Overnight base in ${stop.city}.`
+                  : `Overnight in ${stop.city}.`
+              }
+            />
+          ) : null}
         </div>
-      ) : null}
 
-      <Separator className="bg-white/10" />
-
-      <NoteRow icon={Utensils} label="Eat" text={stop.eat} />
-      <NoteRow icon={Landmark} label="See" text={stop.see} />
-      {isOvernight ? (
-        <NoteRow
-          icon={stop.kind === "finish" ? Navigation : Moon}
-          label={stop.kind === "finish" ? "Arrive" : "Sleep"}
-          text={
-            stop.kind === "finish"
-              ? "Return SUV at LAX by 11:30 AM. Shuttle to TBIT for 15:00 LH 457."
-              : stop.kind === "camp"
-              ? `Overnight camp / lodging in ${stop.city}.`
-              : `Overnight in ${stop.city}.`
-          }
-        />
-      ) : null}
-
-      <div className="mt-auto flex items-center justify-between gap-2 pt-2">
-        <Button
-          variant="outline"
-          data-nav="prev"
-          onClick={onPrev}
-          disabled={index === 0}
-          className="min-h-11 flex-1 rounded-xl border-white/15 bg-zinc-900/50 text-sm font-medium active:scale-[0.99]"
-        >
-          <ChevronLeft data-icon="inline-start" />
-          Previous
-        </Button>
-        <span className="px-2 text-xs font-medium tabular-nums text-zinc-400">
-          {index + 1} / {total}
-        </span>
-        <Button
-          variant="outline"
-          data-nav="next"
-          onClick={onNext}
-          disabled={index === total - 1}
-          className="min-h-11 flex-1 rounded-xl border-white/15 bg-zinc-900/50 text-sm font-medium active:scale-[0.99]"
-        >
-          Next
-          <ChevronRight data-icon="inline-end" />
-        </Button>
+        <div className="mt-4 flex items-center justify-between gap-3 pt-2">
+          <Button
+            variant="outline"
+            data-nav="prev"
+            onClick={onPrev}
+            disabled={index === 0}
+            className="min-h-11 flex-1 rounded-xl border-white/15 bg-zinc-900/60 text-xs font-semibold text-zinc-100 hover:bg-zinc-800 active:scale-[0.99] sm:text-sm"
+          >
+            <ChevronLeft data-icon="inline-start" />
+            Previous Stop
+          </Button>
+          <span className="px-2 text-xs font-semibold tabular-nums text-zinc-400 sm:text-sm">
+            {index + 1} / {total}
+          </span>
+          <Button
+            variant="outline"
+            data-nav="next"
+            onClick={onNext}
+            disabled={index === total - 1}
+            className="min-h-11 flex-1 rounded-xl border-white/15 bg-zinc-900/60 text-xs font-semibold text-zinc-100 hover:bg-zinc-800 active:scale-[0.99] sm:text-sm"
+          >
+            Next Stop
+            <ChevronRight data-icon="inline-end" />
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -282,7 +336,7 @@ function getLinkBadgeMeta(link: QuickLink) {
     label.includes("outfitter")
   ) {
     return {
-      badge: "Gear / Pin",
+      badge: "Store / Gear",
       icon: ShoppingBag,
       iconClass: "bg-sky-400/15 text-sky-300",
       badgeClass: "bg-sky-400/15 text-sky-300",
@@ -292,12 +346,14 @@ function getLinkBadgeMeta(link: QuickLink) {
     kind.includes("permit") ||
     kind.includes("tour") ||
     kind.includes("pass") ||
+    kind.includes("ticket") ||
     label.includes("permit") ||
     label.includes("tour") ||
+    label.includes("ticket") ||
     url.includes("recreation.gov")
   ) {
     return {
-      badge: "Permit / Tour",
+      badge: "Tour / Ticket",
       icon: Ticket,
       iconClass: "bg-amber-400/15 text-amber-300",
       badgeClass: "bg-amber-400/15 text-amber-300",
@@ -322,10 +378,10 @@ function getLinkBadgeMeta(link: QuickLink) {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="text-center">
-      <div className="font-display text-2xl tracking-wide text-zinc-50">
+      <div className="font-display text-2xl font-bold tracking-wide text-zinc-50 sm:text-3xl">
         {value}
       </div>
-      <div className="text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
+      <div className="text-[0.65rem] font-semibold tracking-[0.18em] text-zinc-400 uppercase sm:text-xs">
         {label}
       </div>
     </div>
@@ -342,15 +398,17 @@ function NoteRow({
   text: string;
 }) {
   return (
-    <div className="flex gap-3">
-      <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/10 text-amber-300">
+    <div className="flex gap-3.5 rounded-xl bg-zinc-900/60 p-3 ring-1 ring-white/8">
+      <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/15 text-amber-300">
         <Icon className="size-4" />
       </div>
-      <div>
-        <p className="text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
+      <div className="min-w-0 flex-1">
+        <p className="text-[0.68rem] font-bold tracking-[0.18em] text-amber-300 uppercase">
           {label}
         </p>
-        <p className="text-sm leading-relaxed text-zinc-300">{text}</p>
+        <p className="mt-0.5 text-xs leading-relaxed text-zinc-200 sm:text-sm">
+          {text}
+        </p>
       </div>
     </div>
   );
