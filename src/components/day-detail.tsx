@@ -6,7 +6,13 @@ import { Separator } from "@/components/ui/separator";
 import { getDayGuide } from "@/data/day-guides";
 import { formatHours, kindLabel } from "@/data/route";
 import { dayRoutePlan, stopDirectionsUrl } from "@/lib/gmaps";
-import { DAY_DATES, dayTimetable, formatHHMM } from "@/lib/timetable";
+import {
+  DAY_DATES,
+  DAY_ORIGIN_DETAILS,
+  dayTimetable,
+  formatTime12,
+  formatTimeParts,
+} from "@/lib/timetable";
 import { cn } from "@/lib/utils";
 import {
   AlertTriangle,
@@ -62,6 +68,7 @@ export function DayDetail({
 
   return (
     <div className="flex min-h-full flex-col bg-zinc-950 text-zinc-100">
+      {/* Sticky Full-Screen Top Navigation Bar */}
       {onClose ? (
         <header className="sticky top-0 z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-zinc-950/95 px-3 py-2.5 backdrop-blur sm:px-6 sm:py-3">
           <Button
@@ -74,6 +81,7 @@ export function DayDetail({
             <span className="hidden sm:inline">Close</span>
           </Button>
 
+          {/* Center Day Switcher */}
           <div className="flex items-center gap-1.5">
             <Button
               variant="outline"
@@ -114,8 +122,10 @@ export function DayDetail({
         </header>
       ) : null}
 
+      {/* Main Reading Container (Centered & Generously Spaced) */}
       <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-5 sm:px-6 sm:py-7">
         <div className="flex flex-col gap-6">
+          {/* Header Title Section */}
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-md bg-amber-400/20 px-2.5 py-0.5 text-[0.72rem] font-bold tracking-[0.2em] text-amber-300 uppercase ring-1 ring-amber-400/40">
@@ -136,6 +146,7 @@ export function DayDetail({
             </p>
           </div>
 
+          {/* Confirmed Booking Banner */}
           {guide?.bookedBanner ? (
             <div className="flex items-start gap-3 rounded-2xl bg-emerald-500/12 p-4 text-xs leading-relaxed text-emerald-100 ring-1 ring-emerald-500/35 sm:text-sm">
               <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-emerald-400" />
@@ -148,6 +159,7 @@ export function DayDetail({
             </div>
           ) : null}
 
+          {/* 8-Year-Old Daughter & Family Highlight Banner */}
           {guide?.kidFriendlyPick ? (
             <div className="flex items-start gap-3.5 rounded-2xl bg-rose-500/12 p-4 text-xs leading-relaxed text-rose-100 ring-1 ring-rose-400/35 sm:text-sm sm:leading-relaxed">
               <span className="mt-0.5 text-xl leading-none">👧</span>
@@ -155,6 +167,7 @@ export function DayDetail({
             </div>
           ) : null}
 
+          {/* Time Zone Change Alert */}
           {guide?.timeZoneNote ? (
             <div className="flex items-start gap-3 rounded-2xl bg-amber-400/12 p-4 text-xs leading-relaxed text-amber-100 ring-1 ring-amber-400/35 sm:text-sm">
               <Clock className="mt-0.5 size-5 shrink-0 text-amber-300" />
@@ -167,6 +180,7 @@ export function DayDetail({
             </div>
           ) : null}
 
+          {/* Primary CTA: Full-Day Turn-by-Turn Google Maps */}
           <a
             href={plan.url}
             target="_blank"
@@ -180,12 +194,14 @@ export function DayDetail({
             <ExternalLink className="size-4 shrink-0 opacity-75" />
           </a>
 
+          {/* Drive Stats Dashboard */}
           <div className="grid grid-cols-3 gap-3 rounded-2xl bg-zinc-900/80 p-4 ring-1 ring-white/10 sm:p-5">
             <Stat label="Total Drive" value={`${plan.driveMiles} mi`} />
             <Stat label="Road Time" value={formatHours(plan.driveHours)} />
             <Stat label="Total Stops" value={String(stopCount)} />
           </div>
 
+          {/* Weather, Sun & Water Dashboard */}
           {guide ? (
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               <div className="flex items-center gap-3 rounded-2xl bg-zinc-900/70 p-3.5 ring-1 ring-white/8">
@@ -240,6 +256,7 @@ export function DayDetail({
             </div>
           ) : null}
 
+          {/* Pass & Permit Rules */}
           {guide?.passAndPermitSummary ? (
             <div className="flex items-start gap-3 rounded-2xl bg-zinc-900/75 p-4 text-xs leading-relaxed text-zinc-200 ring-1 ring-white/10 sm:text-sm">
               <Ticket className="mt-0.5 size-5 shrink-0 text-amber-300" />
@@ -252,6 +269,7 @@ export function DayDetail({
             </div>
           ) : null}
 
+          {/* Hikes & Trail Options with 1-Tap AllTrails Links */}
           {guide && guide.hikes.length > 0 ? (
             <section className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
@@ -316,15 +334,16 @@ export function DayDetail({
 
           <Separator className="bg-white/10" />
 
+          {/* Stop-by-Stop Driving Timetable */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <p className="text-xs font-bold tracking-[0.2em] text-amber-300 uppercase sm:text-sm">
                 Stop-by-Stop Driving Timetable
               </p>
               <p className="text-xs font-semibold tracking-wider text-zinc-400 uppercase">
-                {formatHHMM(timetable[0].arriveMinutes)}
+                {formatTime12(timetable[0].arriveMinutes)}
                 <span className="mx-1 text-zinc-600">–</span>
-                {formatHHMM(arrivalEntry.arriveMinutes)}
+                {formatTime12(arrivalEntry.arriveMinutes)}
               </p>
             </div>
 
@@ -332,6 +351,18 @@ export function DayDetail({
               {timetable.map((entry, idx) => {
                 const showLeg =
                   !entry.isOrigin && entry.stop.driveFromPrevMiles > 0;
+                const originDetail = entry.isOrigin ? DAY_ORIGIN_DETAILS[day] : null;
+                const timeParts = formatTimeParts(entry.arriveMinutes);
+                const subLabel = entry.isOrigin
+                  ? day === 1
+                    ? "Trip Start"
+                    : "Depart Hotel"
+                  : entry.isDestination
+                  ? day === 11
+                    ? "Flight"
+                    : "Overnight"
+                  : `${entry.stopMinutes}m stop`;
+
                 return (
                   <li
                     key={`${entry.stop.id}-${idx}`}
@@ -345,18 +376,17 @@ export function DayDetail({
                     )}
                   >
                     <div className="flex items-start gap-3.5">
-                      <div className="w-16 shrink-0 sm:w-20">
-                        <p className="font-display text-2xl font-bold leading-none text-amber-300 sm:text-3xl">
-                          {entry.stop.timeWindow
-                            ? entry.stop.timeWindow.split("–")[0].trim()
-                            : formatHHMM(entry.arriveMinutes)}
-                        </p>
+                      <div className="w-20 shrink-0 sm:w-24">
+                        <div className="flex items-baseline gap-1">
+                          <span className="font-display text-2xl font-bold leading-none text-amber-300 sm:text-3xl">
+                            {timeParts.time}
+                          </span>
+                          <span className="text-[0.68rem] font-bold tracking-wider text-amber-400/90 uppercase sm:text-xs">
+                            {timeParts.period}
+                          </span>
+                        </div>
                         <p className="mt-1 text-[0.62rem] font-semibold tracking-wider text-zinc-400 uppercase sm:text-xs">
-                          {entry.isOrigin
-                            ? "Start"
-                            : entry.isDestination
-                            ? "Finish"
-                            : `${entry.stopMinutes}m stop`}
+                          {subLabel}
                         </p>
                       </div>
                       <div className="min-w-0 flex-1">
@@ -366,14 +396,18 @@ export function DayDetail({
                           className="text-left"
                         >
                           <p className="text-base font-bold text-zinc-50 hover:text-amber-200 sm:text-lg">
-                            {entry.stop.city}
-                            <span className="ml-2 font-normal text-zinc-400">
-                              {entry.stop.state}
-                            </span>
+                            {originDetail ? originDetail.title : entry.stop.city}
+                            {!originDetail ? (
+                              <span className="ml-2 font-normal text-zinc-400">
+                                {entry.stop.state}
+                              </span>
+                            ) : null}
                           </p>
                         </button>
                         <p className="mt-0.5 text-xs font-medium tracking-wide text-zinc-400 uppercase">
-                          {entry.stop.highway}
+                          {entry.isOrigin && day > 1
+                            ? `Morning departure from Night ${day - 1} hotel`
+                            : entry.stop.highway}
                         </p>
                         {entry.stop.address ? (
                           <p className="mt-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
@@ -383,9 +417,22 @@ export function DayDetail({
                         <div className="mt-2.5 flex flex-wrap items-center gap-2">
                           <Badge
                             variant="outline"
-                            className="border-white/15 text-xs text-zinc-200"
+                            className={cn(
+                              "text-xs",
+                              entry.isOrigin
+                                ? "border-amber-400/40 bg-amber-400/10 text-amber-300"
+                                : entry.isDestination
+                                ? "border-emerald-400/40 bg-emerald-500/10 text-emerald-300"
+                                : "border-white/15 text-zinc-200"
+                            )}
                           >
-                            {kindLabel(entry.stop.kind)}
+                            {originDetail
+                              ? originDetail.badge
+                              : entry.isDestination && day < 11
+                              ? `Night ${day} Hotel Base`
+                              : entry.isDestination && day === 11
+                              ? "Trip Finish · LAX & LH 457"
+                              : kindLabel(entry.stop.kind)}
                           </Badge>
                           {showLeg ? (
                             <span className="text-xs text-zinc-300">
@@ -395,21 +442,25 @@ export function DayDetail({
                           ) : null}
                         </div>
                         <p className="mt-2.5 text-xs leading-relaxed text-zinc-100 sm:text-sm sm:leading-relaxed">
-                          {entry.stop.note}
+                          {originDetail ? originDetail.note : entry.stop.note}
                         </p>
                         <div className="mt-3 flex flex-col gap-2">
-                          {entry.stop.eat ? (
+                          {entry.isOrigin && day > 1 ? (
+                            <NoteLine
+                              icon={BedDouble}
+                              text={`Departing Night ${day - 1} overnight hotel base after breakfast to start Day ${day}.`}
+                            />
+                          ) : null}
+                          {!entry.isOrigin && entry.stop.eat ? (
                             <NoteLine icon={Utensils} text={entry.stop.eat} />
                           ) : null}
-                          {entry.stop.see ? (
+                          {!entry.isOrigin && entry.stop.see ? (
                             <NoteLine icon={Landmark} text={entry.stop.see} />
                           ) : null}
-                          {entry.isDestination &&
-                          (entry.stop.kind === "overnight" ||
-                            entry.stop.kind === "camp") ? (
+                          {entry.isDestination && day < 11 ? (
                             <NoteLine
                               icon={Moon}
-                              text={`Overnight base — ${entry.stop.city}.`}
+                              text={`Overnight hotel base for Night ${day} — ${entry.stop.city}.`}
                             />
                           ) : null}
                         </div>
@@ -421,7 +472,15 @@ export function DayDetail({
                             className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-400 px-3.5 py-2 text-xs font-bold text-zinc-950 transition-colors hover:bg-amber-300 sm:text-sm"
                           >
                             <MapPin className="size-4" />
-                            Navigate Here
+                            {entry.isOrigin
+                              ? day === 1
+                                ? "Navigate to LAS Rental Center"
+                                : "Hotel Location & Directions"
+                              : entry.isDestination
+                              ? day === 11
+                                ? "Navigate to LAX Return"
+                                : "Navigate to Tonight's Hotel"
+                              : "Navigate Here"}
                             <ExternalLink className="size-3.5 opacity-75" />
                           </a>
                           {entry.stop.links?.map((link, lIdx) => (
@@ -445,6 +504,7 @@ export function DayDetail({
             </ol>
           </div>
 
+          {/* Food, Meals & Snack Stops */}
           {guide && guide.foodAndWater.length > 0 ? (
             <>
               <Separator className="bg-white/10" />
@@ -500,6 +560,7 @@ export function DayDetail({
             </>
           ) : null}
 
+          {/* Hotels, Cabins & Pools */}
           {guide && guide.sleepOptions.length > 0 ? (
             <>
               <Separator className="bg-white/10" />
@@ -570,6 +631,7 @@ export function DayDetail({
             </>
           ) : null}
 
+          {/* Pro Hints & Nuances */}
           {guide && guide.nuances.length > 0 ? (
             <>
               <Separator className="bg-white/10" />
